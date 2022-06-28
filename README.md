@@ -5,7 +5,7 @@ Sensor driver for LSM6DSOX sensor written in C programming language. This reposi
 In order to `clone` the complete content of the repository folder, use the command:
 
 ```
-git clone https://github.com/STMicroelectronics/LSM6DSOX/
+git clone https://github.com/STMicroelectronics/LSM6DSOX-PID/
 ```
 
 Some examples of driver usage can be found [here](https://github.com/STMicroelectronics/STMems_Standard_C_drivers).
