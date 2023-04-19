@@ -30,7 +30,7 @@ This directory contains the LSM6DSOX component drivers.
 # Update history
 
 ::: {.collapse}
-<input type="checkbox" id="collapse-section1" checked aria-hidden="true">
+<input type="checkbox" id="collapse-section1" aria-hidden="true">
 <label for="collapse-section1" aria-hidden="true">V1.0.0 / 18-June-2021</label>
 <div>			
 
@@ -39,6 +39,22 @@ This directory contains the LSM6DSOX component drivers.
 ### First release
 
 - First official release [ref. DS v3.0]
+
+##
+
+</div>
+
+<input type="checkbox" id="collapse-section1" checked aria-hidden="true">
+<label for="collapse-section1" aria-hidden="true">V2.0.0 / 19-April-2023</label>
+<div>			
+
+## Main changes
+
+### First release
+
+- Fixed wrong implementation of lsm6dsox_interrupt_mode_get
+- Add __weak directive to read/write registers routines
+- Extend stmdev_ctx_t structure with mdelay callback
 
 ##
 
