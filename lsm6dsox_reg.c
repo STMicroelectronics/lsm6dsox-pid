@@ -11951,17 +11951,18 @@ int32_t lsm6dsox_pin_int1_route_set(stmdev_ctx_t *ctx,
                                     lsm6dsox_pin_int1_route_t val)
 {
   lsm6dsox_pin_int2_route_t  pin_int2_route;
-  lsm6dsox_emb_func_int1_t   emb_func_int1;
-  lsm6dsox_fsm_int1_a_t      fsm_int1_a;
-  lsm6dsox_fsm_int1_b_t      fsm_int1_b;
-  lsm6dsox_int1_ctrl_t       int1_ctrl;
+  lsm6dsox_emb_func_int1_t   emb_func_int1 = {0};
+  lsm6dsox_fsm_int1_a_t      fsm_int1_a = {0};
+  lsm6dsox_fsm_int1_b_t      fsm_int1_b = {0};
+  lsm6dsox_int1_ctrl_t       int1_ctrl = {0};
   lsm6dsox_int2_ctrl_t       int2_ctrl;
-  lsm6dsox_mlc_int1_t        mlc_int1;
+  lsm6dsox_mlc_int1_t        mlc_int1 = {0};
   lsm6dsox_tap_cfg2_t        tap_cfg2;
   lsm6dsox_md2_cfg_t         md2_cfg;
-  lsm6dsox_md1_cfg_t         md1_cfg;
+  lsm6dsox_md1_cfg_t         md1_cfg = {0};
   lsm6dsox_ctrl4_c_t         ctrl4_c;
   int32_t                    ret;
+
   int1_ctrl.int1_drdy_xl   = val.drdy_xl;
   int1_ctrl.int1_drdy_g    = val.drdy_g;
   int1_ctrl.int1_boot      = val.boot;
@@ -12870,8 +12871,8 @@ int32_t lsm6dsox_mode_set(stmdev_ctx_t *ctx, stmdev_ctx_t *aux_ctx,
   lsm6dsox_ctrl1_xl_t ctrl1_xl;
   lsm6dsox_ctrl8_xl_t ctrl8_xl;
   lsm6dsox_ctrl2_g_t ctrl2_g;
-  lsm6dsox_ctrl3_c_t ctrl3_c;
-  lsm6dsox_ctrl4_c_t ctrl4_c;
+  lsm6dsox_ctrl3_c_t ctrl3_c = {0};
+  lsm6dsox_ctrl4_c_t ctrl4_c = {0};
   lsm6dsox_ctrl5_c_t ctrl5_c;
   lsm6dsox_ctrl6_c_t ctrl6_c;
   lsm6dsox_ctrl7_g_t ctrl7_g;
