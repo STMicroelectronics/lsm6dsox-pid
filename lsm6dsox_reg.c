@@ -12971,7 +12971,7 @@ int32_t lsm6dsox_mode_set(stmdev_ctx_t *ctx, stmdev_ctx_t *aux_ctx,
   {
     switch (val->fsm.odr)
     {
-      case LSM6DSOX_FSM_12Hz5:
+      case LSM6DSOX_ODR_FSM_12Hz5:
         if ((val->fsm.sens != LSM6DSOX_FSM_GY) && (odr_xl == 0x00U))
         {
           odr_xl = 0x01U;
@@ -12985,7 +12985,7 @@ int32_t lsm6dsox_mode_set(stmdev_ctx_t *ctx, stmdev_ctx_t *aux_ctx,
 
         break;
 
-      case LSM6DSOX_FSM_26Hz:
+      case LSM6DSOX_ODR_FSM_26Hz:
         if ((val->fsm.sens != LSM6DSOX_FSM_GY) && (odr_xl < 0x02U))
         {
           odr_xl = 0x02U;
@@ -12999,7 +12999,7 @@ int32_t lsm6dsox_mode_set(stmdev_ctx_t *ctx, stmdev_ctx_t *aux_ctx,
 
         break;
 
-      case LSM6DSOX_FSM_52Hz:
+      case LSM6DSOX_ODR_FSM_52Hz:
         if ((val->fsm.sens != LSM6DSOX_FSM_GY) && (odr_xl < 0x03U))
         {
           odr_xl = 0x03U;
@@ -13013,7 +13013,7 @@ int32_t lsm6dsox_mode_set(stmdev_ctx_t *ctx, stmdev_ctx_t *aux_ctx,
 
         break;
 
-      case LSM6DSOX_FSM_104Hz:
+      case LSM6DSOX_ODR_FSM_104Hz:
         if ((val->fsm.sens != LSM6DSOX_FSM_GY) && (odr_xl < 0x04U))
         {
           odr_xl = 0x04U;
@@ -13039,7 +13039,7 @@ int32_t lsm6dsox_mode_set(stmdev_ctx_t *ctx, stmdev_ctx_t *aux_ctx,
   {
     switch (val->mlc.odr)
     {
-      case LSM6DSOX_MLC_12Hz5:
+      case LSM6DSOX_ODR_PRGS_12Hz5:
         if (odr_xl == 0x00U)
         {
           odr_xl = 0x01U;
@@ -13053,7 +13053,7 @@ int32_t lsm6dsox_mode_set(stmdev_ctx_t *ctx, stmdev_ctx_t *aux_ctx,
 
         break;
 
-      case LSM6DSOX_MLC_26Hz:
+      case LSM6DSOX_ODR_PRGS_26Hz:
         if (odr_xl < 0x02U)
         {
           odr_xl = 0x02U;
@@ -13067,7 +13067,7 @@ int32_t lsm6dsox_mode_set(stmdev_ctx_t *ctx, stmdev_ctx_t *aux_ctx,
 
         break;
 
-      case LSM6DSOX_MLC_52Hz:
+      case LSM6DSOX_ODR_PRGS_52Hz:
         if (odr_xl < 0x03U)
         {
           odr_xl = 0x03U;
@@ -13081,7 +13081,7 @@ int32_t lsm6dsox_mode_set(stmdev_ctx_t *ctx, stmdev_ctx_t *aux_ctx,
 
         break;
 
-      case LSM6DSOX_MLC_104Hz:
+      case LSM6DSOX_ODR_PRGS_104Hz:
         if (odr_xl < 0x04U)
         {
           odr_xl = 0x04U;
@@ -13750,24 +13750,24 @@ int32_t lsm6dsox_mode_get(stmdev_ctx_t *ctx, stmdev_ctx_t *aux_ctx,
   {
     switch (emb_func_odr_cfg_b.fsm_odr)
     {
-      case LSM6DSOX_FSM_12Hz5:
-        val->fsm.odr = LSM6DSOX_FSM_12Hz5;
+      case LSM6DSOX_ODR_FSM_12Hz5:
+        val->fsm.odr = LSM6DSOX_ODR_FSM_12Hz5;
         break;
 
-      case LSM6DSOX_FSM_26Hz:
-        val->fsm.odr = LSM6DSOX_FSM_26Hz;
+      case LSM6DSOX_ODR_FSM_26Hz:
+        val->fsm.odr = LSM6DSOX_ODR_FSM_26Hz;
         break;
 
-      case LSM6DSOX_FSM_52Hz:
-        val->fsm.odr = LSM6DSOX_FSM_52Hz;
+      case LSM6DSOX_ODR_FSM_52Hz:
+        val->fsm.odr = LSM6DSOX_ODR_FSM_52Hz;
         break;
 
-      case LSM6DSOX_FSM_104Hz:
-        val->fsm.odr = LSM6DSOX_FSM_104Hz;
+      case LSM6DSOX_ODR_FSM_104Hz:
+        val->fsm.odr = LSM6DSOX_ODR_FSM_104Hz;
         break;
 
       default:
-        val->fsm.odr = LSM6DSOX_FSM_12Hz5;
+        val->fsm.odr = LSM6DSOX_ODR_FSM_12Hz5;
         break;
     }
 
@@ -13794,24 +13794,24 @@ int32_t lsm6dsox_mode_get(stmdev_ctx_t *ctx, stmdev_ctx_t *aux_ctx,
   {
     switch (emb_func_odr_cfg_c.mlc_odr)
     {
-      case LSM6DSOX_MLC_12Hz5:
-        val->mlc.odr = LSM6DSOX_MLC_12Hz5;
+      case LSM6DSOX_ODR_PRGS_12Hz5:
+        val->mlc.odr = LSM6DSOX_ODR_PRGS_12Hz5;
         break;
 
-      case LSM6DSOX_MLC_26Hz:
-        val->mlc.odr = LSM6DSOX_MLC_26Hz;
+      case LSM6DSOX_ODR_PRGS_26Hz:
+        val->mlc.odr = LSM6DSOX_ODR_PRGS_26Hz;
         break;
 
-      case LSM6DSOX_MLC_52Hz:
-        val->mlc.odr = LSM6DSOX_MLC_52Hz;
+      case LSM6DSOX_ODR_PRGS_52Hz:
+        val->mlc.odr = LSM6DSOX_ODR_PRGS_52Hz;
         break;
 
-      case LSM6DSOX_MLC_104Hz:
-        val->mlc.odr = LSM6DSOX_MLC_104Hz;
+      case LSM6DSOX_ODR_PRGS_104Hz:
+        val->mlc.odr = LSM6DSOX_ODR_PRGS_104Hz;
         break;
 
       default:
-        val->mlc.odr = LSM6DSOX_MLC_12Hz5;
+        val->mlc.odr = LSM6DSOX_ODR_PRGS_12Hz5;
         break;
     }
 
