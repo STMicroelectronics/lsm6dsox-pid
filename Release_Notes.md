@@ -58,7 +58,7 @@ This directory contains the LSM6DSOX component drivers.
 
 </div>
 
-<input type="checkbox" id="collapse-section3" checked aria-hidden="true">
+<input type="checkbox" id="collapse-section3" aria-hidden="true">
 <label for="collapse-section3" aria-hidden="true">V2.0.1 / 01-June-2023</label>
 <div>
 
@@ -69,6 +69,20 @@ This directory contains the LSM6DSOX component drivers.
 ##
 
 </div>
+
+<input type="checkbox" id="collapse-section4" checked aria-hidden="true">
+<label for="collapse-section4" aria-hidden="true">V2.1.0 / 09-Nov-2023</label>
+<div>
+
+## Main changes
+
+- moved all enum outside of struct to be C++ compliant
+- Fix "maybe uninitialized variable" warnings
+
+##
+
+</div>
+
 :::
 
 :::
