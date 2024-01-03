@@ -12862,20 +12862,20 @@ int32_t lsm6dsox_mode_set(stmdev_ctx_t *ctx, stmdev_ctx_t *aux_ctx,
                           lsm6dsox_md_t *val)
 {
   lsm6dsox_func_cfg_access_t func_cfg_access;
-  lsm6dsox_spi2_ctrl1_ois_t spi2_ctrl1_ois;
-  lsm6dsox_spi2_ctrl2_ois_t spi2_ctrl2_ois;
-  lsm6dsox_spi2_ctrl3_ois_t spi2_ctrl3_ois;
-  lsm6dsox_ui_ctrl1_ois_t ui_ctrl1_ois;
-  lsm6dsox_ui_ctrl2_ois_t ui_ctrl2_ois;
-  lsm6dsox_ui_ctrl3_ois_t ui_ctrl3_ois;
-  lsm6dsox_ctrl1_xl_t ctrl1_xl;
-  lsm6dsox_ctrl8_xl_t ctrl8_xl;
-  lsm6dsox_ctrl2_g_t ctrl2_g;
+  lsm6dsox_spi2_ctrl1_ois_t spi2_ctrl1_ois = {0};
+  lsm6dsox_spi2_ctrl2_ois_t spi2_ctrl2_ois = {0};
+  lsm6dsox_spi2_ctrl3_ois_t spi2_ctrl3_ois = {0};
+  lsm6dsox_ui_ctrl1_ois_t ui_ctrl1_ois = {0};
+  lsm6dsox_ui_ctrl2_ois_t ui_ctrl2_ois = {0};
+  lsm6dsox_ui_ctrl3_ois_t ui_ctrl3_ois = {0};
+  lsm6dsox_ctrl1_xl_t ctrl1_xl = {0};
+  lsm6dsox_ctrl8_xl_t ctrl8_xl = {0};
+  lsm6dsox_ctrl2_g_t ctrl2_g = {0};
   lsm6dsox_ctrl3_c_t ctrl3_c = {0};
   lsm6dsox_ctrl4_c_t ctrl4_c = {0};
-  lsm6dsox_ctrl5_c_t ctrl5_c;
-  lsm6dsox_ctrl6_c_t ctrl6_c;
-  lsm6dsox_ctrl7_g_t ctrl7_g;
+  lsm6dsox_ctrl5_c_t ctrl5_c = {0};
+  lsm6dsox_ctrl6_c_t ctrl6_c = {0};
+  lsm6dsox_ctrl7_g_t ctrl7_g = {0};
   uint8_t xl_hm_mode;
   uint8_t g_hm_mode;
   uint8_t xl_ulp_en;
