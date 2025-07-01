@@ -6,13 +6,12 @@
   ******************************************************************************
   * @attention
   *
-  * <h2><center>&copy; Copyright (c) 2021 STMicroelectronics.
-  * All rights reserved.</center></h2>
+  * Copyright (c) 2021 STMicroelectronics.
+  * All rights reserved.
   *
-  * This software component is licensed by ST under BSD 3-Clause license,
-  * the "License"; You may not use this file except in compliance with the
-  * License. You may obtain a copy of the License at:
-  *                        opensource.org/licenses/BSD-3-Clause
+  * This software is licensed under terms that can be found in the LICENSE file
+  * in the root directory of this software component.
+  * If no LICENSE file comes with this software, it is provided AS-IS.
   *
   ******************************************************************************
   */
@@ -1306,7 +1305,7 @@ int32_t lsm6dsox_temp_flag_data_ready_get(const stmdev_ctx_t *ctx,
 
 /**
   * @brief  Accelerometer X-axis user offset correction expressed in
-  *         two’s complement, weight depends on USR_OFF_W in CTRL6_C (15h).
+  *         two's complement, weight depends on USR_OFF_W in CTRL6_C (15h).
   *         The value must be in the range [-127 127].[set]
   *
   * @param  ctx      read / write interface definitions
@@ -1324,7 +1323,7 @@ int32_t lsm6dsox_xl_usr_offset_x_set(const stmdev_ctx_t *ctx, uint8_t *buff)
 }
 
 /**
-  * @brief  Accelerometer X-axis user offset correction expressed in two’s
+  * @brief  Accelerometer X-axis user offset correction expressed in two's
   *         complement, weight depends on USR_OFF_W in CTRL6_C (15h).
   *         The value must be in the range [-127 127].[get]
   *
@@ -1343,7 +1342,7 @@ int32_t lsm6dsox_xl_usr_offset_x_get(const stmdev_ctx_t *ctx, uint8_t *buff)
 }
 
 /**
-  * @brief  Accelerometer Y-axis user offset correction expressed in two’s
+  * @brief  Accelerometer Y-axis user offset correction expressed in two's
   *         complement, weight depends on USR_OFF_W in CTRL6_C (15h).
   *         The value must be in the range [-127 127].[set]
   *
@@ -1362,7 +1361,7 @@ int32_t lsm6dsox_xl_usr_offset_y_set(const stmdev_ctx_t *ctx, uint8_t *buff)
 }
 
 /**
-  * @brief  Accelerometer Y-axis user offset correction expressed in two’s
+  * @brief  Accelerometer Y-axis user offset correction expressed in two's
   *         complement, weight depends on USR_OFF_W in CTRL6_C (15h).
   *         The value must be in the range [-127 127].[get]
   *
@@ -1381,7 +1380,7 @@ int32_t lsm6dsox_xl_usr_offset_y_get(const stmdev_ctx_t *ctx, uint8_t *buff)
 }
 
 /**
-  * @brief  Accelerometer Z-axis user offset correction expressed in two’s
+  * @brief  Accelerometer Z-axis user offset correction expressed in two's
   *         complement, weight depends on USR_OFF_W in CTRL6_C (15h).
   *         The value must be in the range [-127 127].[set]
   *
@@ -1400,7 +1399,7 @@ int32_t lsm6dsox_xl_usr_offset_z_set(const stmdev_ctx_t *ctx, uint8_t *buff)
 }
 
 /**
-  * @brief  Accelerometer Z-axis user offset correction expressed in two’s
+  * @brief  Accelerometer Z-axis user offset correction expressed in two's
   *         complement, weight depends on USR_OFF_W in CTRL6_C (15h).
   *         The value must be in the range [-127 127].[get]
   *
@@ -1715,7 +1714,7 @@ int32_t lsm6dsox_rounding_on_status_get(const stmdev_ctx_t *ctx,
 
 /**
   * @brief  Temperature data output register (r).
-  *         L and H registers together express a 16-bit word in two’s
+  *         L and H registers together express a 16-bit word in two's
   *         complement.[get]
   *
   * @param  ctx      read / write interface definitions
@@ -1737,7 +1736,7 @@ int32_t lsm6dsox_temperature_raw_get(const stmdev_ctx_t *ctx, int16_t *val)
 
 /**
   * @brief  Angular rate sensor. The value is expressed as a 16-bit
-  *         word in two’s complement.[get]
+  *         word in two's complement.[get]
   *
   * @param  ctx      read / write interface definitions
   * @param  buff     buffer that stores data read
@@ -1762,7 +1761,7 @@ int32_t lsm6dsox_angular_rate_raw_get(const stmdev_ctx_t *ctx, int16_t *val)
 
 /**
   * @brief  Linear acceleration output register.
-  *         The value is expressed as a 16-bit word in two’s complement.[get]
+  *         The value is expressed as a 16-bit word in two's complement.[get]
   *
   * @param  ctx      read / write interface definitions
   * @param  buff     buffer that stores data read
@@ -1805,7 +1804,7 @@ int32_t lsm6dsox_fifo_out_raw_get(const stmdev_ctx_t *ctx, uint8_t *buff)
 /**
   * @brief  ois_angular_rate_raw: [get]  OIS angular rate sensor.
   *                                      The value is expressed as a
-  *                                      16-bit word in two’s complement.
+  *                                      16-bit word in two's complement.
   *
   * @param  ctx      read / write interface definitions
   * @param  uint8_t * : buffer that stores data read
@@ -1832,7 +1831,7 @@ int32_t lsm6dsox_ois_angular_rate_raw_get(const stmdev_ctx_t *ctx,
 /**
   * @brief  ois_acceleration_raw: [get] OIS Linear acceleration output register.
   *                                     The value is expressed as a
-  *                                     16-bit word in two’s complement.
+  *                                     16-bit word in two's complement.
   *
   * @param  ctx      read / write interface definitions
   * @param  uint8_t * : buffer that stores data read
@@ -1860,7 +1859,7 @@ int32_t lsm6dsox_ois_acceleration_raw_get(const stmdev_ctx_t *ctx,
   * @brief  aux_temperature_raw: [get]  Temperature from auxiliary
   *                                     interface.
   *                                     The value is expressed as a
-  *                                     16-bit word in two’s complement.
+  *                                     16-bit word in two's complement.
   *
   * @param  ctx      read / write interface definitions
   * @param  uint8_t * : buffer that stores data read
@@ -1884,7 +1883,7 @@ int32_t lsm6dsox_aux_temperature_raw_get(const stmdev_ctx_t *ctx,
   * @brief  aux_ois_angular_rate_raw: [get] OIS angular rate sensor from
   *                                         auxiliary interface.
   *                                         The value is expressed as a
-  *                                         16-bit word in two’s complement.
+  *                                         16-bit word in two's complement.
   *
   * @param  ctx      read / write interface definitions
   * @param  uint8_t * : buffer that stores data read
@@ -1912,7 +1911,7 @@ int32_t lsm6dsox_aux_ois_angular_rate_raw_get(const stmdev_ctx_t *ctx,
   * @brief  aux_ois_acceleration_raw: [get] OIS linear acceleration output
   *                                         register from auxiliary interface.
   *                                         The value is expressed as a
-  *                                         16-bit word in two’s complement.
+  *                                         16-bit word in two's complement.
   *
   * @param  ctx      read / write interface definitions
   * @param  uint8_t * : buffer that stores data read
@@ -14486,5 +14485,3 @@ int32_t lsm6dsox_embedded_sens_off(const stmdev_ctx_t *ctx)
   * @}
   *
   */
-
-/************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/
