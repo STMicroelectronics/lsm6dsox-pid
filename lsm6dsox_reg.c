@@ -5034,18 +5034,6 @@ int32_t lsm6dsox_int_notification_get(const stmdev_ctx_t *ctx,
         *val = LSM6DSOX_ALL_INT_PULSED;
         break;
     }
-
-    ret = lsm6dsox_mem_bank_set(ctx, LSM6DSOX_EMBEDDED_FUNC_BANK);
-  }
-
-  if (ret == 0)
-  {
-    ret = lsm6dsox_read_reg(ctx, LSM6DSOX_PAGE_RW, (uint8_t *) &page_rw, 1);
-  }
-
-  if (ret == 0)
-  {
-    ret = lsm6dsox_mem_bank_set(ctx, LSM6DSOX_USER_BANK);
   }
 
   return ret;
