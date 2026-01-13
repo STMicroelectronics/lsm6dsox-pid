@@ -72,7 +72,7 @@ int32_t __weak lsm6dsox_read_reg(const stmdev_ctx_t *ctx, uint8_t reg,
   *
   */
 int32_t __weak lsm6dsox_write_reg(const stmdev_ctx_t *ctx, uint8_t reg,
-                                  uint8_t *data,
+                                  const uint8_t *data,
                                   uint16_t len)
 {
   int32_t ret;
