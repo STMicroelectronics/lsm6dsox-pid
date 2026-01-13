@@ -11805,16 +11805,16 @@ int32_t lsm6dsox_pin_conf_get(const stmdev_ctx_t *ctx,
 
   ret = lsm6dsox_read_reg(ctx, LSM6DSOX_PIN_CTRL, (uint8_t *)&pin_ctrl, 1);
   ret += lsm6dsox_read_reg(ctx, LSM6DSOX_CTRL3_C, (uint8_t *)&ctrl3_c, 1);
-  ret += lsm6dsox_read_reg(ctx, LSM6DSOX_I3C_BUS_AVB,
-                          (uint8_t *)&i3c_bus_avb, 1);
-
-  if (ret == 0)
+  ret += lsm6dsox_read_reg(ctx, LSM6DSOX_I3C_BUS_AVB, (uint8_t *)&i3c_bus_avb, 1);
+  if (ret != 0)
   {
-    val->aux_sdo_ocs_pull_up = ~pin_ctrl.ois_pu_dis;
-    val->aux_sdo_ocs_pull_up =  pin_ctrl.sdo_pu_en;
-    val->int1_int2_push_pull = ~ctrl3_c.pp_od;
-    val->int1_pull_down      = ~i3c_bus_avb.pd_dis_int1;
+    return ret;
   }
+
+  val->sdo_sa0_pull_up =  pin_ctrl.sdo_pu_en;
+
+  val->int1_int2_push_pull = ~ctrl3_c.pp_od;
+  val->int1_pull_down = ~i3c_bus_avb.pd_dis_int1;
 
   return ret;
 }
