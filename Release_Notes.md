@@ -30,54 +30,52 @@ This directory contains the LSM6DSOX component drivers.
 # Update history
 
 ::: {.collapse}
-<input type="checkbox" id="collapse-section1" aria-hidden="true">
-<label for="collapse-section1" aria-hidden="true">V1.0.0 / 18-June-2021</label>
+<input type="checkbox" id="collapse-section9" checked aria-hidden="true">
+<label for="collapse-section9" aria-hidden="true">V3.3.0 / 07-Oct-2025</label>
 <div>
 
 ## Main changes
 
-### First release
+- Added checks before writes and membank setting
+- Removed useless membank switch in int_notification_get API
+- Refactor ln_pg_write_byte to use ln_pg_write
+- Adding CODE_OF_CONDUCT.md and SECURITY.md
 
-- First official release [ref. DS v3.0]
+##
+
+</div>
+<input type="checkbox" id="collapse-section8" aria-hidden="true">
+<label for="collapse-section8" aria-hidden="true">V3.2.0 / 07-Jul-2025</label>
+<div>
+
+## Main changes
+
+- Fix driver formatting options
+- Added pointer to private data in stmdev_ctx_t
 
 ##
 
 </div>
 
-<input type="checkbox" id="collapse-section2" aria-hidden="true">
-<label for="collapse-section2" aria-hidden="true">V2.0.0 / 19-April-2023</label>
+<input type="checkbox" id="collapse-section7" aria-hidden="true">
+<label for="collapse-section7" aria-hidden="true">V3.1.0 / 18-Dec-2024</label>
 <div>
 
 ## Main changes
 
-- Fixed wrong implementation of lsm6dsox_interrupt_mode_get
-- Add __weak directive to read/write registers routines
-- Extend stmdev_ctx_t structure with mdelay callback
+- Read always both FIFO_STATUS1 and FIFO_STATUS2 regs
 
 ##
 
 </div>
 
-<input type="checkbox" id="collapse-section3" aria-hidden="true">
-<label for="collapse-section3" aria-hidden="true">V2.0.1 / 01-June-2023</label>
+<input type="checkbox" id="collapse-section6" aria-hidden="true">
+<label for="collapse-section6" aria-hidden="true">V3.0.1 / 20-Jun-2024</label>
 <div>
 
 ## Main changes
 
-- Fix Release_Notes.md
-
-##
-
-</div>
-
-<input type="checkbox" id="collapse-section4" aria-hidden="true">
-<label for="collapse-section4" aria-hidden="true">V2.1.0 / 09-Nov-2023</label>
-<div>
-
-## Main changes
-
-- moved all enum outside of struct to be C++ compliant
-- Fix "maybe uninitialized variable" warnings
+- updated README.md file with tag reference and mdelay description
 
 ##
 
@@ -97,57 +95,59 @@ This directory contains the LSM6DSOX component drivers.
 
 </div>
 
-<input type="checkbox" id="collapse-section6" aria-hidden="true">
-<label for="collapse-section6" aria-hidden="true">V3.0.1 / 20-Jun-2024</label>
+<input type="checkbox" id="collapse-section4" aria-hidden="true">
+<label for="collapse-section4" aria-hidden="true">V2.1.0 / 09-Nov-2023</label>
 <div>
 
 ## Main changes
 
-- updated README.md file with tag reference and mdelay description
+- moved all enum outside of struct to be C++ compliant
+- Fix "maybe uninitialized variable" warnings
 
 ##
 
 </div>
 
-<input type="checkbox" id="collapse-section7" aria-hidden="true">
-<label for="collapse-section7" aria-hidden="true">V3.1.0 / 18-Dec-2024</label>
+<input type="checkbox" id="collapse-section3" aria-hidden="true">
+<label for="collapse-section3" aria-hidden="true">V2.0.1 / 01-June-2023</label>
 <div>
 
 ## Main changes
 
-- Read always both FIFO_STATUS1 and FIFO_STATUS2 regs
+- Fix Release_Notes.md
 
 ##
 
 </div>
 
-<input type="checkbox" id="collapse-section8" aria-hidden="true">
-<label for="collapse-section8" aria-hidden="true">V3.2.0 / 07-Jul-2025</label>
+<input type="checkbox" id="collapse-section2" aria-hidden="true">
+<label for="collapse-section2" aria-hidden="true">V2.0.0 / 19-April-2023</label>
 <div>
 
 ## Main changes
 
-- Fix driver formatting options
-- Added pointer to private data in stmdev_ctx_t
+- Fixed wrong implementation of lsm6dsox_interrupt_mode_get
+- Add __weak directive to read/write registers routines
+- Extend stmdev_ctx_t structure with mdelay callback
 
 ##
 
 </div>
 
-<input type="checkbox" id="collapse-section9" checked aria-hidden="true">
-<label for="collapse-section9" aria-hidden="true">V3.3.0 / 07-Oct-2025</label>
+<input type="checkbox" id="collapse-section1" aria-hidden="true">
+<label for="collapse-section1" aria-hidden="true">V1.0.0 / 18-June-2021</label>
 <div>
 
 ## Main changes
 
-- Added checks before writes and membank setting
-- Removed useless membank switch in int_notification_get API
-- Refactor ln_pg_write_byte to use ln_pg_write
-- Adding CODE_OF_CONDUCT.md and SECURITY.md
+### First release
+
+- First official release [ref. DS v3.0]
 
 ##
 
 </div>
+
 :::
 
 :::
