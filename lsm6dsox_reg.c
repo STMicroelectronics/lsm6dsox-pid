@@ -3846,7 +3846,7 @@ int32_t lsm6dsox_aux_den_polarity_get(const stmdev_ctx_t *ctx,
   lsm6dsox_ui_int_ois_t reg;
   int32_t ret;
 
-  ret = lsm6dsox_read_reg(ctx, LSM6DSOX_PIN_CTRL, (uint8_t *)&reg, 1);
+  ret = lsm6dsox_read_reg(ctx, LSM6DSOX_UI_INT_OIS, (uint8_t *)&reg, 1);
   if (ret != 0)
   {
     return ret;
