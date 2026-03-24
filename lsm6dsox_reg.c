@@ -7801,8 +7801,8 @@ int32_t lsm6dsox_fifo_sensor_tag_get(const stmdev_ctx_t *ctx,
       *val = LSM6DSOX_SENSORHUB_SLAVE3_TAG;
       break;
 
-    case LSM6DSOX_STEP_CPUNTER_TAG:
-      *val = LSM6DSOX_STEP_CPUNTER_TAG;
+    case 0x13:
+      *val = LSM6DSOX_STEP_COUNTER_TAG;
       break;
 
     case LSM6DSOX_GAME_ROTATION_TAG:
