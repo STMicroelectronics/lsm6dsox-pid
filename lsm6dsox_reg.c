@@ -8910,56 +8910,16 @@ int32_t lsm6dsox_mlc_mag_sensitivity_get(const stmdev_ctx_t *ctx,
   */
 int32_t lsm6dsox_mag_offset_set(const stmdev_ctx_t *ctx, int16_t *val)
 {
-  uint8_t buff[6];
-  int32_t ret;
+  uint8_t buff[6] = {0};
 
-  uint8_t i;
   buff[1] = (uint8_t)((uint16_t)val[0] / 256U);
   buff[0] = (uint8_t)((uint16_t)val[0] - (buff[1] * 256U));
   buff[3] = (uint8_t)((uint16_t)val[1] / 256U);
   buff[2] = (uint8_t)((uint16_t)val[1] - (buff[3] * 256U));
   buff[5] = (uint8_t)((uint16_t)val[2] / 256U);
   buff[4] = (uint8_t)((uint16_t)val[2] - (buff[5] * 256U));
-  i = 0x00U;
-  ret = lsm6dsox_ln_pg_write_byte(ctx, LSM6DSOX_MAG_OFFX_L,
-                                  &buff[i]);
 
-  if (ret == 0)
-  {
-    i++;
-    ret = lsm6dsox_ln_pg_write_byte(ctx, LSM6DSOX_MAG_OFFX_H,
-                                    &buff[i]);
-  }
-
-  if (ret == 0)
-  {
-    i++;
-    ret = lsm6dsox_ln_pg_write_byte(ctx, LSM6DSOX_MAG_OFFY_L,
-                                    &buff[i]);
-  }
-
-  if (ret == 0)
-  {
-    i++;
-    ret = lsm6dsox_ln_pg_write_byte(ctx, LSM6DSOX_MAG_OFFY_H,
-                                    &buff[i]);
-  }
-
-  if (ret == 0)
-  {
-    i++;
-    ret = lsm6dsox_ln_pg_write_byte(ctx, LSM6DSOX_MAG_OFFZ_L,
-                                    &buff[i]);
-  }
-
-  if (ret == 0)
-  {
-    i++;
-    ret = lsm6dsox_ln_pg_write_byte(ctx, LSM6DSOX_MAG_OFFZ_H,
-                                    &buff[i]);
-  }
-
-  return ret;
+  return lsm6dsox_ln_pg_write(ctx, LSM6DSOX_MAG_OFFX_L, &buff[0], 6);
 }
 
 /**
@@ -8972,58 +8932,21 @@ int32_t lsm6dsox_mag_offset_set(const stmdev_ctx_t *ctx, int16_t *val)
   */
 int32_t lsm6dsox_mag_offset_get(const stmdev_ctx_t *ctx, int16_t *val)
 {
-  uint8_t buff[6];
-  int32_t ret;
+  uint8_t buff[6] = {0};
+  int32_t ret = 0;
 
-  uint8_t i;
-  i = 0x00U;
-  ret = lsm6dsox_ln_pg_read_byte(ctx, LSM6DSOX_MAG_OFFX_L,
-                                 &buff[i]);
-
-  if (ret == 0)
+  ret = lsm6dsox_ln_pg_read(ctx, LSM6DSOX_MAG_OFFX_L, &buff[0], 6);
+  if (ret != 0)
   {
-    i++;
-    ret = lsm6dsox_ln_pg_read_byte(ctx, LSM6DSOX_MAG_OFFX_H,
-                                   &buff[i]);
+    return ret;
   }
 
-  if (ret == 0)
-  {
-    i++;
-    ret = lsm6dsox_ln_pg_read_byte(ctx, LSM6DSOX_MAG_OFFY_L,
-                                   &buff[i]);
-  }
-
-  if (ret == 0)
-  {
-    i++;
-    ret = lsm6dsox_ln_pg_read_byte(ctx, LSM6DSOX_MAG_OFFY_H,
-                                   &buff[i]);
-  }
-
-  if (ret == 0)
-  {
-    i++;
-    ret = lsm6dsox_ln_pg_read_byte(ctx, LSM6DSOX_MAG_OFFZ_L,
-                                   &buff[i]);
-  }
-
-  if (ret == 0)
-  {
-    i++;
-    ret = lsm6dsox_ln_pg_read_byte(ctx, LSM6DSOX_MAG_OFFZ_H,
-                                   &buff[i]);
-  }
-
-  if (ret == 0)
-  {
-    val[0] = (int16_t)buff[1];
-    val[0] = (val[0] * 256) + (int16_t)buff[0];
-    val[1] = (int16_t)buff[3];
-    val[1] = (val[1] * 256) + (int16_t)buff[2];
-    val[2] = (int16_t)buff[5];
-    val[2] = (val[2] * 256) + (int16_t)buff[4];
-  }
+  val[0] = (int16_t)buff[1];
+  val[0] = (val[0] * 256) + (int16_t)buff[0];
+  val[1] = (int16_t)buff[3];
+  val[1] = (val[1] * 256) + (int16_t)buff[2];
+  val[2] = (int16_t)buff[5];
+  val[2] = (val[2] * 256) + (int16_t)buff[4];
 
   return ret;
 }
@@ -9044,104 +8967,22 @@ int32_t lsm6dsox_mag_offset_get(const stmdev_ctx_t *ctx, int16_t *val)
   */
 int32_t lsm6dsox_mag_soft_iron_set(const stmdev_ctx_t *ctx, uint16_t *val)
 {
-  uint8_t buff[12];
-  uint8_t index;
-  int32_t ret;
+  uint8_t buff[12] = {0};
 
-  buff[1] = (uint8_t)(val[0] / 256U);
-  buff[0] = (uint8_t)(val[0] - (buff[1] * 256U));
-  buff[3] = (uint8_t)(val[1] / 256U);
-  buff[2] = (uint8_t)(val[1] - (buff[3] * 256U));
-  buff[5] = (uint8_t)(val[2] / 256U);
-  buff[4] = (uint8_t)(val[2] - (buff[5] * 256U));
-  buff[7] = (uint8_t)(val[3] / 256U);
-  buff[6] = (uint8_t)(val[3] - (buff[1] * 256U));
-  buff[9] = (uint8_t)(val[4] / 256U);
-  buff[8] = (uint8_t)(val[4] - (buff[3] * 256U));
-  buff[11] = (uint8_t)(val[5] / 256U);
-  buff[10] = (uint8_t)(val[5] - (buff[5] * 256U));
-  index = 0x00U;
-  ret = lsm6dsox_ln_pg_write_byte(ctx, LSM6DSOX_MAG_SI_XX_L,
-                                  &buff[index]);
+  buff[1] = (uint8_t)((uint16_t)val[0] / 256U);
+  buff[0] = (uint8_t)((uint16_t)val[0] - (buff[1] * 256U));
+  buff[3] = (uint8_t)((uint16_t)val[1] / 256U);
+  buff[2] = (uint8_t)((uint16_t)val[1] - (buff[3] * 256U));
+  buff[5] = (uint8_t)((uint16_t)val[2] / 256U);
+  buff[4] = (uint8_t)((uint16_t)val[2] - (buff[5] * 256U));
+  buff[7] = (uint8_t)((uint16_t)val[3] / 256U);
+  buff[6] = (uint8_t)((uint16_t)val[3] - (buff[7] * 256U));
+  buff[9] = (uint8_t)((uint16_t)val[4] / 256U);
+  buff[8] = (uint8_t)((uint16_t)val[4] - (buff[9] * 256U));
+  buff[11] = (uint8_t)((uint16_t)val[5] / 256U);
+  buff[10] = (uint8_t)((uint16_t)val[5] - (buff[11] * 256U));
 
-  if (ret == 0)
-  {
-    index++;
-    ret = lsm6dsox_ln_pg_write_byte(ctx, LSM6DSOX_MAG_SI_XX_H,
-                                    &buff[index]);
-  }
-
-  if (ret == 0)
-  {
-    index++;
-    ret = lsm6dsox_ln_pg_write_byte(ctx, LSM6DSOX_MAG_SI_XY_L,
-                                    &buff[index]);
-  }
-
-  if (ret == 0)
-  {
-    index++;
-    ret = lsm6dsox_ln_pg_write_byte(ctx, LSM6DSOX_MAG_SI_XY_H,
-                                    &buff[index]);
-  }
-
-  if (ret == 0)
-  {
-    index++;
-    ret = lsm6dsox_ln_pg_write_byte(ctx, LSM6DSOX_MAG_SI_XZ_L,
-                                    &buff[index]);
-  }
-
-  if (ret == 0)
-  {
-    index++;
-    ret = lsm6dsox_ln_pg_write_byte(ctx, LSM6DSOX_MAG_SI_XZ_H,
-                                    &buff[index]);
-  }
-
-  if (ret == 0)
-  {
-    index++;
-    ret = lsm6dsox_ln_pg_write_byte(ctx, LSM6DSOX_MAG_SI_YY_L,
-                                    &buff[index]);
-  }
-
-  if (ret == 0)
-  {
-    index++;
-    ret = lsm6dsox_ln_pg_write_byte(ctx, LSM6DSOX_MAG_SI_YY_H,
-                                    &buff[index]);
-  }
-
-  if (ret == 0)
-  {
-    index++;
-    ret = lsm6dsox_ln_pg_write_byte(ctx, LSM6DSOX_MAG_SI_YZ_L,
-                                    &buff[index]);
-  }
-
-  if (ret == 0)
-  {
-    index++;
-    ret = lsm6dsox_ln_pg_write_byte(ctx, LSM6DSOX_MAG_SI_YZ_H,
-                                    &buff[index]);
-  }
-
-  if (ret == 0)
-  {
-    index++;
-    ret = lsm6dsox_ln_pg_write_byte(ctx, LSM6DSOX_MAG_SI_ZZ_L,
-                                    &buff[index]);
-  }
-
-  if (ret == 0)
-  {
-    index++;
-    ret = lsm6dsox_ln_pg_write_byte(ctx, LSM6DSOX_MAG_SI_ZZ_H,
-                                    &buff[index]);
-  }
-
-  return ret;
+  return lsm6dsox_ln_pg_write(ctx, LSM6DSOX_MAG_SI_XX_L, &buff[0], 12);
 }
 
 /**
@@ -9161,106 +9002,27 @@ int32_t lsm6dsox_mag_soft_iron_set(const stmdev_ctx_t *ctx, uint16_t *val)
   */
 int32_t lsm6dsox_mag_soft_iron_get(const stmdev_ctx_t *ctx, uint16_t *val)
 {
-  uint8_t buff[12];
-  uint8_t index;
-  int32_t ret;
+  uint8_t buff[12] = {0};
+  int32_t ret = 0;
 
-  index = 0x00U;
-  ret = lsm6dsox_ln_pg_read_byte(ctx, LSM6DSOX_MAG_SI_XX_L,
-                                 &buff[index]);
-
-  if (ret == 0)
+  ret = lsm6dsox_ln_pg_read(ctx, LSM6DSOX_MAG_SI_XX_L, &buff[0], 12);
+  if (ret != 0)
   {
-    index++;
-    ret = lsm6dsox_ln_pg_read_byte(ctx, LSM6DSOX_MAG_SI_XX_H,
-                                   &buff[index]);
+    return ret;
   }
 
-  if (ret == 0)
-  {
-    index++;
-    ret = lsm6dsox_ln_pg_read_byte(ctx, LSM6DSOX_MAG_SI_XY_L,
-                                   &buff[index]);
-  }
-
-  if (ret == 0)
-  {
-    index++;
-    ret = lsm6dsox_ln_pg_read_byte(ctx, LSM6DSOX_MAG_SI_XY_H,
-                                   &buff[index]);
-  }
-
-  if (ret == 0)
-  {
-    index++;
-    ret = lsm6dsox_ln_pg_read_byte(ctx, LSM6DSOX_MAG_SI_XZ_L,
-                                   &buff[index]);
-  }
-
-  if (ret == 0)
-  {
-    index++;
-    ret = lsm6dsox_ln_pg_read_byte(ctx, LSM6DSOX_MAG_SI_XZ_H,
-                                   &buff[index]);
-  }
-
-  if (ret == 0)
-  {
-    index++;
-    ret = lsm6dsox_ln_pg_read_byte(ctx, LSM6DSOX_MAG_SI_YY_L,
-                                   &buff[index]);
-  }
-
-  if (ret == 0)
-  {
-    index++;
-    ret = lsm6dsox_ln_pg_read_byte(ctx, LSM6DSOX_MAG_SI_YY_H,
-                                   &buff[index]);
-  }
-
-  if (ret == 0)
-  {
-    index++;
-    ret = lsm6dsox_ln_pg_read_byte(ctx, LSM6DSOX_MAG_SI_YZ_L,
-                                   &buff[index]);
-  }
-
-  if (ret == 0)
-  {
-    index++;
-    ret = lsm6dsox_ln_pg_read_byte(ctx, LSM6DSOX_MAG_SI_YZ_H,
-                                   &buff[index]);
-  }
-
-  if (ret == 0)
-  {
-    index++;
-    ret = lsm6dsox_ln_pg_read_byte(ctx, LSM6DSOX_MAG_SI_ZZ_L,
-                                   &buff[index]);
-  }
-
-  if (ret == 0)
-  {
-    index++;
-    ret = lsm6dsox_ln_pg_read_byte(ctx, LSM6DSOX_MAG_SI_ZZ_H,
-                                   &buff[index]);
-  }
-
-  if (ret == 0)
-  {
-    val[0] = buff[1];
-    val[0] = (val[0] * 256U) +  buff[0];
-    val[1] = buff[3];
-    val[1] = (val[1] * 256U) +  buff[2];
-    val[2] = buff[5];
-    val[2] = (val[2] * 256U) +  buff[4];
-    val[3] = buff[7];
-    val[3] = (val[3] * 256U) +  buff[6];
-    val[4] = buff[9];
-    val[4] = (val[4] * 256U) +  buff[8];
-    val[5] = buff[11];
-    val[6] = (val[5] * 256U) +  buff[10];
-  }
+  val[0] = (int16_t)buff[1];
+  val[0] = (val[0] * 256) + (int16_t)buff[0];
+  val[1] = (int16_t)buff[3];
+  val[1] = (val[1] * 256) + (int16_t)buff[2];
+  val[2] = (int16_t)buff[5];
+  val[2] = (val[2] * 256) + (int16_t)buff[4];
+  val[3] = (int16_t)buff[7];
+  val[3] = (val[3] * 256) + (int16_t)buff[6];
+  val[4] = (int16_t)buff[9];
+  val[4] = (val[4] * 256) + (int16_t)buff[8];
+  val[5] = (int16_t)buff[11];
+  val[5] = (val[5] * 256) + (int16_t)buff[10];
 
   return ret;
 }
