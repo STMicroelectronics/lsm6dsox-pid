@@ -7904,7 +7904,7 @@ int32_t lsm6dsox_fifo_pedo_batch_get(const stmdev_ctx_t *ctx, uint8_t *val)
   * @retval          interface status (MANDATORY: return 0 -> no Error)
   *
   */
-int32_t lsm6dsox_sh_batch_slave_0_set(const stmdev_ctx_t *ctx, uint8_t val)
+int32_t lsm6dsox_sh_batch_slave_set(const stmdev_ctx_t *ctx, uint8_t idx, uint8_t val)
 {
   lsm6dsox_slv0_config_t reg;
   int32_t ret;
@@ -7913,13 +7913,13 @@ int32_t lsm6dsox_sh_batch_slave_0_set(const stmdev_ctx_t *ctx, uint8_t val)
 
   if (ret == 0)
   {
-    ret = lsm6dsox_read_reg(ctx, LSM6DSOX_SLV0_CONFIG, (uint8_t *)&reg, 1);
+    ret = lsm6dsox_read_reg(ctx, LSM6DSOX_SLV0_CONFIG + (3U * idx), (uint8_t *)&reg, 1);
   }
 
   if (ret == 0)
   {
     reg.batch_ext_sens_0_en = val;
-    ret = lsm6dsox_write_reg(ctx, LSM6DSOX_SLV0_CONFIG, (uint8_t *)&reg, 1);
+    ret = lsm6dsox_write_reg(ctx, LSM6DSOX_SLV0_CONFIG + (3U * idx), (uint8_t *)&reg, 1);
   }
 
   ret += lsm6dsox_mem_bank_set(ctx, LSM6DSOX_USER_BANK);
@@ -7935,7 +7935,7 @@ int32_t lsm6dsox_sh_batch_slave_0_set(const stmdev_ctx_t *ctx, uint8_t val)
   * @retval          interface status (MANDATORY: return 0 -> no Error)
   *
   */
-int32_t lsm6dsox_sh_batch_slave_0_get(const stmdev_ctx_t *ctx, uint8_t *val)
+int32_t lsm6dsox_sh_batch_slave_get(const stmdev_ctx_t *ctx, uint8_t idx, uint8_t *val)
 {
   lsm6dsox_slv0_config_t reg;
   int32_t ret;
@@ -7944,201 +7944,12 @@ int32_t lsm6dsox_sh_batch_slave_0_get(const stmdev_ctx_t *ctx, uint8_t *val)
 
   if (ret == 0)
   {
-    ret = lsm6dsox_read_reg(ctx, LSM6DSOX_SLV0_CONFIG, (uint8_t *)&reg, 1);
+    ret = lsm6dsox_read_reg(ctx, LSM6DSOX_SLV0_CONFIG + (3U * idx), (uint8_t *)&reg, 1);
   }
 
   if (ret == 0)
   {
     *val = reg.batch_ext_sens_0_en;
-  }
-
-  ret += lsm6dsox_mem_bank_set(ctx, LSM6DSOX_USER_BANK);
-
-  return ret;
-}
-
-/**
-  * @brief  Enable FIFO batching data of second slave.[set]
-  *
-  * @param  ctx      read / write interface definitions
-  * @param  val      change the values of  batch_ext_sens_1_en in
-  *                  reg SLV1_CONFIG
-  * @retval             interface status (MANDATORY: return 0 -> no Error)
-  *
-  */
-int32_t lsm6dsox_sh_batch_slave_1_set(const stmdev_ctx_t *ctx, uint8_t val)
-{
-  lsm6dsox_slv1_config_t reg;
-  int32_t ret;
-
-  ret = lsm6dsox_mem_bank_set(ctx, LSM6DSOX_SENSOR_HUB_BANK);
-
-  if (ret == 0)
-  {
-    ret = lsm6dsox_read_reg(ctx, LSM6DSOX_SLV1_CONFIG, (uint8_t *)&reg, 1);
-  }
-
-  if (ret == 0)
-  {
-    reg.batch_ext_sens_1_en = val;
-    ret = lsm6dsox_write_reg(ctx, LSM6DSOX_SLV1_CONFIG, (uint8_t *)&reg, 1);
-  }
-
-  ret += lsm6dsox_mem_bank_set(ctx, LSM6DSOX_USER_BANK);
-
-  return ret;
-}
-
-/**
-  * @brief   Enable FIFO batching data of second slave.[get]
-  *
-  * @param  ctx      read / write interface definitions
-  * @param  val      change the values of  batch_ext_sens_1_en in
-  *                  reg SLV1_CONFIG
-  * @retval             interface status (MANDATORY: return 0 -> no Error)
-  *
-  */
-int32_t lsm6dsox_sh_batch_slave_1_get(const stmdev_ctx_t *ctx, uint8_t *val)
-{
-  lsm6dsox_slv1_config_t reg;
-  int32_t ret;
-
-  ret = lsm6dsox_mem_bank_set(ctx, LSM6DSOX_SENSOR_HUB_BANK);
-
-  if (ret == 0)
-  {
-    ret = lsm6dsox_read_reg(ctx, LSM6DSOX_SLV1_CONFIG, (uint8_t *)&reg, 1);
-  }
-
-  if (ret == 0)
-  {
-    *val = reg.batch_ext_sens_1_en;
-  }
-
-  ret += lsm6dsox_mem_bank_set(ctx, LSM6DSOX_USER_BANK);
-
-  return ret;
-}
-
-/**
-  * @brief  Enable FIFO batching data of third slave.[set]
-  *
-  * @param  ctx      read / write interface definitions
-  * @param  val      change the values of  batch_ext_sens_2_en in
-  *                  reg SLV2_CONFIG
-  * @retval             interface status (MANDATORY: return 0 -> no Error)
-  *
-  */
-int32_t lsm6dsox_sh_batch_slave_2_set(const stmdev_ctx_t *ctx, uint8_t val)
-{
-  lsm6dsox_slv2_config_t reg;
-  int32_t ret;
-
-  ret = lsm6dsox_mem_bank_set(ctx, LSM6DSOX_SENSOR_HUB_BANK);
-
-  if (ret == 0)
-  {
-    ret = lsm6dsox_read_reg(ctx, LSM6DSOX_SLV2_CONFIG, (uint8_t *)&reg, 1);
-  }
-
-  if (ret == 0)
-  {
-    reg.batch_ext_sens_2_en = val;
-    ret = lsm6dsox_write_reg(ctx, LSM6DSOX_SLV2_CONFIG, (uint8_t *)&reg, 1);
-  }
-
-  ret += lsm6dsox_mem_bank_set(ctx, LSM6DSOX_USER_BANK);
-
-  return ret;
-}
-
-/**
-  * @brief  Enable FIFO batching data of third slave.[get]
-  *
-  * @param  ctx      read / write interface definitions
-  * @param  val      change the values of  batch_ext_sens_2_en in
-  *                  reg SLV2_CONFIG
-  * @retval             interface status (MANDATORY: return 0 -> no Error)
-  *
-  */
-int32_t lsm6dsox_sh_batch_slave_2_get(const stmdev_ctx_t *ctx, uint8_t *val)
-{
-  lsm6dsox_slv2_config_t reg;
-  int32_t ret;
-
-  ret = lsm6dsox_mem_bank_set(ctx, LSM6DSOX_SENSOR_HUB_BANK);
-
-  if (ret == 0)
-  {
-    ret = lsm6dsox_read_reg(ctx, LSM6DSOX_SLV2_CONFIG, (uint8_t *)&reg, 1);
-  }
-
-  if (ret == 0)
-  {
-    *val = reg.batch_ext_sens_2_en;
-  }
-
-  ret += lsm6dsox_mem_bank_set(ctx, LSM6DSOX_USER_BANK);
-
-  return ret;
-}
-
-/**
-  * @brief   Enable FIFO batching data of fourth slave.[set]
-  *
-  * @param  ctx      read / write interface definitions
-  * @param  val      change the values of  batch_ext_sens_3_en
-  *                  in reg SLV3_CONFIG
-  * @retval             interface status (MANDATORY: return 0 -> no Error)
-  *
-  */
-int32_t lsm6dsox_sh_batch_slave_3_set(const stmdev_ctx_t *ctx, uint8_t val)
-{
-  lsm6dsox_slv3_config_t reg;
-  int32_t ret;
-
-  ret = lsm6dsox_mem_bank_set(ctx, LSM6DSOX_SENSOR_HUB_BANK);
-
-  if (ret == 0)
-  {
-    ret = lsm6dsox_read_reg(ctx, LSM6DSOX_SLV3_CONFIG, (uint8_t *)&reg, 1);
-  }
-
-  if (ret == 0)
-  {
-    reg.batch_ext_sens_3_en = val;
-    ret = lsm6dsox_write_reg(ctx, LSM6DSOX_SLV3_CONFIG, (uint8_t *)&reg, 1);
-  }
-
-  ret += lsm6dsox_mem_bank_set(ctx, LSM6DSOX_USER_BANK);
-
-  return ret;
-}
-
-/**
-  * @brief  Enable FIFO batching data of fourth slave.[get]
-  *
-  * @param  ctx      read / write interface definitions
-  * @param  val      change the values of  batch_ext_sens_3_en in
-  *                  reg SLV3_CONFIG
-  * @retval             interface status (MANDATORY: return 0 -> no Error)
-  *
-  */
-int32_t lsm6dsox_sh_batch_slave_3_get(const stmdev_ctx_t *ctx, uint8_t *val)
-{
-  lsm6dsox_slv3_config_t reg;
-  int32_t ret;
-
-  ret = lsm6dsox_mem_bank_set(ctx, LSM6DSOX_SENSOR_HUB_BANK);
-
-  if (ret == 0)
-  {
-    ret = lsm6dsox_read_reg(ctx, LSM6DSOX_SLV3_CONFIG, (uint8_t *)&reg, 1);
-  }
-
-  if (ret == 0)
-  {
-    *val = reg.batch_ext_sens_3_en;
   }
 
   ret += lsm6dsox_mem_bank_set(ctx, LSM6DSOX_USER_BANK);

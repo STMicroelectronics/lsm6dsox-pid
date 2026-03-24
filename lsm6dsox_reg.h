@@ -3957,21 +3957,8 @@ int32_t lsm6dsox_fifo_sensor_tag_get(const stmdev_ctx_t *ctx,
 int32_t lsm6dsox_fifo_pedo_batch_set(const stmdev_ctx_t *ctx, uint8_t val);
 int32_t lsm6dsox_fifo_pedo_batch_get(const stmdev_ctx_t *ctx, uint8_t *val);
 
-int32_t lsm6dsox_sh_batch_slave_0_set(const stmdev_ctx_t *ctx, uint8_t val);
-int32_t lsm6dsox_sh_batch_slave_0_get(const stmdev_ctx_t *ctx,
-                                      uint8_t *val);
-
-int32_t lsm6dsox_sh_batch_slave_1_set(const stmdev_ctx_t *ctx, uint8_t val);
-int32_t lsm6dsox_sh_batch_slave_1_get(const stmdev_ctx_t *ctx,
-                                      uint8_t *val);
-
-int32_t lsm6dsox_sh_batch_slave_2_set(const stmdev_ctx_t *ctx, uint8_t val);
-int32_t lsm6dsox_sh_batch_slave_2_get(const stmdev_ctx_t *ctx,
-                                      uint8_t *val);
-
-int32_t lsm6dsox_sh_batch_slave_3_set(const stmdev_ctx_t *ctx, uint8_t val);
-int32_t lsm6dsox_sh_batch_slave_3_get(const stmdev_ctx_t *ctx,
-                                      uint8_t *val);
+int32_t lsm6dsox_sh_batch_slave_set(const stmdev_ctx_t *ctx, uint8_t idx, uint8_t val);
+int32_t lsm6dsox_sh_batch_slave_get(const stmdev_ctx_t *ctx, uint8_t idx, uint8_t *val);
 
 typedef enum
 {
