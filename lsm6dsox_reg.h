@@ -126,6 +126,10 @@ typedef struct
   void *priv_data;
 } stmdev_ctx_t;
 
+#ifndef __weak
+#define __weak __attribute__((weak))
+#endif /* __weak */
+
 /**
   * @}
   *
