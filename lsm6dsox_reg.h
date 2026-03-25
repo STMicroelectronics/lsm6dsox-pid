@@ -320,7 +320,7 @@ typedef struct
   uint8_t cnt_bdr_th               : 8;
 } lsm6dsox_counter_bdr_reg2_t;
 
-#define LSM6DSOX_INT1_CTRL                    0x0D
+#define LSM6DSOX_INT1_CTRL                    0x0DU
 typedef struct
 {
 #if DRV_BYTE_ORDER == DRV_LITTLE_ENDIAN
@@ -829,6 +829,7 @@ typedef struct
 #define LSM6DSOX_TIMESTAMP1                   0x41U
 #define LSM6DSOX_TIMESTAMP2                   0x42U
 #define LSM6DSOX_TIMESTAMP3                   0x43U
+
 #define LSM6DSOX_UI_STATUS_REG_OIS            0x49U
 typedef struct
 {
@@ -1026,13 +1027,13 @@ typedef struct
 #endif /* DRV_BYTE_ORDER */
 } lsm6dsox_md2_cfg_t;
 
-#define LSM6DSOX_S4S_ST_CMD_CODE              0x60U
+#define LSM6DSOX_S4S_ST_CMD_CODE             0x60U
 typedef struct
 {
   uint8_t s4s_st_cmd_code          : 8;
 } lsm6dsox_s4s_st_cmd_code_t;
 
-#define LSM6DSOX_S4S_DT_REG                   0x61U
+#define LSM6DSOX_S4S_DT_REG                  0x61U
 typedef struct
 {
   uint8_t dt                       : 8;
@@ -1060,7 +1061,7 @@ typedef struct
   uint8_t freq_fine                : 8;
 } lsm6dsox_internal_freq_fine_t;
 
-#define LSM6DSOX_UI_INT_OIS                   0x6F
+#define LSM6DSOX_UI_INT_OIS                   0x6FU
 typedef struct
 {
 #if DRV_BYTE_ORDER == DRV_LITTLE_ENDIAN
@@ -1151,15 +1152,15 @@ typedef struct
 #endif /* DRV_BYTE_ORDER */
 } lsm6dsox_fifo_data_out_tag_t;
 
-#define LSM6DSOX_FIFO_DATA_OUT_X_L            0x79
-#define LSM6DSOX_FIFO_DATA_OUT_X_H            0x7A
-#define LSM6DSOX_FIFO_DATA_OUT_Y_L            0x7B
-#define LSM6DSOX_FIFO_DATA_OUT_Y_H            0x7C
-#define LSM6DSOX_FIFO_DATA_OUT_Z_L            0x7D
-#define LSM6DSOX_FIFO_DATA_OUT_Z_H            0x7E
+#define LSM6DSOX_FIFO_DATA_OUT_X_L            0x79U
+#define LSM6DSOX_FIFO_DATA_OUT_X_H            0x7AU
+#define LSM6DSOX_FIFO_DATA_OUT_Y_L            0x7BU
+#define LSM6DSOX_FIFO_DATA_OUT_Y_H            0x7CU
+#define LSM6DSOX_FIFO_DATA_OUT_Z_L            0x7DU
+#define LSM6DSOX_FIFO_DATA_OUT_Z_H            0x7EU
 
-#define LSM6DSOX_SPI2_WHO_AM_I                0x0F
-#define LSM6DSOX_SPI2_STATUS_REG_OIS          0x1E
+#define LSM6DSOX_SPI2_WHO_AM_I                0x0FU
+#define LSM6DSOX_SPI2_STATUS_REG_OIS          0x1EU
 typedef struct
 {
 #if DRV_BYTE_ORDER == DRV_LITTLE_ENDIAN
@@ -1175,21 +1176,21 @@ typedef struct
 #endif /* DRV_BYTE_ORDER */
 } lsm6dsox_spi2_status_reg_ois_t;
 
-#define LSM6DSOX_SPI2_OUT_TEMP_L              0x20
-#define LSM6DSOX_SPI2_OUT_TEMP_H              0x21
-#define LSM6DSOX_SPI2_OUTX_L_G_OIS            0x22
-#define LSM6DSOX_SPI2_OUTX_H_G_OIS            0x23
-#define LSM6DSOX_SPI2_OUTY_L_G_OIS            0x24
-#define LSM6DSOX_SPI2_OUTY_H_G_OIS            0x25
-#define LSM6DSOX_SPI2_OUTZ_L_G_OIS            0x26
-#define LSM6DSOX_SPI2_OUTZ_H_G_OIS            0x27
-#define LSM6DSOX_SPI2_OUTX_L_A_OIS            0x28
-#define LSM6DSOX_SPI2_OUTX_H_A_OIS            0x29
-#define LSM6DSOX_SPI2_OUTY_L_A_OIS            0x2A
-#define LSM6DSOX_SPI2_OUTY_H_A_OIS            0x2B
-#define LSM6DSOX_SPI2_OUTZ_L_A_OIS            0x2C
-#define LSM6DSOX_SPI2_OUTZ_H_A_OIS            0x2D
-#define LSM6DSOX_SPI2_INT_OIS                 0x6F
+#define LSM6DSOX_SPI2_OUT_TEMP_L              0x20U
+#define LSM6DSOX_SPI2_OUT_TEMP_H              0x21U
+#define LSM6DSOX_SPI2_OUTX_L_G_OIS            0x22U
+#define LSM6DSOX_SPI2_OUTX_H_G_OIS            0x23U
+#define LSM6DSOX_SPI2_OUTY_L_G_OIS            0x24U
+#define LSM6DSOX_SPI2_OUTY_H_G_OIS            0x25U
+#define LSM6DSOX_SPI2_OUTZ_L_G_OIS            0x26U
+#define LSM6DSOX_SPI2_OUTZ_H_G_OIS            0x27U
+#define LSM6DSOX_SPI2_OUTX_L_A_OIS            0x28U
+#define LSM6DSOX_SPI2_OUTX_H_A_OIS            0x29U
+#define LSM6DSOX_SPI2_OUTY_L_A_OIS            0x2AU
+#define LSM6DSOX_SPI2_OUTY_H_A_OIS            0x2BU
+#define LSM6DSOX_SPI2_OUTZ_L_A_OIS            0x2CU
+#define LSM6DSOX_SPI2_OUTZ_H_A_OIS            0x2DU
+#define LSM6DSOX_SPI2_INT_OIS                 0x6FU
 typedef struct
 {
 #if DRV_BYTE_ORDER == DRV_LITTLE_ENDIAN
