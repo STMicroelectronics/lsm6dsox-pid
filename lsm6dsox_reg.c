@@ -2177,7 +2177,8 @@ int32_t lsm6dsox_mem_bank_set(const stmdev_ctx_t *ctx,
   lsm6dsox_func_cfg_access_t reg = {0};
   int32_t ret = 0;
 
-  if (ret == 0)
+  ret = lsm6dsox_read_reg(ctx, LSM6DSOX_FUNC_CFG_ACCESS, (uint8_t *)&reg, 1);
+  if (ret != 0)
   {
     reg.reg_access = (uint8_t)val;
     ret = lsm6dsox_write_reg(ctx, LSM6DSOX_FUNC_CFG_ACCESS,
