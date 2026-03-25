@@ -4027,16 +4027,6 @@ int32_t lsm6dsox_pedo_steps_period_set(const stmdev_ctx_t *ctx,
 int32_t lsm6dsox_pedo_steps_period_get(const stmdev_ctx_t *ctx,
                                        uint16_t *val);
 
-int32_t lsm6dsox_pedo_adv_detection_set(const stmdev_ctx_t *ctx,
-                                        uint8_t val);
-int32_t lsm6dsox_pedo_adv_detection_get(const stmdev_ctx_t *ctx,
-                                        uint8_t *val);
-
-int32_t lsm6dsox_pedo_false_step_rejection_set(const stmdev_ctx_t *ctx,
-                                               uint8_t val);
-int32_t lsm6dsox_pedo_false_step_rejection_get(const stmdev_ctx_t *ctx,
-                                               uint8_t *val);
-
 typedef enum
 {
   LSM6DSOX_EVERY_STEP     = 0,
