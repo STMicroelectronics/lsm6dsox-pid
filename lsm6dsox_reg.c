@@ -234,19 +234,19 @@ int32_t lsm6dsox_xl_full_scale_get(const stmdev_ctx_t *ctx,
 
   switch (reg.fs_xl)
   {
-    case LSM6DSOX_2g:
+    case 0x00:
       *val = LSM6DSOX_2g;
       break;
 
-    case LSM6DSOX_16g:
+    case 0x01:
       *val = LSM6DSOX_16g;
       break;
 
-    case LSM6DSOX_4g:
+    case 0x02:
       *val = LSM6DSOX_4g;
       break;
 
-    case LSM6DSOX_8g:
+    case 0x03:
       *val = LSM6DSOX_8g;
       break;
 
@@ -526,51 +526,51 @@ int32_t lsm6dsox_xl_data_rate_get(const stmdev_ctx_t *ctx,
 
   switch (reg.odr_xl)
   {
-    case LSM6DSOX_XL_ODR_OFF:
+    case 0x00:
       *val = LSM6DSOX_XL_ODR_OFF;
       break;
 
-    case LSM6DSOX_XL_ODR_12Hz5:
+    case 0x01:
       *val = LSM6DSOX_XL_ODR_12Hz5;
       break;
 
-    case LSM6DSOX_XL_ODR_26Hz:
+    case 0x02:
       *val = LSM6DSOX_XL_ODR_26Hz;
       break;
 
-    case LSM6DSOX_XL_ODR_52Hz:
+    case 0x03:
       *val = LSM6DSOX_XL_ODR_52Hz;
       break;
 
-    case LSM6DSOX_XL_ODR_104Hz:
+    case 0x04:
       *val = LSM6DSOX_XL_ODR_104Hz;
       break;
 
-    case LSM6DSOX_XL_ODR_208Hz:
+    case 0x05:
       *val = LSM6DSOX_XL_ODR_208Hz;
       break;
 
-    case LSM6DSOX_XL_ODR_417Hz:
+    case 0x06:
       *val = LSM6DSOX_XL_ODR_417Hz;
       break;
 
-    case LSM6DSOX_XL_ODR_833Hz:
+    case 0x07:
       *val = LSM6DSOX_XL_ODR_833Hz;
       break;
 
-    case LSM6DSOX_XL_ODR_1667Hz:
+    case 0x08:
       *val = LSM6DSOX_XL_ODR_1667Hz;
       break;
 
-    case LSM6DSOX_XL_ODR_3333Hz:
+    case 0x09:
       *val = LSM6DSOX_XL_ODR_3333Hz;
       break;
 
-    case LSM6DSOX_XL_ODR_6667Hz:
+    case 0x0A:
       *val = LSM6DSOX_XL_ODR_6667Hz;
       break;
 
-    case LSM6DSOX_XL_ODR_1Hz6:
+    case 0x0B:
       *val = LSM6DSOX_XL_ODR_1Hz6;
       break;
 
@@ -629,23 +629,23 @@ int32_t lsm6dsox_gy_full_scale_get(const stmdev_ctx_t *ctx,
 
   switch (reg.fs_g)
   {
-    case LSM6DSOX_250dps:
+    case 0x00:
       *val = LSM6DSOX_250dps;
       break;
 
-    case LSM6DSOX_125dps:
+    case 0x01:
       *val = LSM6DSOX_125dps;
       break;
 
-    case LSM6DSOX_500dps:
+    case 0x02:
       *val = LSM6DSOX_500dps;
       break;
 
-    case LSM6DSOX_1000dps:
+    case 0x04:
       *val = LSM6DSOX_1000dps;
       break;
 
-    case LSM6DSOX_2000dps:
+    case 0x06:
       *val = LSM6DSOX_2000dps;
       break;
 
@@ -925,47 +925,47 @@ int32_t lsm6dsox_gy_data_rate_get(const stmdev_ctx_t *ctx,
 
   switch (reg.odr_g)
   {
-    case LSM6DSOX_GY_ODR_OFF:
+    case 0x00:
       *val = LSM6DSOX_GY_ODR_OFF;
       break;
 
-    case LSM6DSOX_GY_ODR_12Hz5:
+    case 0x01:
       *val = LSM6DSOX_GY_ODR_12Hz5;
       break;
 
-    case LSM6DSOX_GY_ODR_26Hz:
+    case 0x02:
       *val = LSM6DSOX_GY_ODR_26Hz;
       break;
 
-    case LSM6DSOX_GY_ODR_52Hz:
+    case 0x03:
       *val = LSM6DSOX_GY_ODR_52Hz;
       break;
 
-    case LSM6DSOX_GY_ODR_104Hz:
+    case 0x04:
       *val = LSM6DSOX_GY_ODR_104Hz;
       break;
 
-    case LSM6DSOX_GY_ODR_208Hz:
+    case 0x05:
       *val = LSM6DSOX_GY_ODR_208Hz;
       break;
 
-    case LSM6DSOX_GY_ODR_417Hz:
+    case 0x06:
       *val = LSM6DSOX_GY_ODR_417Hz;
       break;
 
-    case LSM6DSOX_GY_ODR_833Hz:
+    case 0x07:
       *val = LSM6DSOX_GY_ODR_833Hz;
       break;
 
-    case LSM6DSOX_GY_ODR_1667Hz:
+    case 0x08:
       *val = LSM6DSOX_GY_ODR_1667Hz;
       break;
 
-    case LSM6DSOX_GY_ODR_3333Hz:
+    case 0x09:
       *val = LSM6DSOX_GY_ODR_3333Hz;
       break;
 
-    case LSM6DSOX_GY_ODR_6667Hz:
+    case 0x0A:
       *val = LSM6DSOX_GY_ODR_6667Hz;
       break;
 
@@ -1075,11 +1075,11 @@ int32_t lsm6dsox_xl_offset_weight_get(const stmdev_ctx_t *ctx,
 
   switch (reg.usr_off_w)
   {
-    case LSM6DSOX_LSb_1mg:
+    case 0x00:
       *val = LSM6DSOX_LSb_1mg;
       break;
 
-    case LSM6DSOX_LSb_16mg:
+    case 0x01:
       *val = LSM6DSOX_LSb_16mg;
       break;
 
@@ -1154,15 +1154,15 @@ int32_t lsm6dsox_xl_power_mode_get(const stmdev_ctx_t *ctx,
   {
     switch ((ctrl5_c.xl_ulp_en << 1) | ctrl6_c.xl_hm_mode)
     {
-      case LSM6DSOX_HIGH_PERFORMANCE_MD:
+      case 0x00:
         *val = LSM6DSOX_HIGH_PERFORMANCE_MD;
         break;
 
-      case LSM6DSOX_LOW_NORMAL_POWER_MD:
+      case 0x01:
         *val = LSM6DSOX_LOW_NORMAL_POWER_MD;
         break;
 
-      case LSM6DSOX_ULTRA_LOW_POWER_MD:
+      case 0x02:
         *val = LSM6DSOX_ULTRA_LOW_POWER_MD;
         break;
 
@@ -1222,11 +1222,11 @@ int32_t lsm6dsox_gy_power_mode_get(const stmdev_ctx_t *ctx,
 
   switch (reg.g_hm_mode)
   {
-    case LSM6DSOX_GY_HIGH_PERFORMANCE:
+    case 0x00:
       *val = LSM6DSOX_GY_HIGH_PERFORMANCE;
       break;
 
-    case LSM6DSOX_GY_NORMAL:
+    case 0x01:
       *val = LSM6DSOX_GY_NORMAL;
       break;
 
@@ -1656,19 +1656,19 @@ int32_t lsm6dsox_rounding_mode_get(const stmdev_ctx_t *ctx,
 
   switch (reg.rounding)
   {
-    case LSM6DSOX_NO_ROUND:
+    case 0x00:
       *val = LSM6DSOX_NO_ROUND;
       break;
 
-    case LSM6DSOX_ROUND_XL:
+    case 0x01:
       *val = LSM6DSOX_ROUND_XL;
       break;
 
-    case LSM6DSOX_ROUND_GY:
+    case 0x02:
       *val = LSM6DSOX_ROUND_GY;
       break;
 
-    case LSM6DSOX_ROUND_GY_XL:
+    case 0x03:
       *val = LSM6DSOX_ROUND_GY_XL;
       break;
 
@@ -1744,11 +1744,11 @@ int32_t lsm6dsox_rounding_on_status_get(const stmdev_ctx_t *ctx,
 
   switch (reg.rounding_status)
   {
-    case LSM6DSOX_STAT_RND_DISABLE:
+    case 0x00:
       *val = LSM6DSOX_STAT_RND_DISABLE;
       break;
 
-    case LSM6DSOX_STAT_RND_ENABLE:
+    case 0x01:
       *val = LSM6DSOX_STAT_RND_ENABLE;
       break;
 
@@ -2213,15 +2213,15 @@ int32_t lsm6dsox_mem_bank_get(const stmdev_ctx_t *ctx,
 
   switch (reg.reg_access)
   {
-    case LSM6DSOX_USER_BANK:
+    case 0x00:
       *val = LSM6DSOX_USER_BANK;
       break;
 
-    case LSM6DSOX_SENSOR_HUB_BANK:
+    case 0x01:
       *val = LSM6DSOX_SENSOR_HUB_BANK;
       break;
 
-    case LSM6DSOX_EMBEDDED_FUNC_BANK:
+    case 0x02:
       *val = LSM6DSOX_EMBEDDED_FUNC_BANK;
       break;
 
@@ -2531,11 +2531,11 @@ int32_t lsm6dsox_data_ready_mode_get(const stmdev_ctx_t *ctx,
 
   switch (reg.dataready_pulsed)
   {
-    case LSM6DSOX_DRDY_LATCHED:
+    case 0x00:
       *val = LSM6DSOX_DRDY_LATCHED;
       break;
 
-    case LSM6DSOX_DRDY_PULSED:
+    case 0x01:
       *val = LSM6DSOX_DRDY_PULSED;
       break;
 
@@ -2758,15 +2758,15 @@ int32_t lsm6dsox_xl_self_test_get(const stmdev_ctx_t *ctx,
 
   switch (reg.st_xl)
   {
-    case LSM6DSOX_XL_ST_DISABLE:
+    case 0x00:
       *val = LSM6DSOX_XL_ST_DISABLE;
       break;
 
-    case LSM6DSOX_XL_ST_POSITIVE:
+    case 0x01:
       *val = LSM6DSOX_XL_ST_POSITIVE;
       break;
 
-    case LSM6DSOX_XL_ST_NEGATIVE:
+    case 0x02:
       *val = LSM6DSOX_XL_ST_NEGATIVE;
       break;
 
@@ -2825,15 +2825,15 @@ int32_t lsm6dsox_gy_self_test_get(const stmdev_ctx_t *ctx,
 
   switch (reg.st_g)
   {
-    case LSM6DSOX_GY_ST_DISABLE:
+    case 0x00:
       *val = LSM6DSOX_GY_ST_DISABLE;
       break;
 
-    case LSM6DSOX_GY_ST_POSITIVE:
+    case 0x01:
       *val = LSM6DSOX_GY_ST_POSITIVE;
       break;
 
-    case LSM6DSOX_GY_ST_NEGATIVE:
+    case 0x03:
       *val = LSM6DSOX_GY_ST_NEGATIVE;
       break;
 
@@ -3057,35 +3057,35 @@ int32_t lsm6dsox_gy_lp1_bandwidth_get(const stmdev_ctx_t *ctx,
 
   switch (reg.ftype)
   {
-    case LSM6DSOX_ULTRA_LIGHT:
+    case 0x00:
       *val = LSM6DSOX_ULTRA_LIGHT;
       break;
 
-    case LSM6DSOX_VERY_LIGHT:
+    case 0x01:
       *val = LSM6DSOX_VERY_LIGHT;
       break;
 
-    case LSM6DSOX_LIGHT:
+    case 0x02:
       *val = LSM6DSOX_LIGHT;
       break;
 
-    case LSM6DSOX_MEDIUM:
+    case 0x03:
       *val = LSM6DSOX_MEDIUM;
       break;
 
-    case LSM6DSOX_STRONG:
+    case 0x04:
       *val = LSM6DSOX_STRONG;
       break;
 
-    case LSM6DSOX_VERY_STRONG:
+    case 0x05:
       *val = LSM6DSOX_VERY_STRONG;
       break;
 
-    case LSM6DSOX_AGGRESSIVE:
+    case 0x06:
       *val = LSM6DSOX_AGGRESSIVE;
       break;
 
-    case LSM6DSOX_XTREME:
+    case 0x07:
       *val = LSM6DSOX_XTREME;
       break;
 
@@ -3199,95 +3199,95 @@ int32_t lsm6dsox_xl_hp_path_on_out_get(const stmdev_ctx_t *ctx,
   switch ((reg.hp_ref_mode_xl << 5) | (reg.hp_slope_xl_en << 4) |
           reg.hpcf_xl)
   {
-    case LSM6DSOX_HP_PATH_DISABLE_ON_OUT:
+    case 0x00:
       *val = LSM6DSOX_HP_PATH_DISABLE_ON_OUT;
       break;
 
-    case LSM6DSOX_SLOPE_ODR_DIV_4:
+    case 0x10:
       *val = LSM6DSOX_SLOPE_ODR_DIV_4;
       break;
 
-    case LSM6DSOX_HP_ODR_DIV_10:
+    case 0x11:
       *val = LSM6DSOX_HP_ODR_DIV_10;
       break;
 
-    case LSM6DSOX_HP_ODR_DIV_20:
+    case 0x12:
       *val = LSM6DSOX_HP_ODR_DIV_20;
       break;
 
-    case LSM6DSOX_HP_ODR_DIV_45:
+    case 0x13:
       *val = LSM6DSOX_HP_ODR_DIV_45;
       break;
 
-    case LSM6DSOX_HP_ODR_DIV_100:
+    case 0x14:
       *val = LSM6DSOX_HP_ODR_DIV_100;
       break;
 
-    case LSM6DSOX_HP_ODR_DIV_200:
+    case 0x15:
       *val = LSM6DSOX_HP_ODR_DIV_200;
       break;
 
-    case LSM6DSOX_HP_ODR_DIV_400:
+    case 0x16:
       *val = LSM6DSOX_HP_ODR_DIV_400;
       break;
 
-    case LSM6DSOX_HP_ODR_DIV_800:
+    case 0x17:
       *val = LSM6DSOX_HP_ODR_DIV_800;
       break;
 
-    case LSM6DSOX_HP_REF_MD_ODR_DIV_10:
+    case 0x31:
       *val = LSM6DSOX_HP_REF_MD_ODR_DIV_10;
       break;
 
-    case LSM6DSOX_HP_REF_MD_ODR_DIV_20:
+    case 0x32:
       *val = LSM6DSOX_HP_REF_MD_ODR_DIV_20;
       break;
 
-    case LSM6DSOX_HP_REF_MD_ODR_DIV_45:
+    case 0x33:
       *val = LSM6DSOX_HP_REF_MD_ODR_DIV_45;
       break;
 
-    case LSM6DSOX_HP_REF_MD_ODR_DIV_100:
+    case 0x34:
       *val = LSM6DSOX_HP_REF_MD_ODR_DIV_100;
       break;
 
-    case LSM6DSOX_HP_REF_MD_ODR_DIV_200:
+    case 0x35:
       *val = LSM6DSOX_HP_REF_MD_ODR_DIV_200;
       break;
 
-    case LSM6DSOX_HP_REF_MD_ODR_DIV_400:
+    case 0x36:
       *val = LSM6DSOX_HP_REF_MD_ODR_DIV_400;
       break;
 
-    case LSM6DSOX_HP_REF_MD_ODR_DIV_800:
+    case 0x37:
       *val = LSM6DSOX_HP_REF_MD_ODR_DIV_800;
       break;
 
-    case LSM6DSOX_LP_ODR_DIV_10:
+    case 0x01:
       *val = LSM6DSOX_LP_ODR_DIV_10;
       break;
 
-    case LSM6DSOX_LP_ODR_DIV_20:
+    case 0x02:
       *val = LSM6DSOX_LP_ODR_DIV_20;
       break;
 
-    case LSM6DSOX_LP_ODR_DIV_45:
+    case 0x03:
       *val = LSM6DSOX_LP_ODR_DIV_45;
       break;
 
-    case LSM6DSOX_LP_ODR_DIV_100:
+    case 0x04:
       *val = LSM6DSOX_LP_ODR_DIV_100;
       break;
 
-    case LSM6DSOX_LP_ODR_DIV_200:
+    case 0x05:
       *val = LSM6DSOX_LP_ODR_DIV_200;
       break;
 
-    case LSM6DSOX_LP_ODR_DIV_400:
+    case 0x06:
       *val = LSM6DSOX_LP_ODR_DIV_400;
       break;
 
-    case LSM6DSOX_LP_ODR_DIV_800:
+    case 0x07:
       *val = LSM6DSOX_LP_ODR_DIV_800;
       break;
 
@@ -3401,11 +3401,11 @@ int32_t lsm6dsox_xl_hp_path_internal_get(const stmdev_ctx_t *ctx,
 
   switch (reg.slope_fds)
   {
-    case LSM6DSOX_USE_SLOPE:
+    case 0x00:
       *val = LSM6DSOX_USE_SLOPE;
       break;
 
-    case LSM6DSOX_USE_HPF:
+    case 0x01:
       *val = LSM6DSOX_USE_HPF;
       break;
 
@@ -3469,23 +3469,23 @@ int32_t lsm6dsox_gy_hp_path_internal_get(const stmdev_ctx_t *ctx,
 
   switch ((reg.hp_en_g << 7) + reg.hpm_g)
   {
-    case LSM6DSOX_HP_FILTER_NONE:
+    case 0x00:
       *val = LSM6DSOX_HP_FILTER_NONE;
       break;
 
-    case LSM6DSOX_HP_FILTER_16mHz:
+    case 0x80:
       *val = LSM6DSOX_HP_FILTER_16mHz;
       break;
 
-    case LSM6DSOX_HP_FILTER_65mHz:
+    case 0x81:
       *val = LSM6DSOX_HP_FILTER_65mHz;
       break;
 
-    case LSM6DSOX_HP_FILTER_260mHz:
+    case 0x82:
       *val = LSM6DSOX_HP_FILTER_260mHz;
       break;
 
-    case LSM6DSOX_HP_FILTER_1Hz04:
+    case 0x83:
       *val = LSM6DSOX_HP_FILTER_1Hz04;
       break;
 
@@ -3573,19 +3573,19 @@ int32_t lsm6dsox_ois_mode_get(const stmdev_ctx_t *ctx,
   switch ((func_cfg_access.ois_ctrl_from_ui << 1) +
           ui_int_ois.spi2_read_en)
   {
-    case LSM6DSOX_OIS_CTRL_AUX_DATA_UI:
+    case 0x00:
       *val = LSM6DSOX_OIS_CTRL_AUX_DATA_UI;
       break;
 
-    case LSM6DSOX_OIS_CTRL_AUX_DATA_UI_AUX:
+    case 0x01:
       *val = LSM6DSOX_OIS_CTRL_AUX_DATA_UI_AUX;
       break;
 
-    case LSM6DSOX_OIS_CTRL_UI_AUX_DATA_UI:
+    case 0x02:
       *val = LSM6DSOX_OIS_CTRL_UI_AUX_DATA_UI;
       break;
 
-    case LSM6DSOX_OIS_CTRL_UI_AUX_DATA_UI_AUX:
+    case 0x03:
       *val = LSM6DSOX_OIS_CTRL_UI_AUX_DATA_UI_AUX;
       break;
 
@@ -3647,11 +3647,11 @@ int32_t lsm6dsox_aux_sdo_ocs_mode_get(const stmdev_ctx_t *ctx,
 
   switch (reg.ois_pu_dis)
   {
-    case LSM6DSOX_AUX_PULL_UP_DISC:
+    case 0x00:
       *val = LSM6DSOX_AUX_PULL_UP_DISC;
       break;
 
-    case LSM6DSOX_AUX_PULL_UP_CONNECT:
+    case 0x01:
       *val = LSM6DSOX_AUX_PULL_UP_CONNECT;
       break;
 
@@ -3711,11 +3711,11 @@ int32_t lsm6dsox_aux_pw_on_ctrl_get(const stmdev_ctx_t *ctx,
 
   switch (reg.ois_on)
   {
-    case LSM6DSOX_AUX_ON:
+    case 0x01:
       *val = LSM6DSOX_AUX_ON;
       break;
 
-    case LSM6DSOX_AUX_ON_BY_AUX_INTERFACE:
+    case 0x00:
       *val = LSM6DSOX_AUX_ON_BY_AUX_INTERFACE;
       break;
 
@@ -3785,11 +3785,11 @@ int32_t lsm6dsox_aux_xl_fs_mode_get(const stmdev_ctx_t *ctx,
 
   switch (reg.xl_fs_mode)
   {
-    case LSM6DSOX_USE_SAME_XL_FS:
+    case 0x00:
       *val = LSM6DSOX_USE_SAME_XL_FS;
       break;
 
-    case LSM6DSOX_USE_DIFFERENT_XL_FS:
+    case 0x01:
       *val = LSM6DSOX_USE_DIFFERENT_XL_FS;
       break;
 
@@ -3942,11 +3942,11 @@ int32_t lsm6dsox_aux_den_polarity_get(const stmdev_ctx_t *ctx,
 
   switch (reg.den_lh_ois)
   {
-    case LSM6DSOX_AUX_DEN_ACTIVE_LOW:
+    case 0x00:
       *val = LSM6DSOX_AUX_DEN_ACTIVE_LOW;
       break;
 
-    case LSM6DSOX_AUX_DEN_ACTIVE_HIGH:
+    case 0x01:
       *val = LSM6DSOX_AUX_DEN_ACTIVE_HIGH;
       break;
 
@@ -4023,15 +4023,15 @@ int32_t lsm6dsox_aux_den_mode_get(const stmdev_ctx_t *ctx,
   {
     switch ((ctrl1_ois.lvl1_ois << 1) + int_ois.lvl2_ois)
     {
-      case LSM6DSOX_AUX_DEN_DISABLE:
+      case 0x00:
         *val = LSM6DSOX_AUX_DEN_DISABLE;
         break;
 
-      case LSM6DSOX_AUX_DEN_LEVEL_LATCH:
+      case 0x03:
         *val = LSM6DSOX_AUX_DEN_LEVEL_LATCH;
         break;
 
-      case LSM6DSOX_AUX_DEN_LEVEL_TRIG:
+      case 0x02:
         *val = LSM6DSOX_AUX_DEN_LEVEL_TRIG;
         break;
 
@@ -4148,15 +4148,15 @@ int32_t lsm6dsox_aux_mode_get(const stmdev_ctx_t *ctx,
 
   switch ((reg.mode4_en << 1) | reg.ois_en_spi2)
   {
-    case LSM6DSOX_AUX_DISABLE:
+    case 0x00:
       *val = LSM6DSOX_AUX_DISABLE;
       break;
 
-    case LSM6DSOX_MODE_3_GY:
+    case 0x01:
       *val = LSM6DSOX_MODE_3_GY;
       break;
 
-    case LSM6DSOX_MODE_4_GY_XL:
+    case 0x03:
       *val = LSM6DSOX_MODE_4_GY_XL;
       break;
 
@@ -4212,23 +4212,23 @@ int32_t lsm6dsox_aux_gy_full_scale_get(const stmdev_ctx_t *ctx,
 
   switch (reg.fs_g_ois)
   {
-    case LSM6DSOX_250dps_AUX:
+    case 0x00:
       *val = LSM6DSOX_250dps_AUX;
       break;
 
-    case LSM6DSOX_125dps_AUX:
+    case 0x01:
       *val = LSM6DSOX_125dps_AUX;
       break;
 
-    case LSM6DSOX_500dps_AUX:
+    case 0x02:
       *val = LSM6DSOX_500dps_AUX;
       break;
 
-    case LSM6DSOX_1000dps_AUX:
+    case 0x04:
       *val = LSM6DSOX_1000dps_AUX;
       break;
 
-    case LSM6DSOX_2000dps_AUX:
+    case 0x06:
       *val = LSM6DSOX_2000dps_AUX;
       break;
 
@@ -4284,11 +4284,11 @@ int32_t lsm6dsox_aux_spi_mode_get(const stmdev_ctx_t *ctx,
 
   switch (reg.sim_ois)
   {
-    case LSM6DSOX_AUX_SPI_4_WIRE:
+    case 0x00:
       *val = LSM6DSOX_AUX_SPI_4_WIRE;
       break;
 
-    case LSM6DSOX_AUX_SPI_3_WIRE:
+    case 0x01:
       *val = LSM6DSOX_AUX_SPI_3_WIRE;
       break;
 
@@ -4345,19 +4345,19 @@ int32_t lsm6dsox_aux_gy_lp1_bandwidth_get(const stmdev_ctx_t *ctx,
 
   switch (reg.ftype_ois)
   {
-    case LSM6DSOX_351Hz39:
+    case 0x00:
       *val = LSM6DSOX_351Hz39;
       break;
 
-    case LSM6DSOX_236Hz63:
+    case 0x01:
       *val = LSM6DSOX_236Hz63;
       break;
 
-    case LSM6DSOX_172Hz70:
+    case 0x02:
       *val = LSM6DSOX_172Hz70;
       break;
 
-    case LSM6DSOX_937Hz91:
+    case 0x03:
       *val = LSM6DSOX_937Hz91;
       break;
 
@@ -4414,23 +4414,23 @@ int32_t lsm6dsox_aux_gy_hp_bandwidth_get(const stmdev_ctx_t *ctx,
 
   switch ((reg.hp_en_ois << 4) | reg.hpm_ois)
   {
-    case LSM6DSOX_AUX_HP_DISABLE:
+    case 0x00:
       *val = LSM6DSOX_AUX_HP_DISABLE;
       break;
 
-    case LSM6DSOX_AUX_HP_Hz016:
+    case 0x10:
       *val = LSM6DSOX_AUX_HP_Hz016;
       break;
 
-    case LSM6DSOX_AUX_HP_Hz065:
+    case 0x11:
       *val = LSM6DSOX_AUX_HP_Hz065;
       break;
 
-    case LSM6DSOX_AUX_HP_Hz260:
+    case 0x12:
       *val = LSM6DSOX_AUX_HP_Hz260;
       break;
 
-    case LSM6DSOX_AUX_HP_1Hz040:
+    case 0x13:
       *val = LSM6DSOX_AUX_HP_1Hz040;
       break;
 
@@ -4496,11 +4496,11 @@ int32_t lsm6dsox_aux_gy_clamp_get(const stmdev_ctx_t *ctx,
 
   switch (reg.st_ois_clampdis)
   {
-    case LSM6DSOX_ENABLE_CLAMP:
+    case 0x00:
       *val = LSM6DSOX_ENABLE_CLAMP;
       break;
 
-    case LSM6DSOX_DISABLE_CLAMP:
+    case 0x01:
       *val = LSM6DSOX_DISABLE_CLAMP;
       break;
 
@@ -4558,35 +4558,35 @@ int32_t lsm6dsox_aux_xl_bandwidth_get(const stmdev_ctx_t *ctx,
 
   switch (reg.filter_xl_conf_ois)
   {
-    case LSM6DSOX_289Hz:
+    case 0x00:
       *val = LSM6DSOX_289Hz;
       break;
 
-    case LSM6DSOX_258Hz:
+    case 0x01:
       *val = LSM6DSOX_258Hz;
       break;
 
-    case LSM6DSOX_120Hz:
+    case 0x02:
       *val = LSM6DSOX_120Hz;
       break;
 
-    case LSM6DSOX_65Hz2:
+    case 0x03:
       *val = LSM6DSOX_65Hz2;
       break;
 
-    case LSM6DSOX_33Hz2:
+    case 0x04:
       *val = LSM6DSOX_33Hz2;
       break;
 
-    case LSM6DSOX_16Hz6:
+    case 0x05:
       *val = LSM6DSOX_16Hz6;
       break;
 
-    case LSM6DSOX_8Hz30:
+    case 0x06:
       *val = LSM6DSOX_8Hz30;
       break;
 
-    case LSM6DSOX_4Hz15:
+    case 0x07:
       *val = LSM6DSOX_4Hz15;
       break;
 
@@ -4643,19 +4643,19 @@ int32_t lsm6dsox_aux_xl_full_scale_get(const stmdev_ctx_t *ctx,
 
   switch (reg.fs_xl_ois)
   {
-    case LSM6DSOX_AUX_2g:
+    case 0x00:
       *val = LSM6DSOX_AUX_2g;
       break;
 
-    case LSM6DSOX_AUX_16g:
+    case 0x01:
       *val = LSM6DSOX_AUX_16g;
       break;
 
-    case LSM6DSOX_AUX_4g:
+    case 0x02:
       *val = LSM6DSOX_AUX_4g;
       break;
 
-    case LSM6DSOX_AUX_8g:
+    case 0x03:
       *val = LSM6DSOX_AUX_8g;
       break;
 
@@ -4728,11 +4728,11 @@ int32_t lsm6dsox_sdo_sa0_mode_get(const stmdev_ctx_t *ctx,
 
   switch (reg.sdo_pu_en)
   {
-    case LSM6DSOX_PULL_UP_DISC:
+    case 0x00:
       *val = LSM6DSOX_PULL_UP_DISC;
       break;
 
-    case LSM6DSOX_PULL_UP_CONNECT:
+    case 0x01:
       *val = LSM6DSOX_PULL_UP_CONNECT;
       break;
 
@@ -4789,11 +4789,11 @@ int32_t lsm6dsox_spi_mode_get(const stmdev_ctx_t *ctx, lsm6dsox_sim_t *val)
 
   switch (reg.sim)
   {
-    case LSM6DSOX_SPI_4_WIRE:
+    case 0x00:
       *val = LSM6DSOX_SPI_4_WIRE;
       break;
 
-    case LSM6DSOX_SPI_3_WIRE:
+    case 0x01:
       *val = LSM6DSOX_SPI_3_WIRE;
       break;
 
@@ -4918,34 +4918,31 @@ int32_t lsm6dsox_i3c_disable_get(const stmdev_ctx_t *ctx,
     return ret;
   }
 
-  if (ret == 0)
+  switch ((ctrl9_xl.i3c_disable << 7) | i3c_bus_avb.i3c_bus_avb_sel)
   {
-    switch ((ctrl9_xl.i3c_disable << 7) | i3c_bus_avb.i3c_bus_avb_sel)
-    {
-      case LSM6DSOX_I3C_DISABLE:
-        *val = LSM6DSOX_I3C_DISABLE;
-        break;
+    case 0x80:
+      *val = LSM6DSOX_I3C_DISABLE;
+      break;
 
-      case LSM6DSOX_I3C_ENABLE_T_50us:
-        *val = LSM6DSOX_I3C_ENABLE_T_50us;
-        break;
+    case 0x00:
+      *val = LSM6DSOX_I3C_ENABLE_T_50us;
+      break;
 
-      case LSM6DSOX_I3C_ENABLE_T_2us:
-        *val = LSM6DSOX_I3C_ENABLE_T_2us;
-        break;
+    case 0x01:
+      *val = LSM6DSOX_I3C_ENABLE_T_2us;
+      break;
 
-      case LSM6DSOX_I3C_ENABLE_T_1ms:
-        *val = LSM6DSOX_I3C_ENABLE_T_1ms;
-        break;
+    case 0x02:
+      *val = LSM6DSOX_I3C_ENABLE_T_1ms;
+      break;
 
-      case LSM6DSOX_I3C_ENABLE_T_25ms:
-        *val = LSM6DSOX_I3C_ENABLE_T_25ms;
-        break;
+    case 0x03:
+      *val = LSM6DSOX_I3C_ENABLE_T_25ms;
+      break;
 
-      default:
-        *val = LSM6DSOX_I3C_DISABLE;
-        break;
-    }
+    default:
+      *val = LSM6DSOX_I3C_DISABLE;
+      break;
   }
 
   return ret;
@@ -5083,19 +5080,19 @@ int32_t lsm6dsox_pin_mode_get(const stmdev_ctx_t *ctx,
 
   switch ((i3c_bus_avb.pd_dis_int1 << 1) + ctrl3_c.pp_od)
   {
-    case LSM6DSOX_PUSH_PULL:
+    case 0x00:
       *val = LSM6DSOX_PUSH_PULL;
       break;
 
-    case LSM6DSOX_OPEN_DRAIN:
+    case 0x01:
       *val = LSM6DSOX_OPEN_DRAIN;
       break;
 
-    case LSM6DSOX_INT1_NOPULL_DOWN_INT2_PUSH_PULL:
+    case 0x02:
       *val = LSM6DSOX_INT1_NOPULL_DOWN_INT2_PUSH_PULL;
       break;
 
-    case LSM6DSOX_INT1_NOPULL_DOWN_INT2_OPEN_DRAIN:
+    case 0x03:
       *val = LSM6DSOX_INT1_NOPULL_DOWN_INT2_OPEN_DRAIN;
       break;
 
@@ -5154,11 +5151,11 @@ int32_t lsm6dsox_pin_polarity_get(const stmdev_ctx_t *ctx,
 
   switch (reg.h_lactive)
   {
-    case LSM6DSOX_ACTIVE_HIGH:
+    case 0x00:
       *val = LSM6DSOX_ACTIVE_HIGH;
       break;
 
-    case LSM6DSOX_ACTIVE_LOW:
+    case 0x01:
       *val = LSM6DSOX_ACTIVE_LOW;
       break;
 
@@ -5299,30 +5296,27 @@ int32_t lsm6dsox_int_notification_get(const stmdev_ctx_t *ctx,
     return ret;
   }
 
-  if (ret == 0)
+  switch ((page_rw.emb_func_lir << 1) | tap_cfg0.lir)
   {
-    switch ((page_rw.emb_func_lir << 1) | tap_cfg0.lir)
-    {
-      case LSM6DSOX_ALL_INT_PULSED:
-        *val = LSM6DSOX_ALL_INT_PULSED;
-        break;
+    case 0x00:
+      *val = LSM6DSOX_ALL_INT_PULSED;
+      break;
 
-      case LSM6DSOX_BASE_LATCHED_EMB_PULSED:
-        *val = LSM6DSOX_BASE_LATCHED_EMB_PULSED;
-        break;
+    case 0x01:
+      *val = LSM6DSOX_BASE_LATCHED_EMB_PULSED;
+      break;
 
-      case LSM6DSOX_BASE_PULSED_EMB_LATCHED:
-        *val = LSM6DSOX_BASE_PULSED_EMB_LATCHED;
-        break;
+    case 0x02:
+      *val = LSM6DSOX_BASE_PULSED_EMB_LATCHED;
+      break;
 
-      case LSM6DSOX_ALL_INT_LATCHED:
-        *val = LSM6DSOX_ALL_INT_LATCHED;
-        break;
+    case 0x03:
+      *val = LSM6DSOX_ALL_INT_LATCHED;
+      break;
 
-      default:
-        *val = LSM6DSOX_ALL_INT_PULSED;
-        break;
-    }
+    default:
+      *val = LSM6DSOX_ALL_INT_PULSED;
+      break;
   }
 
   return ret;
@@ -5395,11 +5389,11 @@ int32_t lsm6dsox_wkup_ths_weight_get(const stmdev_ctx_t *ctx,
 
   switch (reg.wake_ths_w)
   {
-    case LSM6DSOX_LSb_FS_DIV_64:
+    case 0x00:
       *val = LSM6DSOX_LSb_FS_DIV_64;
       break;
 
-    case LSM6DSOX_LSb_FS_DIV_256:
+    case 0x01:
       *val = LSM6DSOX_LSb_FS_DIV_256;
       break;
 
@@ -5677,11 +5671,11 @@ int32_t lsm6dsox_act_pin_notification_get(const stmdev_ctx_t *ctx,
 
   switch (reg.sleep_status_on_int)
   {
-    case LSM6DSOX_DRIVE_SLEEP_CHG_EVENT:
+    case 0x00:
       *val = LSM6DSOX_DRIVE_SLEEP_CHG_EVENT;
       break;
 
-    case LSM6DSOX_DRIVE_SLEEP_STATUS:
+    case 0x01:
       *val = LSM6DSOX_DRIVE_SLEEP_STATUS;
       break;
 
@@ -5740,19 +5734,19 @@ int32_t lsm6dsox_act_mode_get(const stmdev_ctx_t *ctx,
 
   switch (reg.inact_en)
   {
-    case LSM6DSOX_XL_AND_GY_NOT_AFFECTED:
+    case 0x00:
       *val = LSM6DSOX_XL_AND_GY_NOT_AFFECTED;
       break;
 
-    case LSM6DSOX_XL_12Hz5_GY_NOT_AFFECTED:
+    case 0x01:
       *val = LSM6DSOX_XL_12Hz5_GY_NOT_AFFECTED;
       break;
 
-    case LSM6DSOX_XL_12Hz5_GY_SLEEP:
+    case 0x02:
       *val = LSM6DSOX_XL_12Hz5_GY_SLEEP;
       break;
 
-    case LSM6DSOX_XL_12Hz5_GY_PD:
+    case 0x03:
       *val = LSM6DSOX_XL_12Hz5_GY_PD;
       break;
 
@@ -6074,29 +6068,36 @@ int32_t lsm6dsox_tap_axis_priority_get(const stmdev_ctx_t *ctx,
 
   switch (reg.tap_priority)
   {
-    case LSM6DSOX_XYZ:
+    case 0x00:
       *val = LSM6DSOX_XYZ;
       break;
 
-    case LSM6DSOX_YXZ:
+    case 0x01:
       *val = LSM6DSOX_YXZ;
       break;
 
-    case LSM6DSOX_XZY:
+    case 0x02:
       *val = LSM6DSOX_XZY;
       break;
 
-    case LSM6DSOX_ZYX:
+    case 0x03:
       *val = LSM6DSOX_ZYX;
       break;
 
-    case LSM6DSOX_YZX:
+    case 0x04:
+      *val = LSM6DSOX_XYZ;
+      break;
+
+    case 0x05:
       *val = LSM6DSOX_YZX;
       break;
 
-    case LSM6DSOX_ZXY:
+    case 0x06:
       *val = LSM6DSOX_ZXY;
       break;
+
+    case 0x07:
+      *val = LSM6DSOX_ZYX;
 
     default:
       *val = LSM6DSOX_XYZ;
@@ -6429,11 +6430,11 @@ int32_t lsm6dsox_tap_mode_get(const stmdev_ctx_t *ctx,
 
   switch (reg.single_double_tap)
   {
-    case LSM6DSOX_ONLY_SINGLE:
+    case 0x00:
       *val = LSM6DSOX_ONLY_SINGLE;
       break;
 
-    case LSM6DSOX_BOTH_SINGLE_DOUBLE:
+    case 0x01:
       *val = LSM6DSOX_BOTH_SINGLE_DOUBLE;
       break;
 
@@ -6505,19 +6506,19 @@ int32_t lsm6dsox_6d_threshold_get(const stmdev_ctx_t *ctx,
 
   switch (reg.sixd_ths)
   {
-    case LSM6DSOX_DEG_80:
+    case 0x00:
       *val = LSM6DSOX_DEG_80;
       break;
 
-    case LSM6DSOX_DEG_70:
+    case 0x01:
       *val = LSM6DSOX_DEG_70;
       break;
 
-    case LSM6DSOX_DEG_60:
+    case 0x02:
       *val = LSM6DSOX_DEG_60;
       break;
 
-    case LSM6DSOX_DEG_50:
+    case 0x03:
       *val = LSM6DSOX_DEG_50;
       break;
 
@@ -6636,35 +6637,35 @@ int32_t lsm6dsox_ff_threshold_get(const stmdev_ctx_t *ctx,
 
   switch (reg.ff_ths)
   {
-    case LSM6DSOX_FF_TSH_156mg:
+    case 0x00:
       *val = LSM6DSOX_FF_TSH_156mg;
       break;
 
-    case LSM6DSOX_FF_TSH_219mg:
+    case 0x01:
       *val = LSM6DSOX_FF_TSH_219mg;
       break;
 
-    case LSM6DSOX_FF_TSH_250mg:
+    case 0x02:
       *val = LSM6DSOX_FF_TSH_250mg;
       break;
 
-    case LSM6DSOX_FF_TSH_312mg:
+    case 0x03:
       *val = LSM6DSOX_FF_TSH_312mg;
       break;
 
-    case LSM6DSOX_FF_TSH_344mg:
+    case 0x04:
       *val = LSM6DSOX_FF_TSH_344mg;
       break;
 
-    case LSM6DSOX_FF_TSH_406mg:
+    case 0x05:
       *val = LSM6DSOX_FF_TSH_406mg;
       break;
 
-    case LSM6DSOX_FF_TSH_469mg:
+    case 0x06:
       *val = LSM6DSOX_FF_TSH_469mg;
       break;
 
-    case LSM6DSOX_FF_TSH_500mg:
+    case 0x07:
       *val = LSM6DSOX_FF_TSH_500mg;
       break;
 
@@ -6930,23 +6931,23 @@ int32_t lsm6dsox_compression_algo_get(const stmdev_ctx_t *ctx,
 
   switch ((reg.fifo_compr_rt_en << 2) | reg.uncoptr_rate)
   {
-    case LSM6DSOX_CMP_DISABLE:
+    case 0x00:
       *val = LSM6DSOX_CMP_DISABLE;
       break;
 
-    case LSM6DSOX_CMP_ALWAYS:
+    case 0x04:
       *val = LSM6DSOX_CMP_ALWAYS;
       break;
 
-    case LSM6DSOX_CMP_8_TO_1:
+    case 0x05:
       *val = LSM6DSOX_CMP_8_TO_1;
       break;
 
-    case LSM6DSOX_CMP_16_TO_1:
+    case 0x06:
       *val = LSM6DSOX_CMP_16_TO_1;
       break;
 
-    case LSM6DSOX_CMP_32_TO_1:
+    case 0x07:
       *val = LSM6DSOX_CMP_32_TO_1;
       break;
 
@@ -7158,51 +7159,51 @@ int32_t lsm6dsox_fifo_xl_batch_get(const stmdev_ctx_t *ctx,
 
   switch (reg.bdr_xl)
   {
-    case LSM6DSOX_XL_NOT_BATCHED:
+    case 0x00:
       *val = LSM6DSOX_XL_NOT_BATCHED;
       break;
 
-    case LSM6DSOX_XL_BATCHED_AT_12Hz5:
+    case 0x01:
       *val = LSM6DSOX_XL_BATCHED_AT_12Hz5;
       break;
 
-    case LSM6DSOX_XL_BATCHED_AT_26Hz:
+    case 0x02:
       *val = LSM6DSOX_XL_BATCHED_AT_26Hz;
       break;
 
-    case LSM6DSOX_XL_BATCHED_AT_52Hz:
+    case 0x03:
       *val = LSM6DSOX_XL_BATCHED_AT_52Hz;
       break;
 
-    case LSM6DSOX_XL_BATCHED_AT_104Hz:
+    case 0x04:
       *val = LSM6DSOX_XL_BATCHED_AT_104Hz;
       break;
 
-    case LSM6DSOX_XL_BATCHED_AT_208Hz:
+    case 0x05:
       *val = LSM6DSOX_XL_BATCHED_AT_208Hz;
       break;
 
-    case LSM6DSOX_XL_BATCHED_AT_417Hz:
+    case 0x06:
       *val = LSM6DSOX_XL_BATCHED_AT_417Hz;
       break;
 
-    case LSM6DSOX_XL_BATCHED_AT_833Hz:
+    case 0x07:
       *val = LSM6DSOX_XL_BATCHED_AT_833Hz;
       break;
 
-    case LSM6DSOX_XL_BATCHED_AT_1667Hz:
+    case 0x08:
       *val = LSM6DSOX_XL_BATCHED_AT_1667Hz;
       break;
 
-    case LSM6DSOX_XL_BATCHED_AT_3333Hz:
+    case 0x09:
       *val = LSM6DSOX_XL_BATCHED_AT_3333Hz;
       break;
 
-    case LSM6DSOX_XL_BATCHED_AT_6667Hz:
+    case 0x0A:
       *val = LSM6DSOX_XL_BATCHED_AT_6667Hz;
       break;
 
-    case LSM6DSOX_XL_BATCHED_AT_6Hz5:
+    case 0x0B:
       *val = LSM6DSOX_XL_BATCHED_AT_6Hz5;
       break;
 
@@ -7263,51 +7264,51 @@ int32_t lsm6dsox_fifo_gy_batch_get(const stmdev_ctx_t *ctx,
 
   switch (reg.bdr_gy)
   {
-    case LSM6DSOX_GY_NOT_BATCHED:
+    case 0x00:
       *val = LSM6DSOX_GY_NOT_BATCHED;
       break;
 
-    case LSM6DSOX_GY_BATCHED_AT_12Hz5:
+    case 0x01:
       *val = LSM6DSOX_GY_BATCHED_AT_12Hz5;
       break;
 
-    case LSM6DSOX_GY_BATCHED_AT_26Hz:
+    case 0x02:
       *val = LSM6DSOX_GY_BATCHED_AT_26Hz;
       break;
 
-    case LSM6DSOX_GY_BATCHED_AT_52Hz:
+    case 0x03:
       *val = LSM6DSOX_GY_BATCHED_AT_52Hz;
       break;
 
-    case LSM6DSOX_GY_BATCHED_AT_104Hz:
+    case 0x04:
       *val = LSM6DSOX_GY_BATCHED_AT_104Hz;
       break;
 
-    case LSM6DSOX_GY_BATCHED_AT_208Hz:
+    case 0x05:
       *val = LSM6DSOX_GY_BATCHED_AT_208Hz;
       break;
 
-    case LSM6DSOX_GY_BATCHED_AT_417Hz:
+    case 0x06:
       *val = LSM6DSOX_GY_BATCHED_AT_417Hz;
       break;
 
-    case LSM6DSOX_GY_BATCHED_AT_833Hz:
+    case 0x07:
       *val = LSM6DSOX_GY_BATCHED_AT_833Hz;
       break;
 
-    case LSM6DSOX_GY_BATCHED_AT_1667Hz:
+    case 0x08:
       *val = LSM6DSOX_GY_BATCHED_AT_1667Hz;
       break;
 
-    case LSM6DSOX_GY_BATCHED_AT_3333Hz:
+    case 0x09:
       *val = LSM6DSOX_GY_BATCHED_AT_3333Hz;
       break;
 
-    case LSM6DSOX_GY_BATCHED_AT_6667Hz:
+    case 0x0A:
       *val = LSM6DSOX_GY_BATCHED_AT_6667Hz;
       break;
 
-    case LSM6DSOX_GY_BATCHED_AT_6Hz5:
+    case 0x0B:
       *val = LSM6DSOX_GY_BATCHED_AT_6Hz5;
       break;
 
@@ -7366,27 +7367,27 @@ int32_t lsm6dsox_fifo_mode_get(const stmdev_ctx_t *ctx,
 
   switch (reg.fifo_mode)
   {
-    case LSM6DSOX_BYPASS_MODE:
+    case 0x00:
       *val = LSM6DSOX_BYPASS_MODE;
       break;
 
-    case LSM6DSOX_FIFO_MODE:
+    case 0x01:
       *val = LSM6DSOX_FIFO_MODE;
       break;
 
-    case LSM6DSOX_STREAM_TO_FIFO_MODE:
+    case 0x03:
       *val = LSM6DSOX_STREAM_TO_FIFO_MODE;
       break;
 
-    case LSM6DSOX_BYPASS_TO_STREAM_MODE:
+    case 0x04:
       *val = LSM6DSOX_BYPASS_TO_STREAM_MODE;
       break;
 
-    case LSM6DSOX_STREAM_MODE:
+    case 0x06:
       *val = LSM6DSOX_STREAM_MODE;
       break;
 
-    case LSM6DSOX_BYPASS_TO_FIFO_MODE:
+    case 0x07:
       *val = LSM6DSOX_BYPASS_TO_FIFO_MODE;
       break;
 
@@ -7447,19 +7448,19 @@ int32_t lsm6dsox_fifo_temp_batch_get(const stmdev_ctx_t *ctx,
 
   switch (reg.odr_t_batch)
   {
-    case LSM6DSOX_TEMP_NOT_BATCHED:
+    case 0x00:
       *val = LSM6DSOX_TEMP_NOT_BATCHED;
       break;
 
-    case LSM6DSOX_TEMP_BATCHED_AT_1Hz6:
+    case 0x01:
       *val = LSM6DSOX_TEMP_BATCHED_AT_1Hz6;
       break;
 
-    case LSM6DSOX_TEMP_BATCHED_AT_12Hz5:
+    case 0x02:
       *val = LSM6DSOX_TEMP_BATCHED_AT_12Hz5;
       break;
 
-    case LSM6DSOX_TEMP_BATCHED_AT_52Hz:
+    case 0x03:
       *val = LSM6DSOX_TEMP_BATCHED_AT_52Hz;
       break;
 
@@ -7522,19 +7523,19 @@ int32_t lsm6dsox_fifo_timestamp_decimation_get(const stmdev_ctx_t *ctx,
 
   switch (reg.odr_ts_batch)
   {
-    case LSM6DSOX_NO_DECIMATION:
+    case 0x00:
       *val = LSM6DSOX_NO_DECIMATION;
       break;
 
-    case LSM6DSOX_DEC_1:
+    case 0x01:
       *val = LSM6DSOX_DEC_1;
       break;
 
-    case LSM6DSOX_DEC_8:
+    case 0x02:
       *val = LSM6DSOX_DEC_8;
       break;
 
-    case LSM6DSOX_DEC_32:
+    case 0x03:
       *val = LSM6DSOX_DEC_32;
       break;
 
@@ -7599,11 +7600,11 @@ int32_t lsm6dsox_fifo_cnt_event_batch_get(const stmdev_ctx_t *ctx,
 
   switch (reg.trig_counter_bdr)
   {
-    case LSM6DSOX_XL_BATCH_EVENT:
+    case 0x00:
       *val = LSM6DSOX_XL_BATCH_EVENT;
       break;
 
-    case LSM6DSOX_GYRO_BATCH_EVENT:
+    case 0x01:
       *val = LSM6DSOX_GYRO_BATCH_EVENT;
       break;
 
@@ -7884,71 +7885,71 @@ int32_t lsm6dsox_fifo_sensor_tag_get(const stmdev_ctx_t *ctx,
 
   switch (reg.tag_sensor)
   {
-    case LSM6DSOX_GYRO_NC_TAG:
+    case 0x01:
       *val = LSM6DSOX_GYRO_NC_TAG;
       break;
 
-    case LSM6DSOX_XL_NC_TAG:
+    case 0x02:
       *val = LSM6DSOX_XL_NC_TAG;
       break;
 
-    case LSM6DSOX_TEMPERATURE_TAG:
+    case 0x03:
       *val = LSM6DSOX_TEMPERATURE_TAG;
       break;
 
-    case LSM6DSOX_TIMESTAMP_TAG:
+    case 0x04:
       *val = LSM6DSOX_TIMESTAMP_TAG;
       break;
 
-    case LSM6DSOX_CFG_CHANGE_TAG:
+    case 0x05:
       *val = LSM6DSOX_CFG_CHANGE_TAG;
       break;
 
-    case LSM6DSOX_XL_NC_T_2_TAG:
+    case 0x06:
       *val = LSM6DSOX_XL_NC_T_2_TAG;
       break;
 
-    case LSM6DSOX_XL_NC_T_1_TAG:
+    case 0x07:
       *val = LSM6DSOX_XL_NC_T_1_TAG;
       break;
 
-    case LSM6DSOX_XL_2XC_TAG:
+    case 0x08:
       *val = LSM6DSOX_XL_2XC_TAG;
       break;
 
-    case LSM6DSOX_XL_3XC_TAG:
+    case 0x09:
       *val = LSM6DSOX_XL_3XC_TAG;
       break;
 
-    case LSM6DSOX_GYRO_NC_T_2_TAG:
+    case 0x0A:
       *val = LSM6DSOX_GYRO_NC_T_2_TAG;
       break;
 
-    case LSM6DSOX_GYRO_NC_T_1_TAG:
+    case 0x0B:
       *val = LSM6DSOX_GYRO_NC_T_1_TAG;
       break;
 
-    case LSM6DSOX_GYRO_2XC_TAG:
+    case 0x0C:
       *val = LSM6DSOX_GYRO_2XC_TAG;
       break;
 
-    case LSM6DSOX_GYRO_3XC_TAG:
+    case 0x0D:
       *val = LSM6DSOX_GYRO_3XC_TAG;
       break;
 
-    case LSM6DSOX_SENSORHUB_SLAVE0_TAG:
+    case 0x0E:
       *val = LSM6DSOX_SENSORHUB_SLAVE0_TAG;
       break;
 
-    case LSM6DSOX_SENSORHUB_SLAVE1_TAG:
+    case 0x0F:
       *val = LSM6DSOX_SENSORHUB_SLAVE1_TAG;
       break;
 
-    case LSM6DSOX_SENSORHUB_SLAVE2_TAG:
+    case 0x11:
       *val = LSM6DSOX_SENSORHUB_SLAVE2_TAG;
       break;
 
-    case LSM6DSOX_SENSORHUB_SLAVE3_TAG:
+    case 0x12:
       *val = LSM6DSOX_SENSORHUB_SLAVE3_TAG;
       break;
 
@@ -7956,19 +7957,19 @@ int32_t lsm6dsox_fifo_sensor_tag_get(const stmdev_ctx_t *ctx,
       *val = LSM6DSOX_STEP_COUNTER_TAG;
       break;
 
-    case LSM6DSOX_GAME_ROTATION_TAG:
+    case 0x14:
       *val = LSM6DSOX_GAME_ROTATION_TAG;
       break;
 
-    case LSM6DSOX_GEOMAG_ROTATION_TAG:
+    case 0x15:
       *val = LSM6DSOX_GEOMAG_ROTATION_TAG;
       break;
 
-    case LSM6DSOX_ROTATION_TAG:
+    case 0x16:
       *val = LSM6DSOX_ROTATION_TAG;
       break;
 
-    case LSM6DSOX_SENSORHUB_NACK_TAG:
+    case 0x19:
       *val = LSM6DSOX_SENSORHUB_NACK_TAG;
       break;
 
@@ -8168,23 +8169,23 @@ int32_t lsm6dsox_den_mode_get(const stmdev_ctx_t *ctx,
 
   switch (reg.den_mode)
   {
-    case LSM6DSOX_DEN_DISABLE:
+    case 0x00:
       *val = LSM6DSOX_DEN_DISABLE;
       break;
 
-    case LSM6DSOX_LEVEL_FIFO:
+    case 0x06:
       *val = LSM6DSOX_LEVEL_FIFO;
       break;
 
-    case LSM6DSOX_LEVEL_LETCHED:
+    case 0x03:
       *val = LSM6DSOX_LEVEL_LETCHED;
       break;
 
-    case LSM6DSOX_LEVEL_TRIGGER:
+    case 0x02:
       *val = LSM6DSOX_LEVEL_TRIGGER;
       break;
 
-    case LSM6DSOX_EDGE_TRIGGER:
+    case 0x04:
       *val = LSM6DSOX_EDGE_TRIGGER;
       break;
 
@@ -8243,11 +8244,11 @@ int32_t lsm6dsox_den_polarity_get(const stmdev_ctx_t *ctx,
 
   switch (reg.den_lh)
   {
-    case LSM6DSOX_DEN_ACT_LOW:
+    case 0x00:
       *val = LSM6DSOX_DEN_ACT_LOW;
       break;
 
-    case LSM6DSOX_DEN_ACT_HIGH:
+    case 0x01:
       *val = LSM6DSOX_DEN_ACT_HIGH;
       break;
 
@@ -8306,15 +8307,15 @@ int32_t lsm6dsox_den_enable_get(const stmdev_ctx_t *ctx,
 
   switch (reg.den_xl_g)
   {
-    case LSM6DSOX_STAMP_IN_GY_DATA:
+    case 0x00:
       *val = LSM6DSOX_STAMP_IN_GY_DATA;
       break;
 
-    case LSM6DSOX_STAMP_IN_XL_DATA:
+    case 0x01:
       *val = LSM6DSOX_STAMP_IN_XL_DATA;
       break;
 
-    case LSM6DSOX_STAMP_IN_GY_XL_DATA:
+    case 0x02:
       *val = LSM6DSOX_STAMP_IN_GY_XL_DATA;
       break;
 
@@ -8534,15 +8535,15 @@ int32_t lsm6dsox_pedo_sens_get(const stmdev_ctx_t *ctx,
   switch ((pedo_cmd_reg.ad_det_en << 5) | (pedo_cmd_reg.fp_rejection_en
                                            << 4))
   {
-    case LSM6DSOX_PEDO_BASE_MODE:
+    case 0x00:
       *val = LSM6DSOX_PEDO_BASE_MODE;
       break;
 
-    case LSM6DSOX_FALSE_STEP_REJ:
+    case 0x10:
       *val = LSM6DSOX_FALSE_STEP_REJ;
       break;
 
-    case LSM6DSOX_FALSE_STEP_REJ_ADV_MODE:
+    case 0x30:
       *val = LSM6DSOX_FALSE_STEP_REJ_ADV_MODE;
       break;
 
@@ -8731,11 +8732,11 @@ int32_t lsm6dsox_pedo_int_mode_get(const stmdev_ctx_t *ctx,
 
   switch (reg.carry_count_en)
   {
-    case LSM6DSOX_EVERY_STEP:
+    case 0x00:
       *val = LSM6DSOX_EVERY_STEP;
       break;
 
-    case LSM6DSOX_COUNT_OVERFLOW:
+    case 0x01:
       *val = LSM6DSOX_COUNT_OVERFLOW;
       break;
 
@@ -9143,27 +9144,27 @@ int32_t lsm6dsox_mag_z_orient_get(const stmdev_ctx_t *ctx,
 
   switch (reg.mag_z_axis)
   {
-    case LSM6DSOX_Z_EQ_Y:
+    case 0x00:
       *val = LSM6DSOX_Z_EQ_Y;
       break;
 
-    case LSM6DSOX_Z_EQ_MIN_Y:
+    case 0x01:
       *val = LSM6DSOX_Z_EQ_MIN_Y;
       break;
 
-    case LSM6DSOX_Z_EQ_X:
+    case 0x02:
       *val = LSM6DSOX_Z_EQ_X;
       break;
 
-    case LSM6DSOX_Z_EQ_MIN_X:
+    case 0x03:
       *val = LSM6DSOX_Z_EQ_MIN_X;
       break;
 
-    case LSM6DSOX_Z_EQ_MIN_Z:
+    case 0x04:
       *val = LSM6DSOX_Z_EQ_MIN_Z;
       break;
 
-    case LSM6DSOX_Z_EQ_Z:
+    case 0x05:
       *val = LSM6DSOX_Z_EQ_Z;
       break;
 
@@ -9231,27 +9232,27 @@ int32_t lsm6dsox_mag_y_orient_get(const stmdev_ctx_t *ctx,
 
   switch (reg.mag_y_axis)
   {
-    case LSM6DSOX_Y_EQ_Y:
+    case 0x00:
       *val = LSM6DSOX_Y_EQ_Y;
       break;
 
-    case LSM6DSOX_Y_EQ_MIN_Y:
+    case 0x01:
       *val = LSM6DSOX_Y_EQ_MIN_Y;
       break;
 
-    case LSM6DSOX_Y_EQ_X:
+    case 0x02:
       *val = LSM6DSOX_Y_EQ_X;
       break;
 
-    case LSM6DSOX_Y_EQ_MIN_X:
+    case 0x03:
       *val = LSM6DSOX_Y_EQ_MIN_X;
       break;
 
-    case LSM6DSOX_Y_EQ_MIN_Z:
+    case 0x04:
       *val = LSM6DSOX_Y_EQ_MIN_Z;
       break;
 
-    case LSM6DSOX_Y_EQ_Z:
+    case 0x05:
       *val = LSM6DSOX_Y_EQ_Z;
       break;
 
@@ -9319,27 +9320,27 @@ int32_t lsm6dsox_mag_x_orient_get(const stmdev_ctx_t *ctx,
 
   switch (reg.mag_x_axis)
   {
-    case LSM6DSOX_X_EQ_Y:
+    case 0x00:
       *val = LSM6DSOX_X_EQ_Y;
       break;
 
-    case LSM6DSOX_X_EQ_MIN_Y:
+    case 0x01:
       *val = LSM6DSOX_X_EQ_MIN_Y;
       break;
 
-    case LSM6DSOX_X_EQ_X:
+    case 0x02:
       *val = LSM6DSOX_X_EQ_X;
       break;
 
-    case LSM6DSOX_X_EQ_MIN_X:
+    case 0x03:
       *val = LSM6DSOX_X_EQ_MIN_X;
       break;
 
-    case LSM6DSOX_X_EQ_MIN_Z:
+    case 0x04:
       *val = LSM6DSOX_X_EQ_MIN_Z;
       break;
 
-    case LSM6DSOX_X_EQ_Z:
+    case 0x05:
       *val = LSM6DSOX_X_EQ_Z;
       break;
 
@@ -9573,29 +9574,31 @@ int32_t lsm6dsox_long_clr_get(const stmdev_ctx_t *ctx,
                             (uint8_t *)&reg, 1);
   }
 
-  if (ret == 0)
+  ret += lsm6dsox_mem_bank_set(ctx, LSM6DSOX_USER_BANK);
+
+  if (ret != 0)
   {
-    switch (reg.fsm_lc_clr)
-    {
-      case LSM6DSOX_LC_NORMAL:
-        *val = LSM6DSOX_LC_NORMAL;
-        break;
-
-      case LSM6DSOX_LC_CLEAR:
-        *val = LSM6DSOX_LC_CLEAR;
-        break;
-
-      case LSM6DSOX_LC_CLEAR_DONE:
-        *val = LSM6DSOX_LC_CLEAR_DONE;
-        break;
-
-      default:
-        *val = LSM6DSOX_LC_NORMAL;
-        break;
-    }
+    return ret;
   }
 
-  ret += lsm6dsox_mem_bank_set(ctx, LSM6DSOX_USER_BANK);
+  switch (reg.fsm_lc_clr)
+  {
+    case 0x00:
+      *val = LSM6DSOX_LC_NORMAL;
+      break;
+
+    case 0x01:
+      *val = LSM6DSOX_LC_CLEAR;
+      break;
+
+    case 0x02:
+      *val = LSM6DSOX_LC_CLEAR_DONE;
+      break;
+
+    default:
+      *val = LSM6DSOX_LC_NORMAL;
+      break;
+  }
 
   return ret;
 }
@@ -9689,25 +9692,29 @@ int32_t lsm6dsox_fsm_data_rate_get(const stmdev_ctx_t *ctx,
     return ret;
   }
 
-      case LSM6DSOX_ODR_FSM_26Hz:
-        *val = LSM6DSOX_ODR_FSM_26Hz;
-        break;
+  switch (reg.fsm_odr)
+  {
+    case 0x00:
+      *val = LSM6DSOX_ODR_FSM_12Hz5;
+      break;
 
-      case LSM6DSOX_ODR_FSM_52Hz:
-        *val = LSM6DSOX_ODR_FSM_52Hz;
-        break;
+    case 0x01:
+      *val = LSM6DSOX_ODR_FSM_26Hz;
+      break;
 
-      case LSM6DSOX_ODR_FSM_104Hz:
-        *val = LSM6DSOX_ODR_FSM_104Hz;
-        break;
+    case 0x02:
+      *val = LSM6DSOX_ODR_FSM_52Hz;
+      break;
 
-      default:
-        *val = LSM6DSOX_ODR_FSM_12Hz5;
-        break;
-    }
+    case 0x03:
+      *val = LSM6DSOX_ODR_FSM_104Hz;
+      break;
+
+    default:
+      *val = LSM6DSOX_ODR_FSM_12Hz5;
+      break;
   }
 
-  ret += lsm6dsox_mem_bank_set(ctx, LSM6DSOX_USER_BANK);
 
   return ret;
 }
@@ -9991,7 +9998,24 @@ int32_t lsm6dsox_mlc_data_rate_set(const stmdev_ctx_t *ctx,
                              (uint8_t *)&reg, 1);
   }
 
-  ret += lsm6dsox_mem_bank_set(ctx, LSM6DSOX_USER_BANK);
+  switch (emb_func_odr_cfg_c.mlc_odr)
+  {
+    case 0x00:
+      *val = LSM6DSOX_ODR_PRGS_12Hz5;
+      break;
+    case 0x01:
+      *val = LSM6DSOX_ODR_PRGS_26Hz;
+      break;
+    case 0x02:
+      *val = LSM6DSOX_ODR_PRGS_52Hz;
+      break;
+    case 0x03:
+      *val = LSM6DSOX_ODR_PRGS_104Hz;
+      break;
+    default:
+      *val = LSM6DSOX_ODR_PRGS_12Hz5;
+      break;
+  }
 
   return ret;
 }
@@ -10044,7 +10068,24 @@ int32_t lsm6dsox_mlc_data_rate_get(const stmdev_ctx_t *ctx,
     }
   }
 
-  ret += lsm6dsox_mem_bank_set(ctx, LSM6DSOX_USER_BANK);
+  switch (emb_func_odr_cfg_c.mlc_odr)
+  {
+    case 0x00:
+      *val = LSM6DSOX_ODR_PRGS_12Hz5;
+      break;
+    case 0x01:
+      *val = LSM6DSOX_ODR_PRGS_26Hz;
+      break;
+    case 0x02:
+      *val = LSM6DSOX_ODR_PRGS_52Hz;
+      break;
+    case 0x03:
+      *val = LSM6DSOX_ODR_PRGS_104Hz;
+      break;
+    default:
+      *val = LSM6DSOX_ODR_PRGS_12Hz5;
+      break;
+  }
 
   return ret;
 }
@@ -10150,22 +10191,27 @@ int32_t lsm6dsox_sh_slave_connected_get(const stmdev_ctx_t *ctx,
     return ret;
   }
 
-      case LSM6DSOX_SLV_0_1:
-        *val = LSM6DSOX_SLV_0_1;
-        break;
+  switch (reg.aux_sens_on)
+  {
+    case 0x00:
+      *val = LSM6DSOX_SLV_0;
+      break;
 
-      case LSM6DSOX_SLV_0_1_2:
-        *val = LSM6DSOX_SLV_0_1_2;
-        break;
+    case 0x01:
+      *val = LSM6DSOX_SLV_0_1;
+      break;
 
-      case LSM6DSOX_SLV_0_1_2_3:
-        *val = LSM6DSOX_SLV_0_1_2_3;
-        break;
+    case 0x02:
+      *val = LSM6DSOX_SLV_0_1_2;
+      break;
 
-      default:
-        *val = LSM6DSOX_SLV_0;
-        break;
-    }
+    case 0x03:
+      *val = LSM6DSOX_SLV_0_1_2_3;
+      break;
+
+    default:
+      *val = LSM6DSOX_SLV_0;
+      break;
   }
 
   ret += lsm6dsox_mem_bank_set(ctx, LSM6DSOX_USER_BANK);
@@ -10294,17 +10340,21 @@ int32_t lsm6dsox_sh_pin_mode_get(const stmdev_ctx_t *ctx,
     return ret;
   }
 
-      case LSM6DSOX_INTERNAL_PULL_UP:
-        *val = LSM6DSOX_INTERNAL_PULL_UP;
-        break;
+  switch (reg.shub_pu_en)
+  {
+    case 0x00:
+      *val = LSM6DSOX_EXT_PULL_UP;
+      break;
 
-      default:
-        *val = LSM6DSOX_EXT_PULL_UP;
-        break;
-    }
+    case 0x01:
+      *val = LSM6DSOX_INTERNAL_PULL_UP;
+      break;
+
+    default:
+      *val = LSM6DSOX_EXT_PULL_UP;
+      break;
   }
 
-  ret += lsm6dsox_mem_bank_set(ctx, LSM6DSOX_USER_BANK);
 
   return ret;
 }
@@ -10432,17 +10482,21 @@ int32_t lsm6dsox_sh_syncro_mode_get(const stmdev_ctx_t *ctx,
     return ret;
   }
 
-      case LSM6DSOX_XL_GY_DRDY:
-        *val = LSM6DSOX_XL_GY_DRDY;
-        break;
+  switch (reg.start_config)
+  {
+    case 0x01:
+      *val = LSM6DSOX_EXT_ON_INT2_PIN;
+      break;
 
-      default:
-        *val = LSM6DSOX_EXT_ON_INT2_PIN;
-        break;
-    }
+    case 0x00:
+      *val = LSM6DSOX_XL_GY_DRDY;
+      break;
+
+    default:
+      *val = LSM6DSOX_EXT_ON_INT2_PIN;
+      break;
   }
 
-  ret += lsm6dsox_mem_bank_set(ctx, LSM6DSOX_USER_BANK);
 
   return ret;
 }
@@ -10509,17 +10563,21 @@ int32_t lsm6dsox_sh_write_mode_get(const stmdev_ctx_t *ctx,
     return ret;
   }
 
-      case LSM6DSOX_ONLY_FIRST_CYCLE:
-        *val = LSM6DSOX_ONLY_FIRST_CYCLE;
-        break;
+  switch (reg.write_once)
+  {
+    case 0x00:
+      *val = LSM6DSOX_EACH_SH_CYCLE;
+      break;
 
-      default:
-        *val = LSM6DSOX_EACH_SH_CYCLE;
-        break;
-    }
+    case 0x01:
+      *val = LSM6DSOX_ONLY_FIRST_CYCLE;
+      break;
+
+    default:
+      *val = LSM6DSOX_EACH_SH_CYCLE;
+      break;
   }
 
-  ret += lsm6dsox_mem_bank_set(ctx, LSM6DSOX_USER_BANK);
 
   return ret;
 }
@@ -10643,33 +10701,30 @@ int32_t lsm6dsox_sh_data_rate_get(const stmdev_ctx_t *ctx,
     ret = lsm6dsox_read_reg(ctx, LSM6DSOX_SLV0_CONFIG, (uint8_t *)&reg, 1);
   }
 
-  if (ret == 0)
-  {
-    switch (reg.shub_odr)
-    {
-      case LSM6DSOX_SH_ODR_104Hz:
-        *val = LSM6DSOX_SH_ODR_104Hz;
-        break;
-
-      case LSM6DSOX_SH_ODR_52Hz:
-        *val = LSM6DSOX_SH_ODR_52Hz;
-        break;
-
-      case LSM6DSOX_SH_ODR_26Hz:
-        *val = LSM6DSOX_SH_ODR_26Hz;
-        break;
-
-      case LSM6DSOX_SH_ODR_13Hz:
-        *val = LSM6DSOX_SH_ODR_13Hz;
-        break;
-
-      default:
-        *val = LSM6DSOX_SH_ODR_104Hz;
-        break;
-    }
-  }
-
   ret += lsm6dsox_mem_bank_set(ctx, LSM6DSOX_USER_BANK);
+
+  switch (reg.shub_odr)
+  {
+    case 0x00:
+      *val = LSM6DSOX_SH_ODR_104Hz;
+      break;
+
+    case 0x01:
+      *val = LSM6DSOX_SH_ODR_52Hz;
+      break;
+
+    case 0x02:
+      *val = LSM6DSOX_SH_ODR_26Hz;
+      break;
+
+    case 0x03:
+      *val = LSM6DSOX_SH_ODR_13Hz;
+      break;
+
+    default:
+      *val = LSM6DSOX_SH_ODR_104Hz;
+      break;
+  }
 
   return ret;
 }
@@ -10981,19 +11036,19 @@ int32_t lsm6dsox_s4s_res_ratio_get(const stmdev_ctx_t *ctx,
 
   switch (reg.rr)
   {
-    case LSM6DSOX_S4S_DT_RES_11:
+    case 0x00:
       *val = LSM6DSOX_S4S_DT_RES_11;
       break;
 
-    case LSM6DSOX_S4S_DT_RES_12:
+    case 0x01:
       *val = LSM6DSOX_S4S_DT_RES_12;
       break;
 
-    case LSM6DSOX_S4S_DT_RES_13:
+    case 0x02:
       *val = LSM6DSOX_S4S_DT_RES_13;
       break;
 
-    case LSM6DSOX_S4S_DT_RES_14:
+    case 0x03:
       *val = LSM6DSOX_S4S_DT_RES_14;
       break;
 
@@ -11363,21 +11418,22 @@ int32_t lsm6dsox_bus_mode_get(const stmdev_ctx_t *ctx,
     ret = lsm6dsox_read_reg(aux_ctx, LSM6DSOX_SPI2_CTRL1_OIS,
                             (uint8_t *)&spi2_ctrl1_ois, 1);
 
-    if (ret != 0) { return ret; }
-
-    switch (spi2_ctrl1_ois.sim_ois)
+    if (ret == 0)
     {
-      case LSM6DSOX_SPI_4W_AUX:
-        val->aux_bus_md = LSM6DSOX_SPI_4W_AUX;
-        break;
+      switch (spi2_ctrl1_ois.sim_ois)
+      {
+        case (uint8_t)LSM6DSOX_SPI_4W_AUX:
+          val->aux_bus_md = LSM6DSOX_SPI_4W_AUX;
+          break;
 
-      case LSM6DSOX_SPI_3W_AUX:
-        val->aux_bus_md = LSM6DSOX_SPI_3W_AUX;
-        break;
+        case (uint8_t)LSM6DSOX_SPI_3W_AUX:
+          val->aux_bus_md = LSM6DSOX_SPI_3W_AUX;
+          break;
 
-      default:
-        val->aux_bus_md = LSM6DSOX_SPI_4W_AUX;
-        break;
+        default:
+          val->aux_bus_md = LSM6DSOX_SPI_4W_AUX;
+          break;
+      }
     }
   }
 
@@ -11413,35 +11469,35 @@ int32_t lsm6dsox_bus_mode_get(const stmdev_ctx_t *ctx,
               (ctrl9_xl.i3c_disable << 2) &
               (ctrl4_c.i2c_disable << 1) & ctrl3_c.sim)
       {
-        case LSM6DSOX_SEL_BY_HW:
+        case 0x00:
           val->ui_bus_md = LSM6DSOX_SEL_BY_HW;
           break;
 
-        case LSM6DSOX_SPI_4W:
+        case 0x06:
           val->ui_bus_md = LSM6DSOX_SPI_4W;
           break;
 
-        case LSM6DSOX_SPI_3W:
+        case 0x07:
           val->ui_bus_md = LSM6DSOX_SPI_3W;
           break;
 
-        case LSM6DSOX_I2C:
+        case 0x04:
           val->ui_bus_md = LSM6DSOX_I2C;
           break;
 
-        case LSM6DSOX_I3C_T_50us:
+        case 0x02:
           val->ui_bus_md = LSM6DSOX_I3C_T_50us;
           break;
 
-        case LSM6DSOX_I3C_T_2us:
+        case 0x12:
           val->ui_bus_md = LSM6DSOX_I3C_T_2us;
           break;
 
-        case LSM6DSOX_I3C_T_1ms:
+        case 0x22:
           val->ui_bus_md = LSM6DSOX_I3C_T_1ms;
           break;
 
-        case LSM6DSOX_I3C_T_25ms:
+        case 0x32:
           val->ui_bus_md = LSM6DSOX_I3C_T_25ms;
           break;
 
@@ -12870,95 +12926,95 @@ int32_t lsm6dsox_mode_set(const stmdev_ctx_t *ctx, stmdev_ctx_t *aux_ctx,
   switch ((ctrl5_c.xl_ulp_en << 5) | (ctrl6_c.xl_hm_mode << 4) |
           ctrl1_xl.odr_xl)
   {
-    case LSM6DSOX_XL_UI_OFF:
+    case 0x00:
       val->ui.xl.odr = LSM6DSOX_XL_UI_OFF;
       break;
 
-    case LSM6DSOX_XL_UI_12Hz5_HP:
+    case 0x01:
       val->ui.xl.odr = LSM6DSOX_XL_UI_12Hz5_HP;
       break;
 
-    case LSM6DSOX_XL_UI_26Hz_HP:
+    case 0x02:
       val->ui.xl.odr = LSM6DSOX_XL_UI_26Hz_HP;
       break;
 
-    case LSM6DSOX_XL_UI_52Hz_HP:
+    case 0x03:
       val->ui.xl.odr = LSM6DSOX_XL_UI_52Hz_HP;
       break;
 
-    case LSM6DSOX_XL_UI_104Hz_HP:
+    case 0x04:
       val->ui.xl.odr = LSM6DSOX_XL_UI_104Hz_HP;
       break;
 
-    case LSM6DSOX_XL_UI_208Hz_HP:
+    case 0x05:
       val->ui.xl.odr = LSM6DSOX_XL_UI_208Hz_HP;
       break;
 
-    case LSM6DSOX_XL_UI_416Hz_HP:
+    case 0x06:
       val->ui.xl.odr = LSM6DSOX_XL_UI_416Hz_HP;
       break;
 
-    case LSM6DSOX_XL_UI_833Hz_HP:
+    case 0x07:
       val->ui.xl.odr = LSM6DSOX_XL_UI_833Hz_HP;
       break;
 
-    case LSM6DSOX_XL_UI_1667Hz_HP:
+    case 0x08:
       val->ui.xl.odr = LSM6DSOX_XL_UI_1667Hz_HP;
       break;
 
-    case LSM6DSOX_XL_UI_3333Hz_HP:
+    case 0x09:
       val->ui.xl.odr = LSM6DSOX_XL_UI_3333Hz_HP;
       break;
 
-    case LSM6DSOX_XL_UI_6667Hz_HP:
+    case 0x0A:
       val->ui.xl.odr = LSM6DSOX_XL_UI_6667Hz_HP;
       break;
 
-    case LSM6DSOX_XL_UI_1Hz6_LP:
+    case 0x1B:
       val->ui.xl.odr = LSM6DSOX_XL_UI_1Hz6_LP;
       break;
 
-    case LSM6DSOX_XL_UI_12Hz5_LP:
+    case 0x11:
       val->ui.xl.odr = LSM6DSOX_XL_UI_12Hz5_LP;
       break;
 
-    case LSM6DSOX_XL_UI_26Hz_LP:
+    case 0x12:
       val->ui.xl.odr = LSM6DSOX_XL_UI_26Hz_LP;
       break;
 
-    case LSM6DSOX_XL_UI_52Hz_LP:
+    case 0x13:
       val->ui.xl.odr = LSM6DSOX_XL_UI_52Hz_LP;
       break;
 
-    case LSM6DSOX_XL_UI_104Hz_NM:
+    case 0x14:
       val->ui.xl.odr = LSM6DSOX_XL_UI_104Hz_NM;
       break;
 
-    case LSM6DSOX_XL_UI_208Hz_NM:
+    case 0x15:
       val->ui.xl.odr = LSM6DSOX_XL_UI_208Hz_NM;
       break;
 
-    case LSM6DSOX_XL_UI_1Hz6_ULP:
+    case 0x2B:
       val->ui.xl.odr = LSM6DSOX_XL_UI_1Hz6_ULP;
       break;
 
-    case LSM6DSOX_XL_UI_12Hz5_ULP:
+    case 0x21:
       val->ui.xl.odr = LSM6DSOX_XL_UI_12Hz5_ULP;
       break;
 
-    case LSM6DSOX_XL_UI_26Hz_ULP:
+    case 0x22:
       val->ui.xl.odr = LSM6DSOX_XL_UI_26Hz_ULP;
       break;
 
-    case LSM6DSOX_XL_UI_52Hz_ULP:
+    case 0x23:
       val->ui.xl.odr = LSM6DSOX_XL_UI_52Hz_ULP;
       break;
 
-    case LSM6DSOX_XL_UI_104Hz_ULP:
+    case 0x24:
       val->ui.xl.odr = LSM6DSOX_XL_UI_104Hz_ULP;
       break;
 
-    case LSM6DSOX_XL_UI_208Hz_ULP:
+    case 0x25:
       val->ui.xl.odr = LSM6DSOX_XL_UI_208Hz_ULP;
       break;
 
@@ -12970,67 +13026,67 @@ int32_t lsm6dsox_mode_set(const stmdev_ctx_t *ctx, stmdev_ctx_t *aux_ctx,
   /* Updating the accelerometer data rate configuration */
   switch ((ctrl7_g.g_hm_mode << 4) | ctrl2_g.odr_g)
   {
-    case LSM6DSOX_GY_UI_OFF:
+    case 0x00:
       val->ui.gy.odr = LSM6DSOX_GY_UI_OFF;
       break;
 
-    case LSM6DSOX_GY_UI_12Hz5_LP:
+    case 0x11:
       val->ui.gy.odr = LSM6DSOX_GY_UI_12Hz5_LP;
       break;
 
-    case LSM6DSOX_GY_UI_12Hz5_HP:
+    case 0x01:
       val->ui.gy.odr = LSM6DSOX_GY_UI_12Hz5_HP;
       break;
 
-    case LSM6DSOX_GY_UI_26Hz_LP:
+    case 0x12:
       val->ui.gy.odr = LSM6DSOX_GY_UI_26Hz_LP;
       break;
 
-    case LSM6DSOX_GY_UI_26Hz_HP:
+    case 0x02:
       val->ui.gy.odr = LSM6DSOX_GY_UI_26Hz_HP;
       break;
 
-    case LSM6DSOX_GY_UI_52Hz_LP:
+    case 0x13:
       val->ui.gy.odr = LSM6DSOX_GY_UI_52Hz_LP;
       break;
 
-    case LSM6DSOX_GY_UI_52Hz_HP:
+    case 0x03:
       val->ui.gy.odr = LSM6DSOX_GY_UI_52Hz_HP;
       break;
 
-    case LSM6DSOX_GY_UI_104Hz_NM:
+    case 0x14:
       val->ui.gy.odr = LSM6DSOX_GY_UI_104Hz_NM;
       break;
 
-    case LSM6DSOX_GY_UI_104Hz_HP:
+    case 0x04:
       val->ui.gy.odr = LSM6DSOX_GY_UI_104Hz_HP;
       break;
 
-    case LSM6DSOX_GY_UI_208Hz_NM:
+    case 0x15:
       val->ui.gy.odr = LSM6DSOX_GY_UI_208Hz_NM;
       break;
 
-    case LSM6DSOX_GY_UI_208Hz_HP:
+    case 0x05:
       val->ui.gy.odr = LSM6DSOX_GY_UI_208Hz_HP;
       break;
 
-    case LSM6DSOX_GY_UI_416Hz_HP:
+    case 0x06:
       val->ui.gy.odr = LSM6DSOX_GY_UI_416Hz_HP;
       break;
 
-    case LSM6DSOX_GY_UI_833Hz_HP:
+    case 0x07:
       val->ui.gy.odr = LSM6DSOX_GY_UI_833Hz_HP;
       break;
 
-    case LSM6DSOX_GY_UI_1667Hz_HP:
+    case 0x08:
       val->ui.gy.odr = LSM6DSOX_GY_UI_1667Hz_HP;
       break;
 
-    case LSM6DSOX_GY_UI_3333Hz_HP:
+    case 0x09:
       val->ui.gy.odr = LSM6DSOX_GY_UI_3333Hz_HP;
       break;
 
-    case LSM6DSOX_GY_UI_6667Hz_HP:
+    case 0x0A:
       val->ui.gy.odr = LSM6DSOX_GY_UI_6667Hz_HP;
       break;
 
@@ -13285,95 +13341,95 @@ int32_t lsm6dsox_mode_get(const stmdev_ctx_t *ctx, stmdev_ctx_t *aux_ctx,
   switch ((ctrl5_c.xl_ulp_en << 5) | (ctrl6_c.xl_hm_mode << 4) |
           ctrl1_xl.odr_xl)
   {
-    case LSM6DSOX_XL_UI_OFF:
+    case 0x00:
       val->ui.xl.odr = LSM6DSOX_XL_UI_OFF;
       break;
 
-    case LSM6DSOX_XL_UI_12Hz5_HP:
+    case 0x01:
       val->ui.xl.odr = LSM6DSOX_XL_UI_12Hz5_HP;
       break;
 
-    case LSM6DSOX_XL_UI_26Hz_HP:
+    case 0x02:
       val->ui.xl.odr = LSM6DSOX_XL_UI_26Hz_HP;
       break;
 
-    case LSM6DSOX_XL_UI_52Hz_HP:
+    case 0x03:
       val->ui.xl.odr = LSM6DSOX_XL_UI_52Hz_HP;
       break;
 
-    case LSM6DSOX_XL_UI_104Hz_HP:
+    case 0x04:
       val->ui.xl.odr = LSM6DSOX_XL_UI_104Hz_HP;
       break;
 
-    case LSM6DSOX_XL_UI_208Hz_HP:
+    case 0x05:
       val->ui.xl.odr = LSM6DSOX_XL_UI_208Hz_HP;
       break;
 
-    case LSM6DSOX_XL_UI_416Hz_HP:
+    case 0x06:
       val->ui.xl.odr = LSM6DSOX_XL_UI_416Hz_HP;
       break;
 
-    case LSM6DSOX_XL_UI_833Hz_HP:
+    case 0x07:
       val->ui.xl.odr = LSM6DSOX_XL_UI_833Hz_HP;
       break;
 
-    case LSM6DSOX_XL_UI_1667Hz_HP:
+    case 0x08:
       val->ui.xl.odr = LSM6DSOX_XL_UI_1667Hz_HP;
       break;
 
-    case LSM6DSOX_XL_UI_3333Hz_HP:
+    case 0x09:
       val->ui.xl.odr = LSM6DSOX_XL_UI_3333Hz_HP;
       break;
 
-    case LSM6DSOX_XL_UI_6667Hz_HP:
+    case 0x0A:
       val->ui.xl.odr = LSM6DSOX_XL_UI_6667Hz_HP;
       break;
 
-    case LSM6DSOX_XL_UI_1Hz6_LP:
+    case 0x1B:
       val->ui.xl.odr = LSM6DSOX_XL_UI_1Hz6_LP;
       break;
 
-    case LSM6DSOX_XL_UI_12Hz5_LP:
+    case 0x11:
       val->ui.xl.odr = LSM6DSOX_XL_UI_12Hz5_LP;
       break;
 
-    case LSM6DSOX_XL_UI_26Hz_LP:
+    case 0x12:
       val->ui.xl.odr = LSM6DSOX_XL_UI_26Hz_LP;
       break;
 
-    case LSM6DSOX_XL_UI_52Hz_LP:
+    case 0x13:
       val->ui.xl.odr = LSM6DSOX_XL_UI_52Hz_LP;
       break;
 
-    case LSM6DSOX_XL_UI_104Hz_NM:
+    case 0x14:
       val->ui.xl.odr = LSM6DSOX_XL_UI_104Hz_NM;
       break;
 
-    case LSM6DSOX_XL_UI_208Hz_NM:
+    case 0x15:
       val->ui.xl.odr = LSM6DSOX_XL_UI_208Hz_NM;
       break;
 
-    case LSM6DSOX_XL_UI_1Hz6_ULP:
+    case 0x2B:
       val->ui.xl.odr = LSM6DSOX_XL_UI_1Hz6_ULP;
       break;
 
-    case LSM6DSOX_XL_UI_12Hz5_ULP:
+    case 0x21:
       val->ui.xl.odr = LSM6DSOX_XL_UI_12Hz5_ULP;
       break;
 
-    case LSM6DSOX_XL_UI_26Hz_ULP:
+    case 0x22:
       val->ui.xl.odr = LSM6DSOX_XL_UI_26Hz_ULP;
       break;
 
-    case LSM6DSOX_XL_UI_52Hz_ULP:
+    case 0x23:
       val->ui.xl.odr = LSM6DSOX_XL_UI_52Hz_ULP;
       break;
 
-    case LSM6DSOX_XL_UI_104Hz_ULP:
+    case 0x24:
       val->ui.xl.odr = LSM6DSOX_XL_UI_104Hz_ULP;
       break;
 
-    case LSM6DSOX_XL_UI_208Hz_ULP:
+    case 0x25:
       val->ui.xl.odr = LSM6DSOX_XL_UI_208Hz_ULP;
       break;
 
@@ -13384,19 +13440,19 @@ int32_t lsm6dsox_mode_get(const stmdev_ctx_t *ctx, stmdev_ctx_t *aux_ctx,
 
   switch (ctrl1_xl.fs_xl)
   {
-    case LSM6DSOX_XL_UI_2g:
+    case 0x00:
       val->ui.xl.fs = LSM6DSOX_XL_UI_2g;
       break;
 
-    case LSM6DSOX_XL_UI_4g:
+    case 0x02:
       val->ui.xl.fs = LSM6DSOX_XL_UI_4g;
       break;
 
-    case LSM6DSOX_XL_UI_8g:
+    case 0x03:
       val->ui.xl.fs = LSM6DSOX_XL_UI_8g;
       break;
 
-    case LSM6DSOX_XL_UI_16g:
+    case 0x01:
       val->ui.xl.fs = LSM6DSOX_XL_UI_16g;
       break;
 
@@ -13408,67 +13464,67 @@ int32_t lsm6dsox_mode_get(const stmdev_ctx_t *ctx, stmdev_ctx_t *aux_ctx,
   /* get gyroscope configuration */
   switch ((ctrl7_g.g_hm_mode << 4) | ctrl2_g.odr_g)
   {
-    case LSM6DSOX_GY_UI_OFF:
+    case 0x00:
       val->ui.gy.odr = LSM6DSOX_GY_UI_OFF;
       break;
 
-    case LSM6DSOX_GY_UI_12Hz5_LP:
+    case 0x11:
       val->ui.gy.odr = LSM6DSOX_GY_UI_12Hz5_LP;
       break;
 
-    case LSM6DSOX_GY_UI_12Hz5_HP:
+    case 0x01:
       val->ui.gy.odr = LSM6DSOX_GY_UI_12Hz5_HP;
       break;
 
-    case LSM6DSOX_GY_UI_26Hz_LP:
+    case 0x12:
       val->ui.gy.odr = LSM6DSOX_GY_UI_26Hz_LP;
       break;
 
-    case LSM6DSOX_GY_UI_26Hz_HP:
+    case 0x02:
       val->ui.gy.odr = LSM6DSOX_GY_UI_26Hz_HP;
       break;
 
-    case LSM6DSOX_GY_UI_52Hz_LP:
+    case 0x13:
       val->ui.gy.odr = LSM6DSOX_GY_UI_52Hz_LP;
       break;
 
-    case LSM6DSOX_GY_UI_52Hz_HP:
+    case 0x03:
       val->ui.gy.odr = LSM6DSOX_GY_UI_52Hz_HP;
       break;
 
-    case LSM6DSOX_GY_UI_104Hz_NM:
+    case 0x14:
       val->ui.gy.odr = LSM6DSOX_GY_UI_104Hz_NM;
       break;
 
-    case LSM6DSOX_GY_UI_104Hz_HP:
+    case 0x04:
       val->ui.gy.odr = LSM6DSOX_GY_UI_104Hz_HP;
       break;
 
-    case LSM6DSOX_GY_UI_208Hz_NM:
+    case 0x15:
       val->ui.gy.odr = LSM6DSOX_GY_UI_208Hz_NM;
       break;
 
-    case LSM6DSOX_GY_UI_208Hz_HP:
+    case 0x05:
       val->ui.gy.odr = LSM6DSOX_GY_UI_208Hz_HP;
       break;
 
-    case LSM6DSOX_GY_UI_416Hz_HP:
+    case 0x06:
       val->ui.gy.odr = LSM6DSOX_GY_UI_416Hz_HP;
       break;
 
-    case LSM6DSOX_GY_UI_833Hz_HP:
+    case 0x07:
       val->ui.gy.odr = LSM6DSOX_GY_UI_833Hz_HP;
       break;
 
-    case LSM6DSOX_GY_UI_1667Hz_HP:
+    case 0x08:
       val->ui.gy.odr = LSM6DSOX_GY_UI_1667Hz_HP;
       break;
 
-    case LSM6DSOX_GY_UI_3333Hz_HP:
+    case 0x09:
       val->ui.gy.odr = LSM6DSOX_GY_UI_3333Hz_HP;
       break;
 
-    case LSM6DSOX_GY_UI_6667Hz_HP:
+    case 0x0A:
       val->ui.gy.odr = LSM6DSOX_GY_UI_6667Hz_HP;
       break;
 
@@ -13479,23 +13535,23 @@ int32_t lsm6dsox_mode_get(const stmdev_ctx_t *ctx, stmdev_ctx_t *aux_ctx,
 
   switch (ctrl2_g.fs_g)
   {
-    case LSM6DSOX_GY_UI_125dps:
+    case 0x01:
       val->ui.gy.fs = LSM6DSOX_GY_UI_125dps;
       break;
 
-    case LSM6DSOX_GY_UI_250dps:
+    case 0x00:
       val->ui.gy.fs = LSM6DSOX_GY_UI_250dps;
       break;
 
-    case LSM6DSOX_GY_UI_500dps:
+    case 0x02:
       val->ui.gy.fs = LSM6DSOX_GY_UI_500dps;
       break;
 
-    case LSM6DSOX_GY_UI_1000dps:
+    case 0x04:
       val->ui.gy.fs = LSM6DSOX_GY_UI_1000dps;
       break;
 
-    case LSM6DSOX_GY_UI_2000dps:
+    case 0x06:
       val->ui.gy.fs = LSM6DSOX_GY_UI_2000dps;
       break;
 
@@ -13516,24 +13572,24 @@ int32_t lsm6dsox_mode_get(const stmdev_ctx_t *ctx, stmdev_ctx_t *aux_ctx,
   {
     switch (emb_func_odr_cfg_b.fsm_odr)
     {
-      case LSM6DSOX_ODR_FSM_12Hz5:
-        val->fsm.odr = LSM6DSOX_ODR_FSM_12Hz5;
+      case 0x00:
+        val->fsm.odr = LSM6DSOX_FSM_12Hz5;
         break;
 
-      case LSM6DSOX_ODR_FSM_26Hz:
-        val->fsm.odr = LSM6DSOX_ODR_FSM_26Hz;
+      case 0x01:
+        val->fsm.odr = LSM6DSOX_FSM_26Hz;
         break;
 
-      case LSM6DSOX_ODR_FSM_52Hz:
-        val->fsm.odr = LSM6DSOX_ODR_FSM_52Hz;
+      case 0x02:
+        val->fsm.odr = LSM6DSOX_FSM_52Hz;
         break;
 
-      case LSM6DSOX_ODR_FSM_104Hz:
-        val->fsm.odr = LSM6DSOX_ODR_FSM_104Hz;
+      case 0x03:
+        val->fsm.odr = LSM6DSOX_FSM_104Hz;
         break;
 
       default:
-        val->fsm.odr = LSM6DSOX_ODR_FSM_12Hz5;
+        val->fsm.odr = LSM6DSOX_FSM_12Hz5;
         break;
     }
 
@@ -13560,19 +13616,19 @@ int32_t lsm6dsox_mode_get(const stmdev_ctx_t *ctx, stmdev_ctx_t *aux_ctx,
   {
     switch (emb_func_odr_cfg_c.mlc_odr)
     {
-      case LSM6DSOX_ODR_PRGS_12Hz5:
+      case 0x00:
         val->mlc.odr = LSM6DSOX_ODR_PRGS_12Hz5;
         break;
 
-      case LSM6DSOX_ODR_PRGS_26Hz:
+      case 0x01:
         val->mlc.odr = LSM6DSOX_ODR_PRGS_26Hz;
         break;
 
-      case LSM6DSOX_ODR_PRGS_52Hz:
+      case 0x02:
         val->mlc.odr = LSM6DSOX_ODR_PRGS_52Hz;
         break;
 
-      case LSM6DSOX_ODR_PRGS_104Hz:
+      case 0x03:
         val->mlc.odr = LSM6DSOX_ODR_PRGS_104Hz;
         break;
 
@@ -13605,22 +13661,22 @@ int32_t lsm6dsox_mode_get(const stmdev_ctx_t *ctx, stmdev_ctx_t *aux_ctx,
   switch ((func_cfg_access.ois_ctrl_from_ui << 1) +
           ctrl7_g.ois_on_en)
   {
-    case LSM6DSOX_OIS_ONLY_AUX:
+    case (uint8_t)LSM6DSOX_OIS_ONLY_AUX:
       switch (spi2_ctrl3_ois.fs_xl_ois)
       {
-        case LSM6DSOX_XL_OIS_2g:
+        case 0x00:
           val->ois.xl.fs = LSM6DSOX_XL_OIS_2g;
           break;
 
-        case LSM6DSOX_XL_OIS_4g:
+        case 0x02:
           val->ois.xl.fs = LSM6DSOX_XL_OIS_4g;
           break;
 
-        case LSM6DSOX_XL_OIS_8g:
+        case 0x03:
           val->ois.xl.fs = LSM6DSOX_XL_OIS_8g;
           break;
 
-        case LSM6DSOX_XL_OIS_16g:
+        case 0x01:
           val->ois.xl.fs = LSM6DSOX_XL_OIS_16g;
           break;
 
@@ -13631,11 +13687,11 @@ int32_t lsm6dsox_mode_get(const stmdev_ctx_t *ctx, stmdev_ctx_t *aux_ctx,
 
       switch (spi2_ctrl1_ois.mode4_en)
       {
-        case LSM6DSOX_XL_OIS_OFF:
+        case 0x00:
           val->ois.xl.odr = LSM6DSOX_XL_OIS_OFF;
           break;
 
-        case LSM6DSOX_XL_OIS_6667Hz_HP:
+        case 0x01:
           val->ois.xl.odr = LSM6DSOX_XL_OIS_6667Hz_HP;
           break;
 
@@ -13646,19 +13702,23 @@ int32_t lsm6dsox_mode_get(const stmdev_ctx_t *ctx, stmdev_ctx_t *aux_ctx,
 
       switch (spi2_ctrl1_ois.fs_g_ois)
       {
-        case LSM6DSOX_GY_OIS_250dps:
+        case 0x00:
           val->ois.gy.fs = LSM6DSOX_GY_OIS_250dps;
           break;
 
-        case LSM6DSOX_GY_OIS_500dps:
+        case 0x01:
+          val->ois.gy.fs = LSM6DSOX_GY_OIS_125dps;
+          break;
+
+        case 0x02:
           val->ois.gy.fs = LSM6DSOX_GY_OIS_500dps;
           break;
 
-        case LSM6DSOX_GY_OIS_1000dps:
+        case 0x04:
           val->ois.gy.fs = LSM6DSOX_GY_OIS_1000dps;
           break;
 
-        case LSM6DSOX_GY_OIS_2000dps:
+        case 0x06:
           val->ois.gy.fs = LSM6DSOX_GY_OIS_2000dps;
           break;
 
@@ -13669,11 +13729,11 @@ int32_t lsm6dsox_mode_get(const stmdev_ctx_t *ctx, stmdev_ctx_t *aux_ctx,
 
       switch (spi2_ctrl1_ois.ois_en_spi2)
       {
-        case LSM6DSOX_GY_OIS_OFF:
+        case 0x00:
           val->ois.gy.odr = LSM6DSOX_GY_OIS_OFF;
           break;
 
-        case LSM6DSOX_GY_OIS_6667Hz_HP:
+        case 0x01:
           val->ois.gy.odr = LSM6DSOX_GY_OIS_6667Hz_HP;
           break;
 
@@ -13685,22 +13745,22 @@ int32_t lsm6dsox_mode_get(const stmdev_ctx_t *ctx, stmdev_ctx_t *aux_ctx,
       val->ois.ctrl_md = LSM6DSOX_OIS_ONLY_AUX;
       break;
 
-    case LSM6DSOX_OIS_ONLY_UI:
+    case (uint8_t)LSM6DSOX_OIS_ONLY_UI:
       switch (ui_ctrl3_ois.fs_xl_ois)
       {
-        case LSM6DSOX_XL_OIS_2g:
+        case 0x00:
           val->ois.xl.fs = LSM6DSOX_XL_OIS_2g;
           break;
 
-        case LSM6DSOX_XL_OIS_4g:
+        case 0x02:
           val->ois.xl.fs = LSM6DSOX_XL_OIS_4g;
           break;
 
-        case LSM6DSOX_XL_OIS_8g:
+        case 0x03:
           val->ois.xl.fs = LSM6DSOX_XL_OIS_8g;
           break;
 
-        case LSM6DSOX_XL_OIS_16g:
+        case 0x01:
           val->ois.xl.fs = LSM6DSOX_XL_OIS_16g;
           break;
 
@@ -13711,11 +13771,11 @@ int32_t lsm6dsox_mode_get(const stmdev_ctx_t *ctx, stmdev_ctx_t *aux_ctx,
 
       switch (ui_ctrl1_ois.ois_en_spi2)
       {
-        case LSM6DSOX_GY_OIS_OFF:
+        case 0x00:
           val->ois.gy.odr = LSM6DSOX_GY_OIS_OFF;
           break;
 
-        case LSM6DSOX_GY_OIS_6667Hz_HP:
+        case 0x01:
           val->ois.gy.odr = LSM6DSOX_GY_OIS_6667Hz_HP;
           break;
 
@@ -13726,23 +13786,23 @@ int32_t lsm6dsox_mode_get(const stmdev_ctx_t *ctx, stmdev_ctx_t *aux_ctx,
 
       switch (ui_ctrl1_ois.fs_g_ois)
       {
-        case LSM6DSOX_GY_OIS_250dps:
+        case 0x00:
           val->ois.gy.fs = LSM6DSOX_GY_OIS_250dps;
           break;
 
-        case LSM6DSOX_GY_OIS_125dps:
+        case 0x01:
           val->ois.gy.fs = LSM6DSOX_GY_OIS_125dps;
           break;
 
-        case LSM6DSOX_GY_OIS_500dps:
+        case 0x02:
           val->ois.gy.fs = LSM6DSOX_GY_OIS_500dps;
           break;
 
-        case LSM6DSOX_GY_OIS_1000dps:
+        case 0x04:
           val->ois.gy.fs = LSM6DSOX_GY_OIS_1000dps;
           break;
 
-        case LSM6DSOX_GY_OIS_2000dps:
+        case 0x06:
           val->ois.gy.fs = LSM6DSOX_GY_OIS_2000dps;
           break;
 
@@ -13753,11 +13813,11 @@ int32_t lsm6dsox_mode_get(const stmdev_ctx_t *ctx, stmdev_ctx_t *aux_ctx,
 
       switch (ui_ctrl1_ois.mode4_en)
       {
-        case LSM6DSOX_XL_OIS_OFF:
+        case 0x00:
           val->ois.xl.odr = LSM6DSOX_XL_OIS_OFF;
           break;
 
-        case LSM6DSOX_XL_OIS_6667Hz_HP:
+        case 0x01:
           val->ois.xl.odr = LSM6DSOX_XL_OIS_6667Hz_HP;
           break;
 
@@ -13769,22 +13829,22 @@ int32_t lsm6dsox_mode_get(const stmdev_ctx_t *ctx, stmdev_ctx_t *aux_ctx,
       val->ois.ctrl_md = LSM6DSOX_OIS_ONLY_UI;
       break;
 
-    case LSM6DSOX_OIS_MIXED:
+    case (uint8_t)LSM6DSOX_OIS_MIXED:
       switch (spi2_ctrl3_ois.fs_xl_ois)
       {
-        case LSM6DSOX_XL_OIS_2g:
+        case 0x00:
           val->ois.xl.fs = LSM6DSOX_XL_OIS_2g;
           break;
 
-        case LSM6DSOX_XL_OIS_4g:
+        case 0x02:
           val->ois.xl.fs = LSM6DSOX_XL_OIS_4g;
           break;
 
-        case LSM6DSOX_XL_OIS_8g:
+        case 0x03:
           val->ois.xl.fs = LSM6DSOX_XL_OIS_8g;
           break;
 
-        case LSM6DSOX_XL_OIS_16g:
+        case 0x01:
           val->ois.xl.fs = LSM6DSOX_XL_OIS_16g;
           break;
 
@@ -13795,11 +13855,11 @@ int32_t lsm6dsox_mode_get(const stmdev_ctx_t *ctx, stmdev_ctx_t *aux_ctx,
 
       switch (spi2_ctrl1_ois.mode4_en)
       {
-        case LSM6DSOX_XL_OIS_OFF:
+        case 0x00:
           val->ois.xl.odr = LSM6DSOX_XL_OIS_OFF;
           break;
 
-        case LSM6DSOX_XL_OIS_6667Hz_HP:
+        case 0x01:
           val->ois.xl.odr = LSM6DSOX_XL_OIS_6667Hz_HP;
           break;
 
@@ -13810,19 +13870,23 @@ int32_t lsm6dsox_mode_get(const stmdev_ctx_t *ctx, stmdev_ctx_t *aux_ctx,
 
       switch (spi2_ctrl1_ois.fs_g_ois)
       {
-        case LSM6DSOX_GY_OIS_250dps:
+        case 0x00:
           val->ois.gy.fs = LSM6DSOX_GY_OIS_250dps;
           break;
 
-        case LSM6DSOX_GY_OIS_500dps:
+        case 0x01:
+          val->ois.gy.fs = LSM6DSOX_GY_OIS_125dps;
+          break;
+
+        case 0x02:
           val->ois.gy.fs = LSM6DSOX_GY_OIS_500dps;
           break;
 
-        case LSM6DSOX_GY_OIS_1000dps:
+        case 0x04:
           val->ois.gy.fs = LSM6DSOX_GY_OIS_1000dps;
           break;
 
-        case LSM6DSOX_GY_OIS_2000dps:
+        case 0x06:
           val->ois.gy.fs = LSM6DSOX_GY_OIS_2000dps;
           break;
 
@@ -13833,11 +13897,11 @@ int32_t lsm6dsox_mode_get(const stmdev_ctx_t *ctx, stmdev_ctx_t *aux_ctx,
 
       switch (ui_ctrl1_ois.ois_en_spi2)
       {
-        case LSM6DSOX_GY_OIS_OFF:
+        case 0x00:
           val->ois.gy.odr = LSM6DSOX_GY_OIS_OFF;
           break;
 
-        case LSM6DSOX_GY_OIS_6667Hz_HP:
+        case 0x01:
           val->ois.gy.odr = LSM6DSOX_GY_OIS_6667Hz_HP;
           break;
 
