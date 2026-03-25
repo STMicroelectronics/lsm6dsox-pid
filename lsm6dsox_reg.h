@@ -4493,7 +4493,7 @@ typedef enum
   LSM6DSOX_XL_UI_1667Hz_HP = 0x08, /* @1kHz66 (high performance) */
   LSM6DSOX_XL_UI_3333Hz_HP = 0x09, /* @3kHz33 (high performance) */
   LSM6DSOX_XL_UI_6667Hz_HP = 0x0A, /* @6kHz66 (high performance) */
-} lsm6dsox_ui_xl_odr_t;
+} lsm6dsox_ui_odr_xl_t;
 
 typedef enum
 {
@@ -4501,7 +4501,7 @@ typedef enum
   LSM6DSOX_XL_UI_4g   = 2,
   LSM6DSOX_XL_UI_8g   = 3,
   LSM6DSOX_XL_UI_16g  = 1, /* OIS full scale is also forced to be 16g */
-} lsm6dsox_ui_xl_fs_t;
+} lsm6dsox_ui_fs_xl_t;
 
 typedef enum
 {
@@ -4521,7 +4521,7 @@ typedef enum
   LSM6DSOX_GY_UI_1667Hz_HP = 0x08, /* gy @1kHz66 (high performance) */
   LSM6DSOX_GY_UI_3333Hz_HP = 0x09, /* gy @3kHz33 (high performance) */
   LSM6DSOX_GY_UI_6667Hz_HP = 0x0A, /* gy @6kHz66 (high performance) */
-} lsm6dsox_ui_gy_odr_t;
+} lsm6dsox_ui_odr_g_t;
 
 typedef enum
 {
@@ -4530,7 +4530,7 @@ typedef enum
   LSM6DSOX_GY_UI_500dps   = 2,
   LSM6DSOX_GY_UI_1000dps  = 4,
   LSM6DSOX_GY_UI_2000dps  = 6,
-} lsm6dsox_ui_gy_fs_t;
+} lsm6dsox_ui_fs_g_t;
 
 typedef enum
 {
@@ -4574,7 +4574,15 @@ typedef enum
   LSM6DSOX_FSM_XL      = 0x01,
   LSM6DSOX_FSM_GY      = 0x02,
   LSM6DSOX_FSM_XL_GY   = 0x03,
-} lsm6dsox_fsm_sens_t;
+} lsm6dsox_sens_fsm_t;
+
+typedef enum
+{
+  LSM6DSOX_FSM_12Hz5 = 0x00,
+  LSM6DSOX_FSM_26Hz  = 0x01,
+  LSM6DSOX_FSM_52Hz  = 0x02,
+  LSM6DSOX_FSM_104Hz = 0x03,
+} lsm6dsox_odr_fsm_t;
 
 typedef enum
 {
@@ -4589,13 +4597,13 @@ typedef struct
   {
     struct
     {
-      lsm6dsox_ui_xl_odr_t odr;
-      lsm6dsox_ui_xl_fs_t fs;
+      lsm6dsox_ui_odr_xl_t odr;
+      lsm6dsox_ui_fs_xl_t fs;
     } xl;
     struct
     {
-      lsm6dsox_ui_gy_odr_t odr;
-      lsm6dsox_ui_gy_fs_t fs;
+      lsm6dsox_ui_odr_g_t odr;
+      lsm6dsox_ui_fs_g_t fs;
     } gy;
   } ui;
   struct
@@ -4614,8 +4622,8 @@ typedef struct
   } ois;
   struct
   {
-    lsm6dsox_fsm_sens_t sens;
-    lsm6dsox_fsm_odr_t odr;
+    lsm6dsox_sens_fsm_t sens;
+    lsm6dsox_odr_fsm_t odr;
   } fsm;
   struct
   {
@@ -4623,6 +4631,7 @@ typedef struct
     lsm6dsox_mlc_odr_t odr;
   } mlc;
 } lsm6dsox_md_t;
+
 int32_t lsm6dsox_mode_set(const stmdev_ctx_t *ctx, stmdev_ctx_t *aux_ctx,
                           lsm6dsox_md_t *val);
 int32_t lsm6dsox_mode_get(const stmdev_ctx_t *ctx, stmdev_ctx_t *aux_ctx,
