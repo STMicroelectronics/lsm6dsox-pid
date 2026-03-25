@@ -12482,94 +12482,98 @@ int32_t lsm6dsox_all_sources_get(const stmdev_ctx_t *ctx,
     ret = lsm6dsox_write_reg(ctx, LSM6DSOX_CTRL5_C, (uint8_t *)&ctrl5_c, 1);
   }
 
-  if (ret == 0)
+  ret = lsm6dsox_read_reg(ctx, LSM6DSOX_ALL_INT_SRC, reg, 12);
+
+  if (ret != 0)
   {
-    ret = lsm6dsox_read_reg(ctx, LSM6DSOX_ALL_INT_SRC, reg, 12);
+    return ret;
   }
 
-  if (ret == 0)
-  {
-    bytecpy((uint8_t *)&all_int_src, &reg[0]);
-    bytecpy((uint8_t *)&wake_up_src, &reg[1]);
-    bytecpy((uint8_t *)&tap_src, &reg[2]);
-    bytecpy((uint8_t *)&d6d_src, &reg[3]);
-    bytecpy((uint8_t *)&status_reg, &reg[4]);
-    bytecpy((uint8_t *)&emb_func_status_mainpage, &reg[5]);
-    bytecpy((uint8_t *)&fsm_status_a_mainpage, &reg[6]);
-    bytecpy((uint8_t *)&fsm_status_b_mainpage, &reg[7]);
-    bytecpy((uint8_t *)&mlc_status_mainpage, &reg[8]);
-    bytecpy((uint8_t *)&status_master_mainpage, &reg[9]);
-    bytecpy((uint8_t *)&fifo_status1, &reg[10]);
-    bytecpy((uint8_t *)&fifo_status2, &reg[11]);
-    val->timestamp = all_int_src.timestamp_endcount;
-    val->wake_up_z    = wake_up_src.z_wu;
-    val->wake_up_y    = wake_up_src.y_wu;
-    val->wake_up_x    = wake_up_src.x_wu;
-    val->wake_up      = wake_up_src.wu_ia;
-    val->sleep_state  = wake_up_src.sleep_state;
-    val->free_fall    = wake_up_src.ff_ia;
-    val->sleep_change = wake_up_src.sleep_change_ia;
-    val->tap_x      = tap_src.x_tap;
-    val->tap_y      = tap_src.y_tap;
-    val->tap_z      = tap_src.z_tap;
-    val->tap_sign   = tap_src.tap_sign;
-    val->double_tap = tap_src.double_tap;
-    val->single_tap = tap_src.single_tap;
-    val->six_d_xl = d6d_src.xl;
-    val->six_d_xh = d6d_src.xh;
-    val->six_d_yl = d6d_src.yl;
-    val->six_d_yh = d6d_src.yh;
-    val->six_d_zl = d6d_src.zl;
-    val->six_d_zh = d6d_src.zh;
-    val->six_d    = d6d_src.d6d_ia;
-    val->den_flag = d6d_src.den_drdy;
-    val->drdy_xl   = status_reg.xlda;
-    val->drdy_g    = status_reg.gda;
-    val->drdy_temp = status_reg.tda;
-    val->step_detector = emb_func_status_mainpage.is_step_det;
-    val->tilt          = emb_func_status_mainpage.is_tilt;
-    val->sig_mot       = emb_func_status_mainpage.is_sigmot;
-    val->fsm_lc        = emb_func_status_mainpage.is_fsm_lc;
-    val->fsm1 = fsm_status_a_mainpage.is_fsm1;
-    val->fsm2 = fsm_status_a_mainpage.is_fsm2;
-    val->fsm3 = fsm_status_a_mainpage.is_fsm3;
-    val->fsm4 = fsm_status_a_mainpage.is_fsm4;
-    val->fsm5 = fsm_status_a_mainpage.is_fsm5;
-    val->fsm6 = fsm_status_a_mainpage.is_fsm6;
-    val->fsm7 = fsm_status_a_mainpage.is_fsm7;
-    val->fsm8 = fsm_status_a_mainpage.is_fsm8;
-    val->fsm9  = fsm_status_b_mainpage.is_fsm9;
-    val->fsm10 = fsm_status_b_mainpage.is_fsm10;
-    val->fsm11 = fsm_status_b_mainpage.is_fsm11;
-    val->fsm12 = fsm_status_b_mainpage.is_fsm12;
-    val->fsm13 = fsm_status_b_mainpage.is_fsm13;
-    val->fsm14 = fsm_status_b_mainpage.is_fsm14;
-    val->fsm15 = fsm_status_b_mainpage.is_fsm15;
-    val->fsm16 = fsm_status_b_mainpage.is_fsm16;
-    val->mlc1 = mlc_status_mainpage.is_mlc1;
-    val->mlc2 = mlc_status_mainpage.is_mlc2;
-    val->mlc3 = mlc_status_mainpage.is_mlc3;
-    val->mlc4 = mlc_status_mainpage.is_mlc4;
-    val->mlc5 = mlc_status_mainpage.is_mlc5;
-    val->mlc6 = mlc_status_mainpage.is_mlc6;
-    val->mlc7 = mlc_status_mainpage.is_mlc7;
-    val->mlc8 = mlc_status_mainpage.is_mlc8;
-    val->sh_endop       = status_master_mainpage.sens_hub_endop;
-    val->sh_slave0_nack = status_master_mainpage.slave0_nack;
-    val->sh_slave1_nack = status_master_mainpage.slave1_nack;
-    val->sh_slave2_nack = status_master_mainpage.slave2_nack;
-    val->sh_slave3_nack = status_master_mainpage.slave3_nack;
-    val->sh_wr_once     = status_master_mainpage.wr_once_done;
-    val->fifo_diff = (256U * fifo_status2.diff_fifo) +
-                     fifo_status1.diff_fifo;
-    val->fifo_ovr_latched = fifo_status2.over_run_latched;
-    val->fifo_bdr         = fifo_status2.counter_bdr_ia;
-    val->fifo_full        = fifo_status2.fifo_full_ia;
-    val->fifo_ovr         = fifo_status2.fifo_ovr_ia;
-    val->fifo_th          = fifo_status2.fifo_wtm_ia;
-    ctrl5_c.rounding_status = PROPERTY_DISABLE;
-    ret = lsm6dsox_write_reg(ctx, LSM6DSOX_CTRL5_C, (uint8_t *)&ctrl5_c, 1);
-  }
+  bytecpy((uint8_t *)&all_int_src, &reg[0]);
+  bytecpy((uint8_t *)&wake_up_src, &reg[1]);
+  bytecpy((uint8_t *)&tap_src, &reg[2]);
+  bytecpy((uint8_t *)&d6d_src, &reg[3]);
+  bytecpy((uint8_t *)&status_reg, &reg[4]);
+  bytecpy((uint8_t *)&emb_func_status_mainpage, &reg[5]);
+  bytecpy((uint8_t *)&fsm_status_a_mainpage, &reg[6]);
+  bytecpy((uint8_t *)&fsm_status_b_mainpage, &reg[7]);
+  bytecpy((uint8_t *)&mlc_status_mainpage, &reg[8]);
+  bytecpy((uint8_t *)&status_master_mainpage, &reg[9]);
+  bytecpy((uint8_t *)&fifo_status1, &reg[10]);
+  bytecpy((uint8_t *)&fifo_status2, &reg[11]);
+  val->timestamp = all_int_src.timestamp_endcount;
+  val->wake_up_z    = wake_up_src.z_wu;
+  val->wake_up_y    = wake_up_src.y_wu;
+  val->wake_up_x    = wake_up_src.x_wu;
+  val->wake_up      = wake_up_src.wu_ia;
+  val->sleep_state  = wake_up_src.sleep_state;
+  val->free_fall    = wake_up_src.ff_ia;
+  val->sleep_change = wake_up_src.sleep_change_ia;
+  val->tap_x      = tap_src.x_tap;
+  val->tap_y      = tap_src.y_tap;
+  val->tap_z      = tap_src.z_tap;
+  val->tap_sign   = tap_src.tap_sign;
+  val->double_tap = tap_src.double_tap;
+  val->single_tap = tap_src.single_tap;
+  val->six_d_xl = d6d_src.xl;
+  val->six_d_xh = d6d_src.xh;
+  val->six_d_yl = d6d_src.yl;
+  val->six_d_yh = d6d_src.yh;
+  val->six_d_zl = d6d_src.zl;
+  val->six_d_zh = d6d_src.zh;
+  val->six_d    = d6d_src.d6d_ia;
+  val->den_flag = d6d_src.den_drdy;
+  val->drdy_xl   = status_reg.xlda;
+  val->drdy_g    = status_reg.gda;
+  val->drdy_temp = status_reg.tda;
+
+  /* Embedded features */
+  val->step_detector = emb_func_status_mainpage.is_step_det;
+  val->tilt          = emb_func_status_mainpage.is_tilt;
+  val->sig_mot       = emb_func_status_mainpage.is_sigmot;
+  val->fsm_lc        = emb_func_status_mainpage.is_fsm_lc;
+  val->fsm1 = fsm_status_a_mainpage.is_fsm1;
+  val->fsm2 = fsm_status_a_mainpage.is_fsm2;
+  val->fsm3 = fsm_status_a_mainpage.is_fsm3;
+  val->fsm4 = fsm_status_a_mainpage.is_fsm4;
+  val->fsm5 = fsm_status_a_mainpage.is_fsm5;
+  val->fsm6 = fsm_status_a_mainpage.is_fsm6;
+  val->fsm7 = fsm_status_a_mainpage.is_fsm7;
+  val->fsm8 = fsm_status_a_mainpage.is_fsm8;
+  val->fsm9  = fsm_status_b_mainpage.is_fsm9;
+  val->fsm10 = fsm_status_b_mainpage.is_fsm10;
+  val->fsm11 = fsm_status_b_mainpage.is_fsm11;
+  val->fsm12 = fsm_status_b_mainpage.is_fsm12;
+  val->fsm13 = fsm_status_b_mainpage.is_fsm13;
+  val->fsm14 = fsm_status_b_mainpage.is_fsm14;
+  val->fsm15 = fsm_status_b_mainpage.is_fsm15;
+  val->fsm16 = fsm_status_b_mainpage.is_fsm16;
+  val->mlc1 = mlc_status_mainpage.is_mlc1;
+  val->mlc2 = mlc_status_mainpage.is_mlc2;
+  val->mlc3 = mlc_status_mainpage.is_mlc3;
+  val->mlc4 = mlc_status_mainpage.is_mlc4;
+  val->mlc5 = mlc_status_mainpage.is_mlc5;
+  val->mlc6 = mlc_status_mainpage.is_mlc6;
+  val->mlc7 = mlc_status_mainpage.is_mlc7;
+  val->mlc8 = mlc_status_mainpage.is_mlc8;
+
+  /* Status Master and fifo_status */
+  val->sh_endop       = status_master_mainpage.sens_hub_endop;
+  val->sh_slave0_nack = status_master_mainpage.slave0_nack;
+  val->sh_slave1_nack = status_master_mainpage.slave1_nack;
+  val->sh_slave2_nack = status_master_mainpage.slave2_nack;
+  val->sh_slave3_nack = status_master_mainpage.slave3_nack;
+  val->sh_wr_once     = status_master_mainpage.wr_once_done;
+  val->fifo_diff = (256U * fifo_status2.diff_fifo) +
+                   fifo_status1.diff_fifo;
+  val->fifo_ovr_latched = fifo_status2.over_run_latched;
+  val->fifo_bdr         = fifo_status2.counter_bdr_ia;
+  val->fifo_full        = fifo_status2.fifo_full_ia;
+  val->fifo_ovr         = fifo_status2.fifo_ovr_ia;
+  val->fifo_th          = fifo_status2.fifo_wtm_ia;
+
+  ctrl5_c.rounding_status = PROPERTY_DISABLE;
+  ret = lsm6dsox_write_reg(ctx, LSM6DSOX_CTRL5_C, (uint8_t *)&ctrl5_c, 1);
 
   return ret;
 }
