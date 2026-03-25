@@ -6761,19 +6761,17 @@ int32_t lsm6dsox_fifo_watermark_set(const stmdev_ctx_t *ctx, uint16_t val)
   lsm6dsox_fifo_ctrl2_t fifo_ctrl2 = {0};
   int32_t ret = 0;
 
-  if (ret == 0)
+  ret = lsm6dsox_read_reg(ctx, LSM6DSOX_FIFO_CTRL2, (uint8_t *)&fifo_ctrl2, 1);
+  if (ret != 0)
   {
-    fifo_ctrl1.wtm = 0x00FFU & (uint8_t)val;
-    fifo_ctrl2.wtm = (uint8_t)((0x0100U & val) >> 8);
-    ret = lsm6dsox_write_reg(ctx, LSM6DSOX_FIFO_CTRL1,
-                             (uint8_t *)&fifo_ctrl1, 1);
+    return ret;
   }
 
-  if (ret == 0)
-  {
-    ret = lsm6dsox_write_reg(ctx, LSM6DSOX_FIFO_CTRL2,
-                             (uint8_t *)&fifo_ctrl2, 1);
-  }
+  fifo_ctrl1.wtm = 0x00FFU & (uint8_t)val;
+  fifo_ctrl2.wtm = (uint8_t)((0x0100U & val) >> 8);
+
+  ret = lsm6dsox_write_reg(ctx, LSM6DSOX_FIFO_CTRL1, (uint8_t *)&fifo_ctrl1, 1);
+  ret += lsm6dsox_write_reg(ctx, LSM6DSOX_FIFO_CTRL2, (uint8_t *)&fifo_ctrl2, 1);
 
   return ret;
 }
@@ -8633,7 +8631,9 @@ int32_t lsm6dsox_pedo_steps_period_set(const stmdev_ctx_t *ctx,
   ret = lsm6dsox_ln_pg_write_byte(ctx, LSM6DSOX_PEDO_SC_DELTAT_L,
                                   &buff[0]);
 
-  if (ret == 0)
+  ret = lsm6dsox_ln_pg_read_byte(ctx, LSM6DSOX_PEDO_SC_DELTAT_L, &buff[0]);
+  ret += lsm6dsox_ln_pg_read_byte(ctx, LSM6DSOX_PEDO_SC_DELTAT_H, &buff[1]);
+  if (ret != 0)
   {
     ret = lsm6dsox_ln_pg_write_byte(ctx, LSM6DSOX_PEDO_SC_DELTAT_H,
                                     &buff[1]);
@@ -8656,11 +8656,16 @@ int32_t lsm6dsox_pedo_steps_period_get(const stmdev_ctx_t *ctx,
   uint8_t buff[2] = {0};
   int32_t ret = 0;
 
-  if (ret == 0)
+  ret = lsm6dsox_ln_pg_read_byte(ctx, LSM6DSOX_PEDO_SC_DELTAT_L, &buff[0]);
+  ret += lsm6dsox_ln_pg_read_byte(ctx, LSM6DSOX_PEDO_SC_DELTAT_H, &buff[1]);
+  if (ret != 0)
   {
     *val = buff[1];
     *val = (*val * 256U) +  buff[0];
   }
+
+  *val = buff[1];
+  *val = (*val * 256U) +  buff[0];
 
   return ret;
 }
