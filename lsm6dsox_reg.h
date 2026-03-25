@@ -1369,6 +1369,15 @@ typedef struct
 typedef struct
 {
 #if DRV_BYTE_ORDER == DRV_LITTLE_ENDIAN
+  uint8_t int1_fsm9                : 1;
+  uint8_t int1_fsm10               : 1;
+  uint8_t int1_fsm11               : 1;
+  uint8_t int1_fsm12               : 1;
+  uint8_t int1_fsm13               : 1;
+  uint8_t int1_fsm14               : 1;
+  uint8_t int1_fsm15               : 1;
+  uint8_t int1_fsm16               : 1;
+#elif DRV_BYTE_ORDER == DRV_BIG_ENDIAN
   uint8_t int1_fsm16               : 1;
   uint8_t int1_fsm15               : 1;
   uint8_t int1_fsm14               : 1;
@@ -1377,7 +1386,6 @@ typedef struct
   uint8_t int1_fsm11               : 1;
   uint8_t int1_fsm10               : 1;
   uint8_t int1_fsm9                : 1;
-#elif DRV_BYTE_ORDER == DRV_BIG_ENDIAN
 #endif /* DRV_BYTE_ORDER */
 } lsm6dsox_fsm_int1_b_t;
 
