@@ -6701,11 +6701,8 @@ int32_t lsm6dsox_ff_dur_set(const stmdev_ctx_t *ctx, uint8_t val)
   wake_up_dur.ff_dur = ((uint8_t)val & 0x20U) >> 5;
   free_fall.ff_dur = (uint8_t)val & 0x1FU;
 
-  if (ret == 0)
-  {
-    ret = lsm6dsox_write_reg(ctx, LSM6DSOX_FREE_FALL,
-                             (uint8_t *)&free_fall, 1);
-  }
+  ret = lsm6dsox_write_reg(ctx, LSM6DSOX_WAKE_UP_DUR, (uint8_t *)&wake_up_dur, 1);
+  ret += lsm6dsox_write_reg(ctx, LSM6DSOX_FREE_FALL, (uint8_t *)&free_fall, 1);
 
   return ret;
 }
