@@ -593,9 +593,11 @@ typedef struct
   uint8_t wu_ia                    : 1;
   uint8_t sleep_state              : 1;
   uint8_t ff_ia                    : 1;
-  uint8_t sleep_change_ia          : 2;
+  uint8_t sleep_change_ia          : 1;
+  uint8_t not_used_01              : 1;
 #elif DRV_BYTE_ORDER == DRV_BIG_ENDIAN
-  uint8_t sleep_change_ia          : 2;
+  uint8_t not_used_01              : 1;
+  uint8_t sleep_change_ia          : 1;
   uint8_t ff_ia                    : 1;
   uint8_t sleep_state              : 1;
   uint8_t wu_ia                    : 1;
