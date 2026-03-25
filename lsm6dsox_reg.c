@@ -9028,7 +9028,7 @@ int32_t lsm6dsox_mag_offset_get(const stmdev_ctx_t *ctx, int16_t *val)
   * @retval             interface status (MANDATORY: return 0 -> no Error)
   *
   */
-int32_t lsm6dsox_mag_soft_iron_set(const stmdev_ctx_t *ctx, uint16_t *val)
+int32_t lsm6dsox_mag_soft_iron_set(const stmdev_ctx_t *ctx, int16_t *val)
 {
   uint8_t buff[12] = {0};
 
@@ -9063,7 +9063,7 @@ int32_t lsm6dsox_mag_soft_iron_set(const stmdev_ctx_t *ctx, uint16_t *val)
   * @retval             interface status (MANDATORY: return 0 -> no Error)
   *
   */
-int32_t lsm6dsox_mag_soft_iron_get(const stmdev_ctx_t *ctx, uint16_t *val)
+int32_t lsm6dsox_mag_soft_iron_get(const stmdev_ctx_t *ctx, int16_t *val)
 {
   uint8_t buff[12] = {0};
   int32_t ret = 0;
