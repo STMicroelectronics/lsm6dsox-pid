@@ -3605,6 +3605,16 @@ int32_t lsm6dsox_i3c_disable_get(const stmdev_ctx_t *ctx,
 
 typedef enum
 {
+  LSM6DSOX_PULL_DOWN_DISC       = 0,
+  LSM6DSOX_PULL_DOWN_CONNECT    = 1,
+} lsm6dsox_int1_pd_en_t;
+int32_t lsm6dsox_int1_mode_set(const stmdev_ctx_t *ctx,
+                               lsm6dsox_int1_pd_en_t val);
+int32_t lsm6dsox_int1_mode_get(const stmdev_ctx_t *ctx,
+                               lsm6dsox_int1_pd_en_t *val);
+
+typedef enum
+{
   LSM6DSOX_PUSH_PULL                         = 0x00,
   LSM6DSOX_OPEN_DRAIN                        = 0x01,
   LSM6DSOX_INT1_NOPULL_DOWN_INT2_PUSH_PULL   = 0x02,

@@ -4964,6 +4964,69 @@ int32_t lsm6dsox_i3c_disable_get(const stmdev_ctx_t *ctx,
   */
 
 /**
+  * @brief  Connect/Disconnect INT1 internal pull-down.[set]
+  *
+  * @param  ctx      read / write interface definitions
+  * @param  val      change the values of pd_dis_int1 in reg I3C_BUS_AVB
+  * @retval             interface status (MANDATORY: return 0 -> no Error)
+  *
+  */
+int32_t lsm6dsox_int1_mode_set(const stmdev_ctx_t *ctx,
+                               lsm6dsox_int1_pd_en_t val)
+{
+  lsm6dsox_i3c_bus_avb_t reg = {0};
+  int32_t ret = 0;
+
+  ret = lsm6dsox_read_reg(ctx, LSM6DSOX_I3C_BUS_AVB, (uint8_t *)&reg, 1);
+
+  if (ret == 0)
+  {
+    reg.pd_dis_int1 = (uint8_t)val;
+    ret = lsm6dsox_write_reg(ctx, LSM6DSOX_I3C_BUS_AVB, (uint8_t *)&reg, 1);
+  }
+
+  return ret;
+}
+
+/**
+  * @brief  Connect/Disconnect INT1 internal pull-down.[get]
+  *
+  * @param  ctx      read / write interface definitions
+  * @param  val      Get the values of pd_dis_int1 in reg I3C_BUS_AVB
+  * @retval             interface status (MANDATORY: return 0 -> no Error)
+  *
+  */
+int32_t lsm6dsox_int1_mode_get(const stmdev_ctx_t *ctx,
+                               lsm6dsox_int1_pd_en_t *val)
+{
+  lsm6dsox_i3c_bus_avb_t reg = {0};
+  int32_t ret = 0;
+
+  ret = lsm6dsox_read_reg(ctx, LSM6DSOX_I3C_BUS_AVB, (uint8_t *)&reg, 1);
+  if (ret != 0)
+  {
+    return ret;
+  }
+
+  switch (reg.pd_dis_int1)
+  {
+    case 0x00:
+      *val = LSM6DSOX_PULL_DOWN_DISC;
+      break;
+
+    case 0x01:
+      *val = LSM6DSOX_PULL_DOWN_CONNECT;
+      break;
+
+    default:
+      *val = LSM6DSOX_PULL_DOWN_DISC;
+      break;
+  }
+
+  return ret;
+}
+
+/**
   * @brief  Push-pull/open drain selection on interrupt pads.[set]
   *
   * @param  ctx      read / write interface definitions
