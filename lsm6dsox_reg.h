@@ -49,7 +49,7 @@ extern "C" {
 /** if _BYTE_ORDER is not defined, choose the endianness of your architecture
   * by uncommenting the define which fits your platform endianness
   */
-//#define DRV_BYTE_ORDER    DRV_BIG_ENDIAN
+/* #define DRV_BYTE_ORDER    DRV_BIG_ENDIAN */
 #define DRV_BYTE_ORDER    DRV_LITTLE_ENDIAN
 
 #else /* defined __BYTE_ORDER__ */
@@ -2850,7 +2850,7 @@ typedef struct
 typedef struct
 {
   uint8_t slave0_dataw             : 8;
-} lsm6dsox_datawrite_slv0_t;
+} lsm6dsox_datawrite_tgt0_t;
 
 #define LSM6DSOX_STATUS_MASTER                0x22U
 typedef struct
@@ -2893,7 +2893,7 @@ int32_t lsm6dsox_read_reg(const stmdev_ctx_t *ctx, uint8_t reg,
                           uint8_t *data,
                           uint16_t len);
 int32_t lsm6dsox_write_reg(const stmdev_ctx_t *ctx, uint8_t reg,
-                           uint8_t *data,
+                           const uint8_t *data,
                            uint16_t len);
 
 float_t lsm6dsox_from_fs2_to_mg(int16_t lsb);
@@ -2914,7 +2914,7 @@ float_t lsm6dsox_from_lsb_to_nsec(int16_t lsb);
 typedef enum
 {
   LSM6DSOX_2g   = 0,
-  LSM6DSOX_16g  = 1, /* if XL_FS_MODE = ‘1’ -> LSM6DSOX_2g */
+  LSM6DSOX_16g  = 1, /* if XL_FS_MODE = '1' -> LSM6DSOX_2g */
   LSM6DSOX_4g   = 2,
   LSM6DSOX_8g   = 3,
 } lsm6dsox_fs_xl_t;
@@ -2975,10 +2975,8 @@ int32_t lsm6dsox_gy_data_rate_set(const stmdev_ctx_t *ctx,
 int32_t lsm6dsox_gy_data_rate_get(const stmdev_ctx_t *ctx,
                                   lsm6dsox_odr_g_t *val);
 
-int32_t lsm6dsox_block_data_update_set(const stmdev_ctx_t *ctx,
-                                       uint8_t val);
-int32_t lsm6dsox_block_data_update_get(const stmdev_ctx_t *ctx,
-                                       uint8_t *val);
+int32_t lsm6dsox_block_data_update_set(const stmdev_ctx_t *ctx, uint8_t val);
+int32_t lsm6dsox_block_data_update_get(const stmdev_ctx_t *ctx, uint8_t *val);
 
 typedef enum
 {
@@ -3023,20 +3021,14 @@ int32_t lsm6dsox_gy_flag_data_ready_get(const stmdev_ctx_t *ctx,
 int32_t lsm6dsox_temp_flag_data_ready_get(const stmdev_ctx_t *ctx,
                                           uint8_t *val);
 
-int32_t lsm6dsox_xl_usr_offset_x_set(const stmdev_ctx_t *ctx,
-                                     uint8_t *buff);
-int32_t lsm6dsox_xl_usr_offset_x_get(const stmdev_ctx_t *ctx,
-                                     uint8_t *buff);
+int32_t lsm6dsox_xl_usr_offset_x_set(const stmdev_ctx_t *ctx, uint8_t *buff);
+int32_t lsm6dsox_xl_usr_offset_x_get(const stmdev_ctx_t *ctx, uint8_t *buff);
 
-int32_t lsm6dsox_xl_usr_offset_y_set(const stmdev_ctx_t *ctx,
-                                     uint8_t *buff);
-int32_t lsm6dsox_xl_usr_offset_y_get(const stmdev_ctx_t *ctx,
-                                     uint8_t *buff);
+int32_t lsm6dsox_xl_usr_offset_y_set(const stmdev_ctx_t *ctx, uint8_t *buff);
+int32_t lsm6dsox_xl_usr_offset_y_get(const stmdev_ctx_t *ctx, uint8_t *buff);
 
-int32_t lsm6dsox_xl_usr_offset_z_set(const stmdev_ctx_t *ctx,
-                                     uint8_t *buff);
-int32_t lsm6dsox_xl_usr_offset_z_get(const stmdev_ctx_t *ctx,
-                                     uint8_t *buff);
+int32_t lsm6dsox_xl_usr_offset_z_set(const stmdev_ctx_t *ctx, uint8_t *buff);
+int32_t lsm6dsox_xl_usr_offset_z_get(const stmdev_ctx_t *ctx, uint8_t *buff);
 
 int32_t lsm6dsox_xl_usr_offset_set(const stmdev_ctx_t *ctx, uint8_t val);
 int32_t lsm6dsox_xl_usr_offset_get(const stmdev_ctx_t *ctx, uint8_t *val);
@@ -3070,7 +3062,7 @@ int32_t lsm6dsox_rounding_on_status_set(const stmdev_ctx_t *ctx,
 int32_t lsm6dsox_rounding_on_status_get(const stmdev_ctx_t *ctx,
                                         lsm6dsox_rounding_status_t *val);
 
-int32_t lsm6dsox_temperature_raw_get(const stmdev_ctx_t *ctx, int16_t *val);
+int32_t lsm6dsox_temperature_raw_get(const stmdev_ctx_t *ctx,  int16_t *val);
 
 int32_t lsm6dsox_angular_rate_raw_get(const stmdev_ctx_t *ctx,
                                       int16_t *val);
@@ -3095,8 +3087,7 @@ int32_t lsm6dsox_aux_ois_angular_rate_raw_get(const stmdev_ctx_t *ctx,
 int32_t lsm6dsox_aux_ois_acceleration_raw_get(const stmdev_ctx_t *ctx,
                                               int16_t *val);
 
-int32_t lsm6dsox_number_of_steps_get(const stmdev_ctx_t *ctx,
-                                     uint16_t *val);
+int32_t lsm6dsox_number_of_steps_get(const stmdev_ctx_t *ctx, uint16_t *val);
 
 int32_t lsm6dsox_steps_reset(const stmdev_ctx_t *ctx);
 
@@ -3186,10 +3177,10 @@ typedef enum
   LSM6DSOX_VERY_LIGHT   = 1,
   LSM6DSOX_LIGHT        = 2,
   LSM6DSOX_MEDIUM       = 3,
-  LSM6DSOX_STRONG       = 4,
-  LSM6DSOX_VERY_STRONG  = 5,
-  LSM6DSOX_AGGRESSIVE   = 6,
-  LSM6DSOX_XTREME       = 7,
+  LSM6DSOX_STRONG       = 4, /* not available for data rate > 1k670Hz */
+  LSM6DSOX_VERY_STRONG  = 5, /* not available for data rate > 1k670Hz */
+  LSM6DSOX_AGGRESSIVE   = 6, /* not available for data rate > 1k670Hz */
+  LSM6DSOX_XTREME       = 7, /* not available for data rate > 1k670Hz */
 } lsm6dsox_ftype_t;
 int32_t lsm6dsox_gy_lp1_bandwidth_set(const stmdev_ctx_t *ctx,
                                       lsm6dsox_ftype_t val);
@@ -3231,8 +3222,7 @@ int32_t lsm6dsox_xl_hp_path_on_out_get(const stmdev_ctx_t *ctx,
                                        lsm6dsox_hp_slope_xl_en_t *val);
 
 int32_t lsm6dsox_xl_fast_settling_set(const stmdev_ctx_t *ctx, uint8_t val);
-int32_t lsm6dsox_xl_fast_settling_get(const stmdev_ctx_t *ctx,
-                                      uint8_t *val);
+int32_t lsm6dsox_xl_fast_settling_get(const stmdev_ctx_t *ctx, uint8_t *val);
 
 typedef enum
 {
@@ -3288,7 +3278,6 @@ int32_t lsm6dsox_aux_pw_on_ctrl_set(const stmdev_ctx_t *ctx,
                                     lsm6dsox_ois_on_t val);
 int32_t lsm6dsox_aux_pw_on_ctrl_get(const stmdev_ctx_t *ctx,
                                     lsm6dsox_ois_on_t *val);
-
 typedef enum
 {
   LSM6DSOX_USE_SAME_XL_FS        = 0,
@@ -3333,8 +3322,7 @@ int32_t lsm6dsox_aux_den_mode_get(const stmdev_ctx_t *ctx,
                                   lsm6dsox_lvl2_ois_t *val);
 
 int32_t lsm6dsox_aux_drdy_on_int2_set(const stmdev_ctx_t *ctx, uint8_t val);
-int32_t lsm6dsox_aux_drdy_on_int2_get(const stmdev_ctx_t *ctx,
-                                      uint8_t *val);
+int32_t lsm6dsox_aux_drdy_on_int2_get(const stmdev_ctx_t *ctx, uint8_t *val);
 
 typedef enum
 {
@@ -3491,10 +3479,8 @@ typedef enum
   LSM6DSOX_INT1_NOPULL_DOWN_INT2_PUSH_PULL   = 0x02,
   LSM6DSOX_INT1_NOPULL_DOWN_INT2_OPEN_DRAIN  = 0x03,
 } lsm6dsox_pp_od_t;
-int32_t lsm6dsox_pin_mode_set(const stmdev_ctx_t *ctx,
-                              lsm6dsox_pp_od_t val);
-int32_t lsm6dsox_pin_mode_get(const stmdev_ctx_t *ctx,
-                              lsm6dsox_pp_od_t *val);
+int32_t lsm6dsox_pin_mode_set(const stmdev_ctx_t *ctx, lsm6dsox_pp_od_t val);
+int32_t lsm6dsox_pin_mode_get(const stmdev_ctx_t *ctx, lsm6dsox_pp_od_t *val);
 
 typedef enum
 {
@@ -3693,8 +3679,7 @@ int32_t lsm6dsox_compression_algo_real_time_get(const stmdev_ctx_t *ctx,
                                                 uint8_t *val);
 
 int32_t lsm6dsox_fifo_stop_on_wtm_set(const stmdev_ctx_t *ctx, uint8_t val);
-int32_t lsm6dsox_fifo_stop_on_wtm_get(const stmdev_ctx_t *ctx,
-                                      uint8_t *val);
+int32_t lsm6dsox_fifo_stop_on_wtm_get(const stmdev_ctx_t *ctx, uint8_t *val);
 
 typedef enum
 {
@@ -3810,8 +3795,7 @@ int32_t lsm6dsox_fifo_cnt_event_batch_set(const stmdev_ctx_t *ctx,
 int32_t lsm6dsox_fifo_cnt_event_batch_get(const stmdev_ctx_t *ctx,
                                           lsm6dsox_trig_counter_bdr_t *val);
 
-int32_t lsm6dsox_rst_batch_counter_set(const stmdev_ctx_t *ctx,
-                                       uint8_t val);
+int32_t lsm6dsox_rst_batch_counter_set(const stmdev_ctx_t *ctx, uint8_t val);
 int32_t lsm6dsox_rst_batch_counter_get(const stmdev_ctx_t *ctx,
                                        uint8_t *val);
 
@@ -3820,8 +3804,7 @@ int32_t lsm6dsox_batch_counter_threshold_set(const stmdev_ctx_t *ctx,
 int32_t lsm6dsox_batch_counter_threshold_get(const stmdev_ctx_t *ctx,
                                              uint16_t *val);
 
-int32_t lsm6dsox_fifo_data_level_get(const stmdev_ctx_t *ctx,
-                                     uint16_t *val);
+int32_t lsm6dsox_fifo_data_level_get(const stmdev_ctx_t *ctx, uint16_t *val);
 
 int32_t lsm6dsox_fifo_status_get(const stmdev_ctx_t *ctx,
                                  lsm6dsox_fifo_status2_t *val);
@@ -3895,8 +3878,7 @@ int32_t lsm6dsox_pedo_sens_set(const stmdev_ctx_t *ctx,
 int32_t lsm6dsox_pedo_sens_get(const stmdev_ctx_t *ctx,
                                lsm6dsox_pedo_md_t *val);
 
-int32_t lsm6dsox_pedo_step_detect_get(const stmdev_ctx_t *ctx,
-                                      uint8_t *val);
+int32_t lsm6dsox_pedo_step_detect_get(const stmdev_ctx_t *ctx, uint8_t *val);
 
 int32_t lsm6dsox_pedo_debounce_steps_set(const stmdev_ctx_t *ctx,
                                          uint8_t *buff);
@@ -4162,6 +4144,7 @@ int32_t lsm6dsox_sh_slv_cfg_read(const stmdev_ctx_t *ctx, uint8_t idx,
 
 int32_t lsm6dsox_sh_status_get(const stmdev_ctx_t *ctx,
                                lsm6dsox_status_master_t *val);
+
 typedef enum
 {
   LSM6DSOX_S4S_TPH_7bit   = 0,
@@ -4207,8 +4190,8 @@ typedef enum
   LSM6DSOX_SPI_4W      = 0x06, /* Only SPI: SDO / SDI separated pins */
   LSM6DSOX_SPI_3W      = 0x07, /* Only SPI: SDO / SDI share the same pin */
   LSM6DSOX_I2C         = 0x04, /* Only I2C */
-  LSM6DSOX_I3C_T_50us  = 0x02, /* I3C: available time equal to 50 μs */
-  LSM6DSOX_I3C_T_2us   = 0x12, /* I3C: available time equal to 2 μs */
+  LSM6DSOX_I3C_T_50us  = 0x02, /* I3C: available time equal to 50 us */
+  LSM6DSOX_I3C_T_2us   = 0x12, /* I3C: available time equal to 2 us */
   LSM6DSOX_I3C_T_1ms   = 0x22, /* I3C: available time equal to 1 ms */
   LSM6DSOX_I3C_T_25ms  = 0x32, /* I3C: available time equal to 25 ms */
 } lsm6dsox_ui_bus_md_t;
@@ -4224,11 +4207,9 @@ typedef struct
   lsm6dsox_ui_bus_md_t ui_bus_md;
   lsm6dsox_aux_bus_md_t aux_bus_md;
 } lsm6dsox_bus_mode_t;
-int32_t lsm6dsox_bus_mode_set(const stmdev_ctx_t *ctx,
-                              stmdev_ctx_t *aux_ctx,
+int32_t lsm6dsox_bus_mode_set(const stmdev_ctx_t *ctx, stmdev_ctx_t *aux_ctx,
                               lsm6dsox_bus_mode_t val);
-int32_t lsm6dsox_bus_mode_get(const stmdev_ctx_t *ctx,
-                              stmdev_ctx_t *aux_ctx,
+int32_t lsm6dsox_bus_mode_get(const stmdev_ctx_t *ctx, stmdev_ctx_t *aux_ctx,
                               lsm6dsox_bus_mode_t *val);
 
 typedef enum
@@ -4386,6 +4367,7 @@ typedef struct
 int32_t lsm6dsox_pin_int2_route_set(const stmdev_ctx_t *ctx,
                                     stmdev_ctx_t *aux_ctx,
                                     lsm6dsox_pin_int2_route_t val);
+
 int32_t lsm6dsox_pin_int2_route_get(const stmdev_ctx_t *ctx,
                                     stmdev_ctx_t *aux_ctx,
                                     lsm6dsox_pin_int2_route_t *val);
@@ -4465,8 +4447,7 @@ typedef struct
 {
   uint8_t odr_fine_tune;
 } lsm6dsox_dev_cal_t;
-int32_t lsm6dsox_calibration_get(const stmdev_ctx_t *ctx,
-                                 lsm6dsox_dev_cal_t *val);
+int32_t lsm6dsox_calibration_get(const stmdev_ctx_t *ctx, lsm6dsox_dev_cal_t *val);
 
 typedef enum
 {
@@ -4672,8 +4653,7 @@ typedef struct
   } ois;
 } lsm6dsox_data_t;
 int32_t lsm6dsox_data_get(const stmdev_ctx_t *ctx, stmdev_ctx_t *aux_ctx,
-                          lsm6dsox_md_t *md, lsm6dsox_data_t *data);
-
+                          const lsm6dsox_md_t *md, lsm6dsox_data_t *data);
 typedef struct
 {
   uint8_t sig_mot      : 1; /* significant motion */
@@ -4681,10 +4661,10 @@ typedef struct
   uint8_t step         : 1; /* step counter/detector */
   uint8_t mlc          : 1; /* machine learning core */
   uint8_t fsm          : 1; /* finite state machine */
-  uint8_t fifo_compr   : 1; /* mlc 8 interrupt event */
+  uint8_t fifo_compr   : 1; /* FIFO compression */
 } lsm6dsox_emb_sens_t;
 int32_t lsm6dsox_embedded_sens_set(const stmdev_ctx_t *ctx,
-                                   lsm6dsox_emb_sens_t *emb_sens);
+                                   const lsm6dsox_emb_sens_t *emb_sens);
 int32_t lsm6dsox_embedded_sens_get(const stmdev_ctx_t *ctx,
                                    lsm6dsox_emb_sens_t *emb_sens);
 int32_t lsm6dsox_embedded_sens_off(const stmdev_ctx_t *ctx);
