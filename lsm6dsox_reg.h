@@ -4019,14 +4019,14 @@ typedef struct
   lsm6dsox_fsm_outs6_t    fsm_outs6;
   lsm6dsox_fsm_outs7_t    fsm_outs7;
   lsm6dsox_fsm_outs8_t    fsm_outs8;
-  lsm6dsox_fsm_outs1_t    fsm_outs9;
-  lsm6dsox_fsm_outs2_t    fsm_outs10;
-  lsm6dsox_fsm_outs3_t    fsm_outs11;
-  lsm6dsox_fsm_outs4_t    fsm_outs12;
-  lsm6dsox_fsm_outs5_t    fsm_outs13;
-  lsm6dsox_fsm_outs6_t    fsm_outs14;
-  lsm6dsox_fsm_outs7_t    fsm_outs15;
-  lsm6dsox_fsm_outs8_t    fsm_outs16;
+  lsm6dsox_fsm_outs9_t    fsm_outs9;
+  lsm6dsox_fsm_outs10_t   fsm_outs10;
+  lsm6dsox_fsm_outs11_t   fsm_outs11;
+  lsm6dsox_fsm_outs12_t   fsm_outs12;
+  lsm6dsox_fsm_outs13_t   fsm_outs13;
+  lsm6dsox_fsm_outs14_t   fsm_outs14;
+  lsm6dsox_fsm_outs15_t   fsm_outs15;
+  lsm6dsox_fsm_outs16_t   fsm_outs16;
 } lsm6dsox_fsm_out_t;
 int32_t lsm6dsox_fsm_out_get(const stmdev_ctx_t *ctx,
                              lsm6dsox_fsm_out_t *val);
