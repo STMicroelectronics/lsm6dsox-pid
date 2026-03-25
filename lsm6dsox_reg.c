@@ -10736,26 +10736,28 @@ int32_t lsm6dsox_sh_cfg_write(const stmdev_ctx_t *ctx,
   int32_t ret = 0;
 
   ret = lsm6dsox_mem_bank_set(ctx, LSM6DSOX_SENSOR_HUB_BANK);
-
-  if (ret == 0)
+  if (ret != 0)
   {
-    reg.slave0 = val->slv0_add;
-    reg.rw_0 = 0;
-    ret = lsm6dsox_write_reg(ctx, LSM6DSOX_SLV0_ADD, (uint8_t *)&reg, 1);
+    return ret;
   }
 
-  if (ret == 0)
+  reg.slave0 = (uint8_t)(val->slv0_add >> 1);
+  reg.rw_0 = 0;
+  ret = lsm6dsox_write_reg(ctx, LSM6DSOX_SLV0_ADD, (uint8_t *)&reg, 1);
+  if (ret != 0)
   {
-    ret = lsm6dsox_write_reg(ctx, LSM6DSOX_SLV0_SUBADD,
-                             &(val->slv0_subadd), 1);
+    goto exit;
   }
 
-  if (ret == 0)
+  ret = lsm6dsox_write_reg(ctx, LSM6DSOX_SLV0_SUBADD, &(val->slv0_subadd), 1);
+  if (ret != 0)
   {
-    ret = lsm6dsox_write_reg(ctx, LSM6DSOX_DATAWRITE_SLV0,
-                             &(val->slv0_data), 1);
+    goto exit;
   }
 
+  ret = lsm6dsox_write_reg(ctx, LSM6DSOX_DATAWRITE_SLV0, &(val->slv0_data), 1);
+
+exit:
   ret += lsm6dsox_mem_bank_set(ctx, LSM6DSOX_USER_BANK);
 
   return ret;
