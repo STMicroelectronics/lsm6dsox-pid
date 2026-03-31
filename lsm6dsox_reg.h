@@ -29,6 +29,7 @@ extern "C" {
 #include <stdint.h>
 #include <stddef.h>
 #include <math.h>
+#include <string.h>
 
 /** @addtogroup LSM6DSOX
   * @{
@@ -3021,13 +3022,13 @@ int32_t lsm6dsox_gy_flag_data_ready_get(const stmdev_ctx_t *ctx,
 int32_t lsm6dsox_temp_flag_data_ready_get(const stmdev_ctx_t *ctx,
                                           uint8_t *val);
 
-int32_t lsm6dsox_xl_usr_offset_x_set(const stmdev_ctx_t *ctx, uint8_t *buff);
+int32_t lsm6dsox_xl_usr_offset_x_set(const stmdev_ctx_t *ctx, const uint8_t *buff);
 int32_t lsm6dsox_xl_usr_offset_x_get(const stmdev_ctx_t *ctx, uint8_t *buff);
 
-int32_t lsm6dsox_xl_usr_offset_y_set(const stmdev_ctx_t *ctx, uint8_t *buff);
+int32_t lsm6dsox_xl_usr_offset_y_set(const stmdev_ctx_t *ctx, const uint8_t *buff);
 int32_t lsm6dsox_xl_usr_offset_y_get(const stmdev_ctx_t *ctx, uint8_t *buff);
 
-int32_t lsm6dsox_xl_usr_offset_z_set(const stmdev_ctx_t *ctx, uint8_t *buff);
+int32_t lsm6dsox_xl_usr_offset_z_set(const stmdev_ctx_t *ctx, const uint8_t *buff);
 int32_t lsm6dsox_xl_usr_offset_z_get(const stmdev_ctx_t *ctx, uint8_t *buff);
 
 int32_t lsm6dsox_xl_usr_offset_set(const stmdev_ctx_t *ctx, uint8_t val);
@@ -3108,12 +3109,12 @@ int32_t lsm6dsox_mem_bank_get(const stmdev_ctx_t *ctx,
                               lsm6dsox_reg_access_t *val);
 
 int32_t lsm6dsox_ln_pg_write_byte(const stmdev_ctx_t *ctx, uint16_t address,
-                                  uint8_t *val);
+                                  const uint8_t *val);
 int32_t lsm6dsox_ln_pg_read_byte(const stmdev_ctx_t *ctx, uint16_t address,
                                  uint8_t *val);
 
 int32_t lsm6dsox_ln_pg_write(const stmdev_ctx_t *ctx, uint16_t address,
-                             uint8_t *buf, uint8_t len);
+                             const uint8_t *buf, uint8_t len);
 int32_t lsm6dsox_ln_pg_read(const stmdev_ctx_t *ctx, uint16_t address, uint8_t *buf,
                             uint8_t len);
 
@@ -3916,10 +3917,10 @@ int32_t lsm6dsox_mlc_mag_sensitivity_set(const stmdev_ctx_t *ctx,
 int32_t lsm6dsox_mlc_mag_sensitivity_get(const stmdev_ctx_t *ctx,
                                          uint16_t *val);
 
-int32_t lsm6dsox_mag_offset_set(const stmdev_ctx_t *ctx, int16_t *val);
+int32_t lsm6dsox_mag_offset_set(const stmdev_ctx_t *ctx, const int16_t *val);
 int32_t lsm6dsox_mag_offset_get(const stmdev_ctx_t *ctx, int16_t *val);
 
-int32_t lsm6dsox_mag_soft_iron_set(const stmdev_ctx_t *ctx, int16_t *val);
+int32_t lsm6dsox_mag_soft_iron_set(const stmdev_ctx_t *ctx, const int16_t *val);
 int32_t lsm6dsox_mag_soft_iron_get(const stmdev_ctx_t *ctx, int16_t *val);
 
 typedef enum
@@ -3973,7 +3974,7 @@ typedef struct
   lsm6dsox_fsm_enable_b_t          fsm_enable_b;
 } lsm6dsox_emb_fsm_enable_t;
 int32_t lsm6dsox_fsm_enable_set(const stmdev_ctx_t *ctx,
-                                lsm6dsox_emb_fsm_enable_t *val);
+                                const lsm6dsox_emb_fsm_enable_t *val);
 int32_t lsm6dsox_fsm_enable_get(const stmdev_ctx_t *ctx,
                                 lsm6dsox_emb_fsm_enable_t *val);
 
@@ -4131,7 +4132,7 @@ typedef struct
   uint8_t   slv0_data;
 } lsm6dsox_sh_cfg_write_t;
 int32_t lsm6dsox_sh_cfg_write(const stmdev_ctx_t *ctx,
-                              lsm6dsox_sh_cfg_write_t *val);
+                              const lsm6dsox_sh_cfg_write_t *val);
 
 typedef struct
 {
@@ -4143,7 +4144,7 @@ int32_t lsm6dsox_sh_slv_cfg_read(const stmdev_ctx_t *ctx, uint8_t idx,
                                  lsm6dsox_sh_cfg_read_t *val);
 
 int32_t lsm6dsox_sh_status_get(const stmdev_ctx_t *ctx,
-                               lsm6dsox_status_master_t *val);
+                               const lsm6dsox_status_master_t *val);
 
 typedef enum
 {
@@ -4181,7 +4182,7 @@ typedef struct
   uint8_t ui;
   uint8_t aux;
 } lsm6dsox_id_t;
-int32_t lsm6dsox_id_get(const stmdev_ctx_t *ctx, stmdev_ctx_t *aux_ctx,
+int32_t lsm6dsox_id_get(const stmdev_ctx_t *ctx, const stmdev_ctx_t *aux_ctx,
                         lsm6dsox_id_t *val);
 
 typedef enum
@@ -4207,9 +4208,11 @@ typedef struct
   lsm6dsox_ui_bus_md_t ui_bus_md;
   lsm6dsox_aux_bus_md_t aux_bus_md;
 } lsm6dsox_bus_mode_t;
-int32_t lsm6dsox_bus_mode_set(const stmdev_ctx_t *ctx, stmdev_ctx_t *aux_ctx,
+int32_t lsm6dsox_bus_mode_set(const stmdev_ctx_t *ctx,
+                              const stmdev_ctx_t *aux_ctx,
                               lsm6dsox_bus_mode_t val);
-int32_t lsm6dsox_bus_mode_get(const stmdev_ctx_t *ctx, stmdev_ctx_t *aux_ctx,
+int32_t lsm6dsox_bus_mode_get(const stmdev_ctx_t *ctx,
+                              const stmdev_ctx_t *aux_ctx,
                               lsm6dsox_bus_mode_t *val);
 
 typedef enum
@@ -4237,7 +4240,7 @@ typedef struct
   uint8_t ois_drdy_g         : 1; /* Gyroscope data ready on OIS */
   uint8_t ois_gyro_settling  : 1; /* Gyroscope is in the settling phase */
 } lsm6dsox_status_t;
-int32_t lsm6dsox_status_get(const stmdev_ctx_t *ctx, stmdev_ctx_t *aux_ctx,
+int32_t lsm6dsox_status_get(const stmdev_ctx_t *ctx, const stmdev_ctx_t *aux_ctx,
                             lsm6dsox_status_t *val);
 
 typedef struct
@@ -4365,11 +4368,11 @@ typedef struct
 } lsm6dsox_pin_int2_route_t;
 
 int32_t lsm6dsox_pin_int2_route_set(const stmdev_ctx_t *ctx,
-                                    stmdev_ctx_t *aux_ctx,
+                                    const stmdev_ctx_t *aux_ctx,
                                     lsm6dsox_pin_int2_route_t val);
 
 int32_t lsm6dsox_pin_int2_route_get(const stmdev_ctx_t *ctx,
-                                    stmdev_ctx_t *aux_ctx,
+                                    const stmdev_ctx_t *aux_ctx,
                                     lsm6dsox_pin_int2_route_t *val);
 
 typedef struct
@@ -4442,12 +4445,6 @@ typedef struct
 } lsm6dsox_all_sources_t;
 int32_t lsm6dsox_all_sources_get(const stmdev_ctx_t *ctx,
                                  lsm6dsox_all_sources_t *val);
-
-typedef struct
-{
-  uint8_t odr_fine_tune;
-} lsm6dsox_dev_cal_t;
-int32_t lsm6dsox_calibration_get(const stmdev_ctx_t *ctx, lsm6dsox_dev_cal_t *val);
 
 typedef enum
 {
@@ -4613,9 +4610,11 @@ typedef struct
   } mlc;
 } lsm6dsox_md_t;
 
-int32_t lsm6dsox_mode_set(const stmdev_ctx_t *ctx, stmdev_ctx_t *aux_ctx,
+int32_t lsm6dsox_mode_set(const stmdev_ctx_t *ctx,
+                          const stmdev_ctx_t *aux_ctx,
                           lsm6dsox_md_t *val);
-int32_t lsm6dsox_mode_get(const stmdev_ctx_t *ctx, stmdev_ctx_t *aux_ctx,
+int32_t lsm6dsox_mode_get(const stmdev_ctx_t *ctx,
+                          const stmdev_ctx_t *aux_ctx,
                           lsm6dsox_md_t *val);
 
 typedef struct
@@ -4652,7 +4651,7 @@ typedef struct
     } gy;
   } ois;
 } lsm6dsox_data_t;
-int32_t lsm6dsox_data_get(const stmdev_ctx_t *ctx, stmdev_ctx_t *aux_ctx,
+int32_t lsm6dsox_data_get(const stmdev_ctx_t *ctx, const stmdev_ctx_t *aux_ctx,
                           const lsm6dsox_md_t *md, lsm6dsox_data_t *data);
 typedef struct
 {
@@ -4664,9 +4663,9 @@ typedef struct
   uint8_t fifo_compr   : 1; /* FIFO compression */
 } lsm6dsox_emb_sens_t;
 int32_t lsm6dsox_embedded_sens_set(const stmdev_ctx_t *ctx,
-                                   const lsm6dsox_emb_sens_t *emb_sens);
+                                   const lsm6dsox_emb_sens_t *val);
 int32_t lsm6dsox_embedded_sens_get(const stmdev_ctx_t *ctx,
-                                   lsm6dsox_emb_sens_t *emb_sens);
+                                   lsm6dsox_emb_sens_t *val);
 int32_t lsm6dsox_embedded_sens_off(const stmdev_ctx_t *ctx);
 
 /**
