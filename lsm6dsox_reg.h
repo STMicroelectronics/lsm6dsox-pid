@@ -3974,7 +3974,7 @@ typedef struct
   lsm6dsox_fsm_enable_b_t          fsm_enable_b;
 } lsm6dsox_emb_fsm_enable_t;
 int32_t lsm6dsox_fsm_enable_set(const stmdev_ctx_t *ctx,
-                                const lsm6dsox_emb_fsm_enable_t *val);
+                                lsm6dsox_emb_fsm_enable_t *val);
 int32_t lsm6dsox_fsm_enable_get(const stmdev_ctx_t *ctx,
                                 lsm6dsox_emb_fsm_enable_t *val);
 
@@ -4144,7 +4144,7 @@ int32_t lsm6dsox_sh_slv_cfg_read(const stmdev_ctx_t *ctx, uint8_t idx,
                                  lsm6dsox_sh_cfg_read_t *val);
 
 int32_t lsm6dsox_sh_status_get(const stmdev_ctx_t *ctx,
-                               const lsm6dsox_status_master_t *val);
+                               lsm6dsox_status_master_t *val);
 
 typedef enum
 {
