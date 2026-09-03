@@ -1348,7 +1348,7 @@ int32_t lsm6dsox_temperature_raw_get(const stmdev_ctx_t *ctx, int16_t *val)
     return ret;
   }
 
-  val[0] = (int16_t)(val[0] | ((uint16_t)val[1] << 8));
+  val[0] = (int16_t)(buff[0] | ((uint16_t)buff[1] << 8));
 
   return ret;
 }
