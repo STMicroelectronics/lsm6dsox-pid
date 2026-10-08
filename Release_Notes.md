@@ -30,7 +30,53 @@ This directory contains the LSM6DSOX component drivers.
 # Update history
 
 ::: {.collapse}
-<input type="checkbox" id="collapse-section10" checked aria-hidden="true">
+<input type="checkbox" id="collapse-section11" checked aria-hidden="true">
+<label for="collapse-section11" aria-hidden="true">V3.4.0 / 08-Oct-2026</label>
+<div>
+
+## Main changes
+
+- Fix temperature_raw_get() API
+- Fix xl/gy data_rate_Set API
+- Fix build warnings
+- Fix MISRA issues
+- Refactor: applied style fix, add const to pointers
+- Refactor all_sources_get API
+- Refactor pin_int1_route_set/get and pin_int2_route_set/get
+- Add shift in sh_slv_cfg_write API to use 7bit representation
+- Fix fifo_watermak_set and pedo_steps_period_get
+- Added missing write in ff_dur_set API
+- Add read in mem_bank_set API
+- Fix MISRA issue: Add initialization to all variables
+- Fix MISRA issue: Replace enum entry with hex value
+- Change lsm6dsox_data_t enum names
+- Change mag_soft_iron_set/get number type, unsigned to signed
+- Fix fsm_out_t struct
+- Remove the reg_t union struct
+- Add parameter names to stmdev read/write/delay functions
+- Define __weak macro for weak function declarations
+- Fix sleep_change_ia bits size for wake_up_src struct
+- Add unsigned specification to register address definition
+- Fix fsm_int1_b_t struct definition
+- Add int1_mode_set/get API
+- Remove not implemented API from header
+- Replace sh_slv_cfg_x_read with generic sh_slv_cfg_read using index
+- Change sh_read_data_raw_get API, remove emb_sh_read_t struct
+- Improved some APIs to use ln_pg_read/write on more bytes
+- Align ln_pg_write/read to other drivers implementation
+- Replace sh_batch_slave_x with generic sh_batch_slave that use idx
+- Fix typo: STEP_CPUNTER_TAG replace with STEP_COUNTER_TAG
+- Fix aux_den_polarity_get, wrong reg is used
+- Minor documentation improvement
+- Add checks before writes and membank setting
+- Fix pin_conf_get API
+- Add const pointer in write_reg API
+
+##
+
+</div>
+
+<input type="checkbox" id="collapse-section10" aria-hidden="true">
 <label for="collapse-section10" aria-hidden="true">V3.3.1 / 18-Mar-2026</label>
 <div>
 

@@ -48,116 +48,162 @@ license</a></p>
 <section id="update-history" class="col-sm-12 col-lg-8">
 <h1>Update history</h1>
 <div class="collapse">
-<input type="checkbox" id="collapse-section10" checked aria-hidden="true">
-<label for="collapse-section10" aria-hidden="true">V3.3.1 /
-18-Mar-2026</label>
+<input type="checkbox" id="collapse-section11" checked aria-hidden="true">
+<label for="collapse-section11" aria-hidden="true">V3.4.0 /
+08-Oct-2026</label>
 <div>
 <h2 id="main-changes">Main changes</h2>
 <ul>
-<li>Re-order update history (most updated on top)</li>
+<li>Fix temperature_raw_get() API</li>
+<li>Fix xl/gy data_rate_Set API</li>
+<li>Fix build warnings</li>
+<li>Fix MISRA issues</li>
+<li>Refactor: applied style fix, add const to pointers</li>
+<li>Refactor all_sources_get API</li>
+<li>Refactor pin_int1_route_set/get and pin_int2_route_set/get</li>
+<li>Add shift in sh_slv_cfg_write API to use 7bit representation</li>
+<li>Fix fifo_watermak_set and pedo_steps_period_get</li>
+<li>Added missing write in ff_dur_set API</li>
+<li>Add read in mem_bank_set API</li>
+<li>Fix MISRA issue: Add initialization to all variables</li>
+<li>Fix MISRA issue: Replace enum entry with hex value</li>
+<li>Change lsm6dsox_data_t enum names</li>
+<li>Change mag_soft_iron_set/get number type, unsigned to signed</li>
+<li>Fix fsm_out_t struct</li>
+<li>Remove the reg_t union struct</li>
+<li>Add parameter names to stmdev read/write/delay functions</li>
+<li>Define __weak macro for weak function declarations</li>
+<li>Fix sleep_change_ia bits size for wake_up_src struct</li>
+<li>Add unsigned specification to register address definition</li>
+<li>Fix fsm_int1_b_t struct definition</li>
+<li>Add int1_mode_set/get API</li>
+<li>Remove not implemented API from header</li>
+<li>Replace sh_slv_cfg_x_read with generic sh_slv_cfg_read using
+index</li>
+<li>Change sh_read_data_raw_get API, remove emb_sh_read_t struct</li>
+<li>Improved some APIs to use ln_pg_read/write on more bytes</li>
+<li>Align ln_pg_write/read to other drivers implementation</li>
+<li>Replace sh_batch_slave_x with generic sh_batch_slave that use
+idx</li>
+<li>Fix typo: STEP_CPUNTER_TAG replace with STEP_COUNTER_TAG</li>
+<li>Fix aux_den_polarity_get, wrong reg is used</li>
+<li>Minor documentation improvement</li>
+<li>Add checks before writes and membank setting</li>
+<li>Fix pin_conf_get API</li>
+<li>Add const pointer in write_reg API</li>
 </ul>
 <h2 id="section"></h2>
+</div>
+<input type="checkbox" id="collapse-section10" aria-hidden="true">
+<label for="collapse-section10" aria-hidden="true">V3.3.1 /
+18-Mar-2026</label>
+<div>
+<h2 id="main-changes-1">Main changes</h2>
+<ul>
+<li>Re-order update history (most updated on top)</li>
+</ul>
+<h2 id="section-1"></h2>
 </div>
 <input type="checkbox" id="collapse-section9" aria-hidden="true">
 <label for="collapse-section9" aria-hidden="true">V3.3.0 /
 07-Oct-2025</label>
 <div>
-<h2 id="main-changes-1">Main changes</h2>
+<h2 id="main-changes-2">Main changes</h2>
 <ul>
 <li>Added checks before writes and membank setting</li>
 <li>Removed useless membank switch in int_notification_get API</li>
 <li>Refactor ln_pg_write_byte to use ln_pg_write</li>
 <li>Adding CODE_OF_CONDUCT.md and SECURITY.md</li>
 </ul>
-<h2 id="section-1"></h2>
+<h2 id="section-2"></h2>
 </div>
 <input type="checkbox" id="collapse-section8" aria-hidden="true">
 <label for="collapse-section8" aria-hidden="true">V3.2.0 /
 07-Jul-2025</label>
 <div>
-<h2 id="main-changes-2">Main changes</h2>
+<h2 id="main-changes-3">Main changes</h2>
 <ul>
 <li>Fix driver formatting options</li>
 <li>Added pointer to private data in stmdev_ctx_t</li>
 </ul>
-<h2 id="section-2"></h2>
+<h2 id="section-3"></h2>
 </div>
 <input type="checkbox" id="collapse-section7" aria-hidden="true">
 <label for="collapse-section7" aria-hidden="true">V3.1.0 /
 18-Dec-2024</label>
 <div>
-<h2 id="main-changes-3">Main changes</h2>
+<h2 id="main-changes-4">Main changes</h2>
 <ul>
 <li>Read always both FIFO_STATUS1 and FIFO_STATUS2 regs</li>
 </ul>
-<h2 id="section-3"></h2>
+<h2 id="section-4"></h2>
 </div>
 <input type="checkbox" id="collapse-section6" aria-hidden="true">
 <label for="collapse-section6" aria-hidden="true">V3.0.1 /
 20-Jun-2024</label>
 <div>
-<h2 id="main-changes-4">Main changes</h2>
+<h2 id="main-changes-5">Main changes</h2>
 <ul>
 <li>updated README.md file with tag reference and mdelay
 description</li>
 </ul>
-<h2 id="section-4"></h2>
+<h2 id="section-5"></h2>
 </div>
 <input type="checkbox" id="collapse-section5" aria-hidden="true">
 <label for="collapse-section5" aria-hidden="true">V3.0.0 /
 20-Mar-2024</label>
 <div>
-<h2 id="main-changes-5">Main changes</h2>
+<h2 id="main-changes-6">Main changes</h2>
 <ul>
 <li>Fixed code style (Artistic Style Version 3.4.13)</li>
 <li>Add “const” to ctx arg for all APIs</li>
 <li>Fix driver build with optimization level O2</li>
 </ul>
-<h2 id="section-5"></h2>
+<h2 id="section-6"></h2>
 </div>
 <input type="checkbox" id="collapse-section4" aria-hidden="true">
 <label for="collapse-section4" aria-hidden="true">V2.1.0 /
 09-Nov-2023</label>
 <div>
-<h2 id="main-changes-6">Main changes</h2>
+<h2 id="main-changes-7">Main changes</h2>
 <ul>
 <li>moved all enum outside of struct to be C++ compliant</li>
 <li>Fix “maybe uninitialized variable” warnings</li>
 </ul>
-<h2 id="section-6"></h2>
+<h2 id="section-7"></h2>
 </div>
 <input type="checkbox" id="collapse-section3" aria-hidden="true">
 <label for="collapse-section3" aria-hidden="true">V2.0.1 /
 01-June-2023</label>
 <div>
-<h2 id="main-changes-7">Main changes</h2>
+<h2 id="main-changes-8">Main changes</h2>
 <ul>
 <li>Fix Release_Notes.md</li>
 </ul>
-<h2 id="section-7"></h2>
+<h2 id="section-8"></h2>
 </div>
 <input type="checkbox" id="collapse-section2" aria-hidden="true">
 <label for="collapse-section2" aria-hidden="true">V2.0.0 /
 19-April-2023</label>
 <div>
-<h2 id="main-changes-8">Main changes</h2>
+<h2 id="main-changes-9">Main changes</h2>
 <ul>
 <li>Fixed wrong implementation of lsm6dsox_interrupt_mode_get</li>
 <li>Add __weak directive to read/write registers routines</li>
 <li>Extend stmdev_ctx_t structure with mdelay callback</li>
 </ul>
-<h2 id="section-8"></h2>
+<h2 id="section-9"></h2>
 </div>
 <input type="checkbox" id="collapse-section1" aria-hidden="true">
 <label for="collapse-section1" aria-hidden="true">V1.0.0 /
 18-June-2021</label>
 <div>
-<h2 id="main-changes-9">Main changes</h2>
+<h2 id="main-changes-10">Main changes</h2>
 <h3 id="first-release">First release</h3>
 <ul>
 <li>First official release [ref. DS v3.0]</li>
 </ul>
-<h2 id="section-9"></h2>
+<h2 id="section-10"></h2>
 </div>
 </div>
 </section>
