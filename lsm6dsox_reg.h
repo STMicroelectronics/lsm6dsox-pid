@@ -3750,7 +3750,7 @@ int32_t lsm6dsox_fifo_temp_batch_get(const stmdev_ctx_t *ctx,
 
 typedef enum
 {
-  LSM6DSOX_NO_DECIMATION = 0,
+  LSM6DSOX_NOT_BATCHED   = 0,
   LSM6DSOX_DEC_1         = 1,
   LSM6DSOX_DEC_8         = 2,
   LSM6DSOX_DEC_32        = 3,
